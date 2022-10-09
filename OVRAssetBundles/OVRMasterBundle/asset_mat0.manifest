@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 3009360133
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b32ebba25ba16c61fc61b9f28ce597f8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 939e20ecac0e95a3f7c5cfb3e57acb1d
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/VR/Meshes/OculusTouchForQuestAndRiftS/Materials/OculusTouchForQuestAndRiftS_Material.mat
+- Assets/Plugins/QFSW/Quantum Console/Source/Materials/Blur Panel.mat
+- Assets/Oculus/Interaction/Runtime/Materials/OculusHandPinchMaterial.mat
+- Assets/Oculus/VR/Meshes/OculusTouchForRift/Materials/OculusTouchForRift_Material.mat
+- Assets/Oculus/Interaction/Runtime/Materials/OculusHandCursor.mat
+- Assets/Oculus/Interaction/Runtime/Materials/OculusHand.mat
+- Assets/Oculus/VR/Meshes/OculusTouchForQuest2/Materials/OculusTouchForQuest2_MAT.mat
+- Assets/Oculus/Interaction/Runtime/Materials/Unlit Material.mat
+Dependencies:
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_tga0

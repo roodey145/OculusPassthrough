@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2402590304
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7cc87b9f741077c970e03b7cfb2bc084
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b0363f7088f9761414f730641bf9a24b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/SampleFramework/Usage/Passthrough/Materials/skybox/bottom.jpg
+- Assets/Oculus/SampleFramework/Usage/Passthrough/Materials/skybox/front.jpg
+Dependencies: []

@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 3300547309
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2614b895bbfcc562c7def3421ca1dd73
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 070e64028d0fb02d3485eb0d43485f8b
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Materials/GlowingShader.shadergraph
+Dependencies: []

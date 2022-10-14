@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 522444845
+CRC: 3187244712
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3fe0d0dcbf1d0cc7332885cc08c2e332
+    Hash: 9bdd26db3b5c7dff37c6b26820e5e7ad
   TypeTreeHash:
     serializedVersion: 2
     Hash: fdf6c57a251b9f6ec27bdd2fe01b033c
@@ -22,4 +22,4 @@ Assets:
 - Assets/Oculus/VR/Meshes/OculusTouchForQuest2/Animation/OculusTouchQuest2RightAnimation.controller
 - Assets/Oculus/VR/Meshes/OculusTouchForRift/Animation/OculusTouchRiftLeftAnimation.controller
 Dependencies:
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_fbx0

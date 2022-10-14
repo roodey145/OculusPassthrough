@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2224099455
+CRC: 1917895549
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d1831e085786750fd361ea073ee1f9c2
+    Hash: e972bf2a86871b4d9f1a0c22f7817e04
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5f46d99d4b7cc459f36b62524a2704b3
+    Hash: 4b37c196883716ca221cae6a4a165e62
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -52,13 +52,13 @@ SerializeReferenceClassIdentifiers:
   ClassName: TMPro.TMP_FontWeightPair
 - AssemblyName: Unity.TextMeshPro
   ClassName: TMPro.TMP_Glyph
-- AssemblyName: UnityEngine.TextCoreModule
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
   ClassName: UnityEngine.TextCore.FaceInfo
-- AssemblyName: UnityEngine.TextCoreModule
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
   ClassName: UnityEngine.TextCore.Glyph
-- AssemblyName: UnityEngine.TextCoreModule
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
   ClassName: UnityEngine.TextCore.GlyphMetrics
-- AssemblyName: UnityEngine.TextCoreModule
+- AssemblyName: UnityEngine.TextCoreFontEngineModule
   ClassName: UnityEngine.TextCore.GlyphRect
 Assets:
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/MiddleFingerFeatureStateThresholds.asset
@@ -71,5 +71,5 @@ Assets:
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Localization.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/IndexFingerFeatureStateThresholds.asset
 Dependencies:
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_mat0
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_shader0

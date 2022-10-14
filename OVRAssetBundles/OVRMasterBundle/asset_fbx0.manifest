@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3688158873
+CRC: 744610994
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 831c1444d0e853f060ae357890e3a965
+    Hash: bd6c4192c47b790e4e278fa19f656921
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d82477faa37e43179d0a2ac46d33b510
+    Hash: 41d943a52ac01a56a4a88ed384921e1f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -39,4 +39,4 @@ Assets:
 - Assets/Oculus/VR/Meshes/OculusTouchForRift/left_touch_controller_model_skel.fbx
 - Assets/Oculus/VR/Meshes/OculusTouchForRift/right_touch_controller_model_skel.fbx
 Dependencies:
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0

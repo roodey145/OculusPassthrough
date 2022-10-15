@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1917895549
+CRC: 2295260924
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e972bf2a86871b4d9f1a0c22f7817e04
+    Hash: 6358e476dd1ef411c1e0821047cc3edf
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4b37c196883716ca221cae6a4a165e62
+    Hash: 596249ae57f6b0d79f02ec1e7c1f133b
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -16,6 +16,8 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 4cfe1df7ed391a24fbe2a2d275e81b06, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c5af6ab9d1bd4a47970ad151090281f3, type: 3}
@@ -23,6 +25,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: a59acf1affd56c94fa937563dd75c947, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6f2953cbddf20324dbe06d10386eef25, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ac666f23650b94b4ea891467ab3677e5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 49e15215dd5c7444aa955d9a8a83fea0, type: 3}
 - Class: 115
@@ -32,6 +36,14 @@ SerializeReferenceClassIdentifiers:
   ClassName: Oculus.Interaction.PoseDetection.FingerFeatureStateThreshold
 - AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.PoseDetection.FingerFeatureThresholds
+- AssemblyName: Oculus.Interaction
+  ClassName: Oculus.Interaction.PoseDetection.ShapeRecognizer/FingerFeatureConfig
+- AssemblyName: Oculus.Interaction
+  ClassName: Oculus.Interaction.PoseDetection.ShapeRecognizer/FingerFeatureConfigList
+- AssemblyName: Oculus.Interaction
+  ClassName: Oculus.Interaction.PoseDetection.TransformFeatureStateThreshold
+- AssemblyName: Oculus.Interaction
+  ClassName: Oculus.Interaction.PoseDetection.TransformFeatureThresholds
 - AssemblyName: QFSW.QC
   ClassName: QFSW.QC.CollectionFormatter
 - AssemblyName: QFSW.QC
@@ -64,7 +76,9 @@ Assets:
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/MiddleFingerFeatureStateThresholds.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultThumbFeatureStateThresholds.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme.asset
+- Assets/CustomPrefabs/Shapes/PinchShape.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultFingerFeatureStateThresholds.asset
+- Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultTransformFeatureStateThresholds.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme (SRP).asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Key Config.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Fonts/TMP/OfficeCodePro-Regular SDF.asset

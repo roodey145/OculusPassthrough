@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class ResizeGesture : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Log(string message)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log(message);
     }
 }

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 421087077
+CRC: 2925276535
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9fc422be3eb7d48e0f5062c85279d7be
+    Hash: d77f48bbee4825a8b4f1b2c0fc2e9fe9
   TypeTreeHash:
     serializedVersion: 2
     Hash: 070e64028d0fb02d3485eb0d43485f8b
@@ -16,6 +16,5 @@ Assets:
 - Assets/Plugins/QFSW/Quantum Console/Source/Shaders/Blur.shader
 - Assets/TextMesh Pro/Shaders/TMP_SDF.shader
 - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
-- Assets/Oculus/Interaction/Runtime/Shaders/OculusHandCursor.shader
 - Assets/Oculus/Interaction/Runtime/Shaders/OculusHand.shader
 Dependencies: []

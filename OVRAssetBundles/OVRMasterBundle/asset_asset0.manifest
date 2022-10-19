@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2295260924
+CRC: 3148286396
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6358e476dd1ef411c1e0821047cc3edf
+    Hash: ca67a045555e14c703ddbdf740a2d3f6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 596249ae57f6b0d79f02ec1e7c1f133b
@@ -74,16 +74,20 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.TextCore.GlyphRect
 Assets:
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/MiddleFingerFeatureStateThresholds.asset
+- Assets/CustomPrefabs/Shapes/PinchShape 1.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultThumbFeatureStateThresholds.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme.asset
 - Assets/CustomPrefabs/Shapes/PinchShape.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultFingerFeatureStateThresholds.asset
+- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Bold SDF.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultTransformFeatureStateThresholds.asset
+- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Medium SDF.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme (SRP).asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Key Config.asset
+- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Regular SDF.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Fonts/TMP/OfficeCodePro-Regular SDF.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Localization.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/IndexFingerFeatureStateThresholds.asset
 Dependencies:
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_shader0

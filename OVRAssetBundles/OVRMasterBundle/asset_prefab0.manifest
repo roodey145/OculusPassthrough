@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1191355070
+CRC: 972144764
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3811728412277926b13aaa9eb82a29fb
+    Hash: baa9737ae3c3dcb87ce85836f77f2e6c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: fd4fb66d9ae064f79aad5abef7c5305f
+    Hash: 1b04baecf0ad8c133bb8548ef0aa3197
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,7 +27,15 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
 - Class: 81
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
   Script: {instanceID: 0}
 - Class: 90
   Script: {instanceID: 0}
@@ -39,6 +47,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
@@ -68,7 +78,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 937bd4b48d20c51489879aabbe372231, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 85ef10d17088b3c4cad9a5d13887b157, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0a0ad4ecf30771d44bf163058922924b, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: bebfb74b97b000d4899abbd61f49aa40, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
@@ -88,11 +104,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: bffe606b408599b4fad696ddc889a943, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: f5626a0b1dc955a43be59ce7ea116678, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4cfe1df7ed391a24fbe2a2d275e81b06, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 302ba813ec8ed7b4da5659d8529ab761, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9eea4af1d251ac548865dcb8d85edb5c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 194b7d1054b8fa64b9bdcea46d06c3a1, type: 3}
 - Class: 114
@@ -100,9 +120,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: df12566059c64f34a8985d7383779198, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: e5b3b9e0179019c46a27bcc4ed7916ff, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 41bad9aebb942ca4b809bc97e711df55, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 645a8b39ed56176499370c5bfaf13d63, type: 3}
 - Class: 114
@@ -112,13 +132,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: b78f8e52fe10fd9499c5e5c8b3f953fd, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5178bc8574ce2bf4388e787a2e2af326, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c5af6ab9d1bd4a47970ad151090281f3, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: aca13d9f89c0c904a8d62bde280f5b52, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b14164f8f23faae4293baeb84485b3d6, type: 3}
 - Class: 114
@@ -126,11 +146,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: a59acf1affd56c94fa937563dd75c947, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 0b3b3f04ac18184468bedd999e5a6688, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 317e663e2bb60ea408fe22b908b59295, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3ffe41fe81087fa41a2062cc69b99615, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 89e8f8c35caba0c4abef1bdd8890c640, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: ee6b94f7bc105c24ea3746dc4141a7eb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9cf2a74d69b1c1e41916d2a7afdff5be, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3e2cb428b733e56478338c736189a0d5, type: 3}
 - Class: 114
@@ -138,9 +168,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 9390f6f5772c6d942a736437d338b667, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 1a379f34d4f4f2e408d34f14bfb753ce, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 901cc0853dbecd74d98375722eb8c7c0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e79beb32c1e430c42aa2376685d99ae7, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3673df66324d8f34d9433049c54de631, type: 3}
 - Class: 114
@@ -152,15 +184,23 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 6f2953cbddf20324dbe06d10386eef25, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 925ef87c5bafc37469a2f7ec825dee4b, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: f34c043809e27534ebfd9bfa1410ac0a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a7b47e36715521d4e8a30d2c5b6e83e2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4bf41478a1af76e48b69aa772f7b81fd, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2609c54f376cffc4da1ab9401cc1a36f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 804765e8da96b404fb7767affc7d8a57, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: ac666f23650b94b4ea891467ab3677e5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8ff3d6159be4e004f8ae25b5fcf864bb, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: aed62bf3ae2456c408f247f96808ce96, type: 3}
 - Class: 114
@@ -175,6 +215,10 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 998a5646185efb9488265f3a2f35a99a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d5e48d93b64a9ae4f9fd5a728c8f51af, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b7ecff74e52843a41ab3a441ac81379e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3266c3d920715b84089935c4ab019210, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1cd9780be7e512049b4d33d5c9d0ac92, type: 3}
 - Class: 115
@@ -192,8 +236,14 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
+- AssemblyName: Oculus.Interaction.Samples
+  ClassName: Oculus.Interaction.MinMaxPair
+- AssemblyName: Oculus.Interaction
+  ClassName: Oculus.Interaction.InteractableColorVisual/ColorState
 - AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.MaterialPropertyVector
+- AssemblyName: Oculus.Interaction
+  ClassName: Oculus.Interaction.PokeInteractable/PositionPinningConfig
 - AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.PoseDetection.FingerFeatureStateProvider/FingerStateThresholds
 - AssemblyName: Oculus.Interaction
@@ -204,6 +254,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: Oculus.Interaction.PoseDetection.TransformFeatureConfigList
 - AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.ProgressCurve
+- AssemblyName: Oculus.Interaction
+  ClassName: Oculus.Interaction.UnityCanvas.CanvasCylinder/MeshGenerationSettings
 - AssemblyName: Unity.TextMeshPro
   ClassName: TMPro.FaceInfo_Legacy
 - AssemblyName: Unity.TextMeshPro
@@ -272,24 +324,31 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.UI.Scrollbar/ScrollEvent
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.SpriteState
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Toggle/ToggleEvent
 Assets:
-- Assets/Oculus/Interaction/Runtime/Prefabs/Debug/TransformRecognizerDebugVisual.prefab
+- Assets/Oculus/Interaction/Runtime/Prefabs/Debug/ActiveStateDebugTree.prefab
 - Assets/Oculus/Interaction/Samples/Prefabs/OculusInteractionSampleRig.prefab
+- Assets/Oculus/Interaction/Samples/Audio/Prefabs/BasicPokeCanvasNoOpAudio.prefab
+- Assets/Oculus/Interaction/Runtime/Prefabs/Debug/ActiveStateDebugTreeNodeHorizontal.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Hands/RightHandVisual.prefab
-- Assets/Oculus/Interaction/Runtime/Prefabs/Debug/TransformFeatureDebugVisual.prefab
+- Assets/Oculus/Interaction/Runtime/Prefabs/Debug/FingerFeatureDebugVisual.prefab
+- Assets/Oculus/Interaction/Samples/Objects/Props/CurvedUnityCanvas.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Poke/HandPokeInteractor.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Hands/LeftHandVisual.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Poke/ControllerPokeInteractor.prefab
 - Assets/Oculus/VR/Prefabs/OVRCameraRig.prefab
 - Assets/Oculus/VR/Prefabs/OVRControllerPrefab.prefab
+- Assets/Oculus/Interaction/Runtime/Prefabs/Poke/PokeInteractable.prefab
+- Assets/Oculus/Interaction/Samples/Audio/Prefabs/BasicPokeCanvasPressAudio.prefab
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Quantum Console.prefab
 - Assets/CustomPrefabs/Shapes/HandPosePinch.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Debug/FingerFeatureSkeletalDebugVisual.prefab
-- Assets/Oculus/Interaction/Runtime/Prefabs/Debug/TransformFeatureVectorDebugVisual.prefab
 Dependencies:
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_asset0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_controller0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_fbx0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_png0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_resources
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_asset0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_controller0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_resources
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_wav0

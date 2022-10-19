@@ -7,12 +7,12 @@ public class MeshImporter : MonoBehaviour
 {
     private Mesh[] meshes;
 
-    void Start()
+
+    public void LoadMesh(string fileName)
     {
-        meshes = FileReader.ReadFile("Ball.stl");
-        GetComponent<MeshRenderer>().material = Resources.Load<Material>("Gray"); 
+        meshes = FileReader.ReadFile(fileName);
+        GetComponent<MeshRenderer>().material = Resources.Load<Material>("Gray");
         GetComponent<MeshFilter>().mesh = meshes[0];
+
     }
-
-
 }

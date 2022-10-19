@@ -6,14 +6,13 @@ public class UIMenuManager : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject wristButton;
-
-    [SerializeField]
     private GameObject wristUI;
-    public void WristBtnClicked()
+    public void ShowWristUI()
     {
-        Debug.Log("Clicked");
-        wristButton.SetActive(false);
         wristUI.SetActive(true);
+    }
+    public void CloseWristUI()
+    { 
+        wristUI.SetActive(false);
     }
 }

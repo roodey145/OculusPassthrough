@@ -1,24 +1,24 @@
 ManifestFileVersion: 0
-CRC: 1698215369
+CRC: 1126493103
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5ba3095c6106e25b0d76219de3168854
+    Hash: 53c4a69e2f63a9e2d718c77e81492d28
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c21d61fe394c58399df3c6fb5c7c99b3
+    Hash: b0363f7088f9761414f730641bf9a24b
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
-- Class: 213
-  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Plugins/QFSW/Quantum Console/Source/Textures/UIBevel.png
-- Assets/Plugins/QFSW/Quantum Console/Source/Textures/MagnifyingGlass.png
-- Assets/Plugins/QFSW/Quantum Console/Source/Textures/DragArrow.png
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Textures/Podium/Podium_AO.png
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Textures/Podium/Podium_Normal.png
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Textures/ShadowGradient.png
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Textures/Podium/Podium_SpecularSmoothness.png
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Textures/Podium/Podium_AlbedoTransparency.png
 - Assets/Oculus/VR/Textures/OculusTouchForRift/touchController_albedo.png
 - Assets/Oculus/Interaction/Runtime/Textures/fingers_glow_mask.png
-- Assets/Oculus/Interaction/Samples/Textures/RoundCorners.png
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Textures/PodiumEmissive.png
 Dependencies: []

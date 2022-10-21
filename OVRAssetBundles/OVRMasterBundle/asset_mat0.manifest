@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1765463639
+CRC: 159246573
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1c9b22e1db9758cb6890f32498f45d00
+    Hash: 8d3f8c486cf3cad9da1d5cdb744dcf23
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5cfde277c59e2844be8c85dba6ef7c0e
@@ -18,19 +18,15 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Oculus/VR/Meshes/OculusTouchForQuestAndRiftS/Materials/OculusTouchForQuestAndRiftS_Material.mat
-- Assets/Plugins/QFSW/Quantum Console/Source/Materials/Blur Panel.mat
-- Assets/Oculus/Interaction/Runtime/Materials/UIDepthOverwrite.mat
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Materials/ButtonRingShadowMat.mat
 - Assets/Oculus/VR/Meshes/OculusTouchForRift/Materials/OculusTouchForRift_Material.mat
-- Assets/Oculus/Interaction/Runtime/Materials/UIUnderlayImposter.mat
+- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Materials/PodiumMat.mat
 - Assets/Oculus/Interaction/Runtime/Materials/RoundedBoxUnlit.mat
 - Assets/Oculus/Interaction/Runtime/Materials/OculusHand.mat
 - Assets/Oculus/VR/Meshes/OculusTouchForQuest2/Materials/OculusTouchForQuest2_MAT.mat
-- Assets/Oculus/Interaction/Runtime/Materials/UIDefaultOverlay.mat
-- Assets/Oculus/Interaction/Runtime/Materials/SkeletalDebugMaterial.mat
 - Assets/Oculus/Interaction/Runtime/Materials/Unlit Material.mat
 - Assets/Materials/Red.mat
 Dependencies:
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_png0
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_resources
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_shader0
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_tga0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_tga0

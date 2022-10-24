@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1326286517
+CRC: 1543034784
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 26e6cef02a513c8b8e562ceff786fa2c
+    Hash: fbc2de7ff8dc8ac6a3504e2e14610ff9
   TypeTreeHash:
     serializedVersion: 2
     Hash: dd4fd1702746447690d745a4dd5b6af2
@@ -347,6 +347,7 @@ Assets:
 - Assets/Oculus/Interaction/Samples/Prefabs/OculusInteractionSampleRig.prefab
 - Assets/Oculus/Interaction/Samples/Audio/Prefabs/BasicPokeCanvasNoOpAudio.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Debug/ActiveStateDebugTreeNodeHorizontal.prefab
+- Assets/CustomPrefabs/Shapes/HandPoseRotation.prefab
 - Assets/CustomPrefabs/Shapes/HandPoseUI.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Hands/RightHandVisual.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Debug/FingerFeatureDebugVisual.prefab

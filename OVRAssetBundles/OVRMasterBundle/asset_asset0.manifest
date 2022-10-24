@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 818129580
+CRC: 2659881153
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f188101aa7c714dddc47764719b9eef4
+    Hash: e533b5f9b8f09d1ae7073bc5de95d54a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 596249ae57f6b0d79f02ec1e7c1f133b
@@ -74,6 +74,7 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.TextCore.GlyphRect
 Assets:
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/MiddleFingerFeatureStateThresholds.asset
+- Assets/CustomPrefabs/Shapes/RotationShape.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultThumbFeatureStateThresholds.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme.asset
 - Assets/CustomPrefabs/Shapes/PinchShapeNear.asset

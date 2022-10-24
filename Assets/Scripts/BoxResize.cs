@@ -9,11 +9,13 @@ public class BoxResize : MonoBehaviour
     [SerializeField] private OVRHand[] hands;
     private Vector3 startSize;
     private bool isResizing;
+    private bool firstResize = false;
 
-    private float[] distances = new float[3];
-    private const int COUNTER_MAX = 2;
+    private float[] distances = new float[5];
+    private const int COUNTER_MAX = 4;
     private const int COUNTER_MIN = 0;
     private int _counter = 0;
+    private float lastDistance;
     public int Counter
     {
         get
@@ -35,48 +37,23 @@ public class BoxResize : MonoBehaviour
     {
         float handDistance = Vector3.Distance(hands[0].transform.position, hands[1].transform.position);
         distances[Counter] = handDistance;
+        if (firstResize)
+        {
+            lastDistance = handDistance;
+            firstResize = false;
+        }
         Counter++;
-        /*
-        if (!distances.Contains(default(float)))
-        {
-            for (int i = 0; i < distances.Length; i++)
-            {
-                distances[i] = default(float);
-            }
-        }
-
-        // Check for any new flex
-        for (int i = 0; i < distances.Length; i++)
-        {
-            if (distances[i] == default(float))
-            {
-                distances[0] = handDistance;
-                break; // We want only the hand distance for this current frame in the update so we break.
-            }
-        }
-        */
 
         if (isResizing)
         {
-            transform.localScale = ((Vector3.one * GetSizingDirection()) * handDistance) + startSize;
+            transform.localScale = Vector3.one * (handDistance - lastDistance) + startSize;
+            startSize = transform.localScale;
+            lastDistance = handDistance;
         }
-    }
-
-    private int GetSizingDirection()
-    {
-        for (int i = 0; i < distances.Length - 1; i++)
-        {
-            if (distances[i] == default(float)) continue;
-
-            if (distances[i] < distances[i + 1])
-            {
-                return -1;
-            }
-        }
-        return 1;
     }
     public void ResizeBox()
     {
+        firstResize = true;
         isResizing = true;
         Debug.Log("Resizing");
         startSize = transform.localScale;

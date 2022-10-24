@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3471879203
+CRC: 2914597830
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3819a034c515ed47cca51023483d0108
+    Hash: 455ead6ba9fa5e068d79f6a160e025e4
   TypeTreeHash:
     serializedVersion: 2
     Hash: f991f80580d5c93b0763ecc3a2dc9cfa
@@ -33,12 +33,13 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Oculus/Interaction/Samples/Objects/Environment/MRDesk/Models/MRDesk.fbx
 - Assets/Oculus/VR/Meshes/OculusTouchForQuest2/OculusTouchForQuest2_Right.fbx
 - Assets/Oculus/VR/Meshes/OculusTouchForQuest2/OculusTouchForQuest2_Left.fbx
 - Assets/Oculus/VR/Meshes/OculusTouchForQuestAndRiftS/OculusTouchForQuestAndRiftS_Left.fbx
-- Assets/Oculus/Interaction/Samples/Objects/Props/BigRedButton/Models/BigRedButton.fbx
 - Assets/Oculus/VR/Meshes/OculusTouchForQuestAndRiftS/OculusTouchForQuestAndRiftS_Right.fbx
 - Assets/Oculus/VR/Meshes/HandTracking/OculusHand_R.fbx
+- Assets/Oculus/Interaction/Runtime/Meshes/OculusHandPinchArrowBlended.fbx
 - Assets/Oculus/VR/Meshes/HandTracking/OculusHand_L.fbx
 - Assets/Oculus/VR/Meshes/OculusTouchForRift/left_touch_controller_model_skel.fbx
 - Assets/Oculus/VR/Meshes/OculusTouchForRift/right_touch_controller_model_skel.fbx

@@ -11,7 +11,7 @@ public class UISizingGesture : MonoBehaviour
     private bool isGesturing;
     void Update()
     {
-        if(isGesturing)
+        if (isGesturing)
         {
             float distance = Vector3.Distance(hand[0].transform.position, hand[1].transform.position);
             if (distance <= handsTriggerDistance)

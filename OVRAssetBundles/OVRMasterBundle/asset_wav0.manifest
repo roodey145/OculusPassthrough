@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1306114008
+CRC: 558963963
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4cfd0f41918bb5d826b41532f0020880
+    Hash: c117131b77abaf10866f393d75d60459
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9a2ca7bdbd1871f7131daf57de908e0c
@@ -13,10 +13,6 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_ToyButton_Release_01.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_ToyButton_Release_03.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_ToyButton_Press_03.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_ToyButton_Press_01.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_ToyButton_Release_02.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_ToyButton_Press_02.wav
+- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_ButtonPress.wav
+- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicRay_Press.wav
 Dependencies: []

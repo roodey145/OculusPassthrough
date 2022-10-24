@@ -10,7 +10,7 @@ public class BoxResize : MonoBehaviour
     private Vector3 startSize;
     private bool isResizing;
     private bool firstResize = false;
-
+    private int activeHands;
     private float[] distances = new float[5];
     private const int COUNTER_MAX = 4;
     private const int COUNTER_MIN = 0;
@@ -35,6 +35,8 @@ public class BoxResize : MonoBehaviour
 
     private void Update()
     {
+        isResizing = activeHands == 2;
+
         float handDistance = Vector3.Distance(hands[0].transform.position, hands[1].transform.position);
         distances[Counter] = handDistance;
         if (firstResize)
@@ -54,14 +56,14 @@ public class BoxResize : MonoBehaviour
     public void ResizeBox()
     {
         firstResize = true;
-        isResizing = true;
+        activeHands++;
         Debug.Log("Resizing");
         startSize = transform.localScale;
     }
 
     public void StopResizingBox()
     {
-        isResizing = false;
+        activeHands--;
         Debug.Log("Stopped Resizing");
     }
 }

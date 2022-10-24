@@ -5,19 +5,20 @@ using UnityEngine;
 public class BoxRotation : MonoBehaviour
 {
     [SerializeField]
-    private OVRHand hand;
-    private float startRotationY;
+    private Transform fingertip;
+    [SerializeField]
+    private float rotationSpeed;
     private bool isRotating;
-    private bool firstRotation;
-    private float lastRotation;
+    private float lastPosition;
+    private List<float> positions = new();
 
     private void Update()
     {
+        if (positions.Count > 30) positions.Clear();
+        positions.Add(fingertip.position.x);
         if (isRotating)
         {
-            transform.Rotate(Vector3.up * hand.transform.position.x, Space.Self);
-            startRotationY = transform.position.y;
-            lastRotation = hand.transform.position.y;
+            transform.rotation *= Quaternion.Euler(0, (fingertip.position.x - positions[0]) * rotationSpeed, 0);
         }
     }
 

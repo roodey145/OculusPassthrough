@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2659881153
+CRC: 3863230742
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e533b5f9b8f09d1ae7073bc5de95d54a
+    Hash: 1657726d4b73b2584540a64dbbb7599d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 596249ae57f6b0d79f02ec1e7c1f133b
@@ -74,21 +74,24 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.TextCore.GlyphRect
 Assets:
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/MiddleFingerFeatureStateThresholds.asset
-- Assets/CustomPrefabs/Shapes/RotationShape.asset
+- Assets/CustomPrefabs/Shapes/RotationShapeTwo.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultThumbFeatureStateThresholds.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme.asset
+- Assets/CustomPrefabs/Shapes/RotationShapeThree.asset
 - Assets/CustomPrefabs/Shapes/PinchShapeNear.asset
 - Assets/CustomPrefabs/Shapes/PinchShapeTouching.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultFingerFeatureStateThresholds.asset
 - Assets/Oculus/Interaction/Samples/Fonts/Roboto-Bold SDF.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultTransformFeatureStateThresholds.asset
-- Assets/CustomPrefabs/Shapes/FistShape.asset
+- Assets/CustomPrefabs/Shapes/FingerThresholds/MiddleFingerFeatureStateThresholdsNew.asset
 - Assets/Oculus/Interaction/Samples/Fonts/Roboto-Medium SDF.asset
-- Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme (SRP).asset
+- Assets/CustomPrefabs/Shapes/FistShape.asset
 - Assets/CustomPrefabs/Shapes/OpenShape.asset
+- Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme (SRP).asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Key Config.asset
 - Assets/Oculus/Interaction/Samples/Fonts/Roboto-Regular SDF.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Fonts/TMP/OfficeCodePro-Regular SDF.asset
+- Assets/CustomPrefabs/Shapes/FingerThresholds/IndexFingerFeatureStateThresholdsNew.asset
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Localization.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/IndexFingerFeatureStateThresholds.asset
 Dependencies:

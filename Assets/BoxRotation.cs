@@ -14,11 +14,17 @@ public class BoxRotation : MonoBehaviour
 
     private void Update()
     {
-        if (positions.Count > 30) positions.Clear();
-        positions.Add(fingertip.position.x);
+
         if (isRotating)
         {
-            transform.rotation *= Quaternion.Euler(0, (fingertip.position.x - positions[0]) * rotationSpeed, 0);
+            transform.rotation *= Quaternion.Euler(0, (fingertip.position.x - lastPosition) * fingertip.position.x * rotationSpeed, 0);
+            /* transform.rotation = Quaternion.Slerp(transform.rotation,
+                                                    transform.rotation * Quaternion.Euler(0, (fingertip.position.x - lastPosition) * rotationSpeed, 0),
+                                                    0.1f); */
+            // transform.rotation *= Quaternion.Slerp(Quaternion.Euler(0, 0, 0),
+            //                                         Quaternion.Euler(0, (fingertip.position.x - lastPosition) * rotationSpeed, 0),
+            //                                         0.1f);
+            lastPosition = fingertip.position.x;
         }
     }
 
@@ -26,6 +32,7 @@ public class BoxRotation : MonoBehaviour
     {
         Debug.Log("Rotating Box");
         isRotating = true;
+        lastPosition = fingertip.position.x;
     }
 
     public void StopRotateBox()

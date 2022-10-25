@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1543034784
+CRC: 3756570510
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fbc2de7ff8dc8ac6a3504e2e14610ff9
+    Hash: 891ebb3aef9086e32bd48f2ee26efc73
   TypeTreeHash:
     serializedVersion: 2
-    Hash: dd4fd1702746447690d745a4dd5b6af2
+    Hash: 59943a4cc08a161efe98987057d96c0a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -69,6 +69,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: cb7623a8f0b49cf4dbaa40aea4d4be64, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5c67033f580359c4581dff1ccffcca91, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3d0e534416bbcea448f24633d520da24, type: 3}
 - Class: 114
@@ -353,10 +355,12 @@ Assets:
 - Assets/Oculus/Interaction/Runtime/Prefabs/Debug/FingerFeatureDebugVisual.prefab
 - Assets/Oculus/Interaction/Samples/Objects/Props/CurvedUnityCanvas.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Poke/HandPokeInteractor.prefab
+- Assets/Oculus/Interaction/Runtime/Prefabs/Hands/RightHandSynthetic.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Hands/LeftHandVisual.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Poke/ControllerPokeInteractor.prefab
 - Assets/Oculus/VR/Prefabs/OVRCameraRig.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Ray/HandRayInteractor.prefab
+- Assets/Oculus/Interaction/Runtime/Prefabs/Hands/LeftHandSynthetic.prefab
 - Assets/Oculus/VR/Prefabs/OVRControllerPrefab.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Poke/PokeInteractable.prefab
 - Assets/Oculus/Interaction/Samples/Audio/Prefabs/BasicPokeCanvasPressAudio.prefab

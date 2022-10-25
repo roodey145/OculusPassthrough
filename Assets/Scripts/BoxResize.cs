@@ -15,6 +15,11 @@ public class BoxResize : MonoBehaviour
     private float lastDistance;
     float radius = 0.03f;
 
+    private void Start()
+    {
+        startSize = transform.localScale;
+    }
+
     private void Update()
     {
         float handDistance = Vector3.Distance(hands[0].transform.position, hands[1].transform.position);
@@ -27,7 +32,10 @@ public class BoxResize : MonoBehaviour
 
         if (isResizing)
         {
-            transform.localScale = Vector3.one * (handDistance - lastDistance) + startSize;
+            var scale = Vector3.one * (handDistance - lastDistance) + startSize;
+            if (scale.x <= 0) scale = Vector3.one * 0.05f;
+            // hga
+            transform.localScale = scale;
             startSize = transform.localScale;
             lastDistance = handDistance;
         }

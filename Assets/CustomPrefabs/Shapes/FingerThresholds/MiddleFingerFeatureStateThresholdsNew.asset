@@ -15,22 +15,22 @@ MonoBehaviour:
   _featureThresholds:
   - _feature: 0
     _thresholds:
-    - _thresholdMidpoint: 190
-      _thresholdWidth: 18
+    - _thresholdMidpoint: 189.1
+      _thresholdWidth: 18.4
       _firstState: 0
       _secondState: 1
-    - _thresholdMidpoint: 235
-      _thresholdWidth: 20
+    - _thresholdMidpoint: 232.7
+      _thresholdWidth: 20.4
       _firstState: 1
       _secondState: 2
   - _feature: 1
     _thresholds:
-    - _thresholdMidpoint: 200
-      _thresholdWidth: 5
+    - _thresholdMidpoint: 181.5
+      _thresholdWidth: 41.6
       _firstState: 3
       _secondState: 4
     - _thresholdMidpoint: 235
-      _thresholdWidth: 10
+      _thresholdWidth: 12.7
       _firstState: 4
       _secondState: 5
   - _feature: 2

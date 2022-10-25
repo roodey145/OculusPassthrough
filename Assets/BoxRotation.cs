@@ -17,7 +17,7 @@ public class BoxRotation : MonoBehaviour
 
         if (isRotating)
         {
-            transform.rotation *= Quaternion.Euler(0, (fingertip.position.x - lastPosition) * fingertip.position.x * rotationSpeed, 0);
+            transform.rotation *= Quaternion.Euler(0, (fingertip.position.x - lastPosition) * rotationSpeed, 0);
             /* transform.rotation = Quaternion.Slerp(transform.rotation,
                                                     transform.rotation * Quaternion.Euler(0, (fingertip.position.x - lastPosition) * rotationSpeed, 0),
                                                     0.1f); */

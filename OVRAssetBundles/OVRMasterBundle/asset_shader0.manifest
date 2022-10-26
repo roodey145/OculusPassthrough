@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3481633333
+CRC: 3345468732
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 065402b883d0cdf340dc1aab02322490
+    Hash: 11a648aebbdee38c39a1434e27352316
   TypeTreeHash:
     serializedVersion: 2
     Hash: 070e64028d0fb02d3485eb0d43485f8b
@@ -13,8 +13,6 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Plugins/QFSW/Quantum Console/Source/Shaders/Blur.shader
-- Assets/TextMesh Pro/Shaders/TMP_SDF.shader
 - Assets/Oculus/Interaction/Runtime/Shaders/RoundedBoxUnlit.shader
 - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
 - Assets/Oculus/Interaction/Runtime/Shaders/OculusHandCursor.shader

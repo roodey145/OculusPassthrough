@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 508172079
+CRC: 3928360810
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 12427bcd9e9c25cecc9001de2d5d37ee
+    Hash: ae8e660cc9f13a3915d58778f4c8558f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f5bcb2e5665a93d7366103326d94ab21
+    Hash: 54e81041136dbd66b90a4ba96413b534
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -29,6 +29,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3863570e7e6387a40ae4f323d83291e5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3d881e962d099f4a8eb492ef7e9a8c0, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -85,9 +87,10 @@ Assets:
 - Assets/Oculus/Voice/Resources/voicesdk_texts_en-us.json
 - Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
 - Assets/Oculus/Interaction/Runtime/Resources/Shaders/DepthOverwrite.shader
-- Assets/Oculus/Voice/Lib/Wit.ai/Resources/wit-ai-title.png
+- Assets/Resources/OculusPlatformSettings.asset
 - Assets/Resources/ONSPSettings.asset
 - Assets/TextMesh Pro/Resources/TMP Settings.asset
+- Assets/Oculus/Voice/Lib/Wit.ai/Resources/wit-ai-title.png
 - Assets/Oculus/VR/Resources/OVRMRCameraFrame.shader
 - Assets/Oculus/VR/Resources/OVRMRCameraFrameLit.shader
 - Assets/Oculus/Interaction/Runtime/Resources/Shaders/UnderlayTransparentOccluderImposter.shader

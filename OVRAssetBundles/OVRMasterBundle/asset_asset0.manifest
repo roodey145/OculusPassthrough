@@ -1,34 +1,20 @@
 ManifestFileVersion: 0
-CRC: 3863230742
+CRC: 1681817270
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1657726d4b73b2584540a64dbbb7599d
+    Hash: c459e0a50cd394c3d9c4f28110211ee8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 596249ae57f6b0d79f02ec1e7c1f133b
+    Hash: 73c0fc65380f22c4f670992671149fee
 HashAppended: 0
 ClassTypes:
-- Class: 21
-  Script: {instanceID: 0}
-- Class: 28
-  Script: {instanceID: 0}
-- Class: 48
-  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 4cfe1df7ed391a24fbe2a2d275e81b06, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: c5af6ab9d1bd4a47970ad151090281f3, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: a59acf1affd56c94fa937563dd75c947, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 6f2953cbddf20324dbe06d10386eef25, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: ac666f23650b94b4ea891467ab3677e5, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 49e15215dd5c7444aa955d9a8a83fea0, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
@@ -44,56 +30,17 @@ SerializeReferenceClassIdentifiers:
   ClassName: Oculus.Interaction.PoseDetection.TransformFeatureStateThreshold
 - AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.PoseDetection.TransformFeatureThresholds
-- AssemblyName: QFSW.QC
-  ClassName: QFSW.QC.CollectionFormatter
-- AssemblyName: QFSW.QC
-  ClassName: QFSW.QC.ModifierKeyCombo
-- AssemblyName: QFSW.QC
-  ClassName: QFSW.QC.TypeColorFormatter
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.FaceInfo_Legacy
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.FontAssetCreationSettings
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.KerningTable
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_Character
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_FontFeatureTable
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_FontWeightPair
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_Glyph
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.FaceInfo
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.Glyph
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.GlyphMetrics
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.GlyphRect
 Assets:
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/MiddleFingerFeatureStateThresholds.asset
 - Assets/CustomPrefabs/Shapes/RotationShapeTwo.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultThumbFeatureStateThresholds.asset
-- Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme.asset
 - Assets/CustomPrefabs/Shapes/RotationShapeThree.asset
 - Assets/CustomPrefabs/Shapes/PinchShapeNear.asset
+- Assets/CustomPrefabs/Shapes/TransformThreshold/DefaultTransformFeatureStateThresholdsNew.asset
 - Assets/CustomPrefabs/Shapes/PinchShapeTouching.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultFingerFeatureStateThresholds.asset
-- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Bold SDF.asset
-- Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultTransformFeatureStateThresholds.asset
-- Assets/CustomPrefabs/Shapes/FingerThresholds/MiddleFingerFeatureStateThresholdsNew.asset
-- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Medium SDF.asset
 - Assets/CustomPrefabs/Shapes/FistShape.asset
+- Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultTransformFeatureStateThresholds.asset
 - Assets/CustomPrefabs/Shapes/OpenShape.asset
-- Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Theme (SRP).asset
-- Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Key Config.asset
-- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Regular SDF.asset
-- Assets/Plugins/QFSW/Quantum Console/Source/Fonts/TMP/OfficeCodePro-Regular SDF.asset
-- Assets/CustomPrefabs/Shapes/FingerThresholds/IndexFingerFeatureStateThresholdsNew.asset
-- Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Localization.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/IndexFingerFeatureStateThresholds.asset
-Dependencies:
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_shader0
+Dependencies: []

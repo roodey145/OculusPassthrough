@@ -10,7 +10,6 @@ public class BoxRotation : MonoBehaviour
     private float rotationSpeed;
     private bool isRotating;
     private float lastPosition;
-    private List<float> positions = new();
 
     private void Update()
     {

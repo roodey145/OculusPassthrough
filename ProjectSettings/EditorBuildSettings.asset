@@ -26,9 +26,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/FinalScenes/FirstTest.unity
     guid: b74200e917ef0454983256bb37068510
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Group Folders/Daniel/Cloud Anchor/Location Services/Scenes/LocationTest.unity
-    guid: 376233bfaee71fb4bb0561fde6beed2c
+    path: Assets/Group Folders/Daniel/Mixed Reality Table/Scenes/MixedRealityTable.unity
+    guid: f03c476961ec87547b7547fc92327d8c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c5fa770f31af8b44fa3e406dd74fad80, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 51cf8a1ed3df6b3469496f5537df7efc, type: 2}

@@ -9,8 +9,13 @@ public class BoxResize : MonoBehaviour
     [SerializeField] private SphereCollider[] rightHandFingers;
     [SerializeField] private SphereCollider[] leftHandFingers;
     [SerializeField] private OVRHand[] hands;
+    private Mesh mesh;
     private Vector3 startSize;
-    private bool isResizing;
+    public bool IsResizing
+    {
+        private set;
+        get;
+    }
     private bool firstResize = false;
     private float lastDistance;
     float radius = 0.03f;
@@ -19,6 +24,7 @@ public class BoxResize : MonoBehaviour
 
     private void Start()
     {
+        mesh = GetComponent<MeshFilter>().mesh;
         startSize = transform.localScale;
     }
 
@@ -32,7 +38,7 @@ public class BoxResize : MonoBehaviour
             firstResize = false;
         }
 
-        if (isResizing)
+        if (IsResizing)
         {
             // switch (HandMenuController.controlledAxis)
             // {
@@ -63,18 +69,18 @@ public class BoxResize : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isResizing)
+        if (!IsResizing)
         {
             bool lefthandPinch = Vector3.Distance(rightHandFingers[0].transform.position, rightHandFingers[1].transform.position) <= radius;
             bool righthandPinch = Vector3.Distance(leftHandFingers[0].transform.position, leftHandFingers[1].transform.position) <= radius;
-            isResizing = lefthandPinch && righthandPinch;
+            IsResizing = lefthandPinch && righthandPinch;
             firstResize = true;
         }
         else
         {
             bool lefthandPinch = Vector3.Distance(rightHandFingers[0].transform.position, rightHandFingers[1].transform.position) <= radius;
             bool righthandPinch = Vector3.Distance(leftHandFingers[0].transform.position, leftHandFingers[1].transform.position) <= radius;
-            isResizing = lefthandPinch && righthandPinch;
+            IsResizing = lefthandPinch && righthandPinch;
         }
 
     }

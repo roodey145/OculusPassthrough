@@ -1,36 +1,24 @@
+using System;
 using System.Linq;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
+using UnityEngine.Serialization;
 
 public class TableSurfaceLimiter : MonoBehaviour
 {
     [SerializeField]
-    private Transform _plane;
-    [SerializeField]
-    private TableSurface _tableSurface;
-    [SerializeField]
-    private MeshFilter _meshFilter;
-    [SerializeField]
-    private GameObject _model;
+    private TableSurface m_tableSurface;
     private MeshRenderer[] _modelRenderers;
-    private Mesh _mesh;
-    private Mesh[] _meshes;
-    private Vector3 centerOfMass;
+    private Vector3 _centerOfMass;
+    private Bounds _bounds;
 
     // Start is called before the first frame update
     void Start()
     {
-        _mesh = _meshFilter.mesh;
-        _meshes = _model.GetComponentsInChildren<MeshFilter>().Select(filter => filter.mesh).ToArray();
-        _modelRenderers = _model.GetComponentsInChildren<MeshRenderer>();
-        centerOfMass = MeshUtils.CalculateCenterOfMass(_model, _modelRenderers);
-        GameObject center = Instantiate(new GameObject("CenterOfMass"), centerOfMass, Quaternion.identity, _model.transform);
-        _model.transform.RotateAround(center.transform.position, Vector3.up, 90f);
-
+        _modelRenderers = GetComponentsInChildren<MeshRenderer>();
+        _centerOfMass = MeshUtils.CalculateCenterOfMass(gameObject, _modelRenderers);
+        Debug.Log(gameObject.name + ": " + _centerOfMass);
     }
-
-    // TODO - Only run when the model is modified to save ressources
+    
     void Update()
     {
         /*
@@ -42,10 +30,11 @@ public class TableSurfaceLimiter : MonoBehaviour
         }
         */
 
-        Bounds bounds = MeshUtils.GetComplexMeshBoundary(_model, _modelRenderers);
-        _model.transform.position = new Vector3(_model.transform.position.x,
-                                        _plane.position.y + (_model.transform.TransformPoint(_mesh.bounds.center).y - bounds.min.y),
-                                        _model.transform.position.z);
+        _bounds = MeshUtils.GetMeshBoundary(gameObject, _modelRenderers);
+        var position = transform.position;
+        transform.position = new Vector3(position.x,
+            m_tableSurface.tableSurfaceY + (position.y - _bounds.min.y),
+                                        position.z);
 
         // NOTES:
         // If we always want the cube to align with the surface, then don't if the cube is under the surface but simply move it.
@@ -56,15 +45,14 @@ public class TableSurfaceLimiter : MonoBehaviour
 
     }
 
-    // TODO - Optimize this for more complex meshes since this maybe scales horribly and also submeshes
-    private bool IsMeshUnderSurface(out float lowestPoint)
-    {
-        lowestPoint = _mesh.vertices.Min(v => transform.TransformPoint(v).y);
-        return lowestPoint <= _plane.position.y;
-    }
+    /// <summary>
+    /// Checks if a mesh's boundary is under of the defined surface level
+    /// </summary>
+    /// <param name="lowestPoint">The lowest point under the surface</param>
+    /// <returns>true of the mesh's boundary is under of the surface level</returns>
     private bool IsMultipleMeshesUnderSurface(out float lowestPoint)
     {
-        Bounds bounds = MeshUtils.GetComplexMeshBoundary(_model, _modelRenderers);
+        Bounds bounds = MeshUtils.GetMeshBoundary(gameObject, _modelRenderers);
         lowestPoint = bounds.min.y;
         /*
 
@@ -75,7 +63,14 @@ public class TableSurfaceLimiter : MonoBehaviour
             if (lowestPointTemp < lowestPoint) lowestPointTemp = lowestPoint;
         }
         */
-
-        return lowestPoint <= _plane.position.y;
+        
+        return lowestPoint <= m_tableSurface.tableSurfaceY;
     }
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(_bounds.center, _bounds.size);
+    }
+#endif
+    
 }

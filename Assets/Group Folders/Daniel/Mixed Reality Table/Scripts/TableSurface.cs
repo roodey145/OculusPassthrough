@@ -1,19 +1,16 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
-using Oculus.Interaction.Surfaces;
 using UnityEngine.Assertions;
-using UnityEngine.UI;
 using TMPro;
 
 public class TableSurface : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI _countDownText;
+    private TextMeshProUGUI m_countDownText;
     [SerializeField]
-    private Transform _rightFinger;
+    private Transform m_rightFinger;
     [SerializeField]
-    private float _handMovementThreshold = 2f;
+    private float m_handMovementThreshold = 2f;
     private Vector3 _lastHandPosition;
     public float tableSurfaceY
     {
@@ -24,22 +21,23 @@ public class TableSurface : MonoBehaviour
 
     void Start()
     {
-        Assert.IsNotNull(_rightFinger);
+#if !UNITY_EDITOR
+        Assert.IsNotNull(m_rightFinger);
         StartCoroutine(SaveSurfaceCountDown());
+#endif
+#if UNITY_EDITOR
+        _surfaceLevelSet = true;
+        tableSurfaceY = 5;
+#endif
     }
 
     private void Update()
     {
         if (_surfaceLevelSet) return;
-        transform.position = _rightFinger.transform.position;
+        transform.position = m_rightFinger.transform.position;
     }
 
-    private bool IsHandMoving()
-    {
-        return (_rightFinger.transform.position - _lastHandPosition).magnitude > _handMovementThreshold;
-    }
-
-    public void SaveTableSurface()
+    private void SaveTableSurface()
     {
         tableSurfaceY = transform.position.y;
         _surfaceLevelSet = true;
@@ -47,11 +45,11 @@ public class TableSurface : MonoBehaviour
 
     private IEnumerator SaveSurfaceCountDown()
     {
-        float duration = 20f;
+        const float duration = 20f;
         float normalizedTime = 0;
         while (normalizedTime <= 1f)
         {
-            _countDownText.text = $"Table Saved in: {Mathf.FloorToInt(normalizedTime * duration)}";
+            m_countDownText.text = $"Table Saved in: {Mathf.FloorToInt(normalizedTime * duration)}";
             normalizedTime += Time.deltaTime / duration;
             yield return null;
         }

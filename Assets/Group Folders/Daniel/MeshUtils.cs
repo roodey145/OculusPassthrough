@@ -1,10 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class MeshUtils
 {
-    // The position is in world space
+    /// <summary>
+    /// Calculates the center of mass of the mesh
+    /// </summary>
+    /// <param name="parent">The parent gameobject holding all the meshrenders</param>
+    /// <param name="renderers">All the meshrenderers from the mesh</param>
+    /// <returns>The center of mass in world space</returns>
     public static Vector3 CalculateCenterOfMass(GameObject parent, MeshRenderer[] renderers)
     {
         var bounds = new Bounds(parent.transform.position, Vector3.zero);
@@ -14,8 +17,14 @@ public static class MeshUtils
         }
         return bounds.center;
     }
-
-    public static Bounds GetComplexMeshBoundary(GameObject parent, MeshRenderer[] renderers)
+    
+    /// <summary>
+    /// Gets the boundary surrounding the whole mesh
+    /// </summary>
+    /// <param name="parent">The parent gameobject holding all the meshrenderers</param>
+    /// <param name="renderers">All the meshrenderers from the mesh</param>
+    /// <returns>The boundary </returns>
+    public static Bounds GetMeshBoundary(GameObject parent, MeshRenderer[] renderers)
     {
         Bounds bounds = new(parent.transform.position, Vector3.zero);
         foreach (var renderer in renderers)

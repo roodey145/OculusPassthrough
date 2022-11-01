@@ -19,9 +19,9 @@ public class ObjectSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textValueX.text = transform.localScale.x.ToString();
-        textValueY.text = transform.localScale.y.ToString();
-        textValueZ.text = transform.localScale.z.ToString();
+        textValueX.text = $"X value: {transform.localScale.x * 10000} mm";
+        textValueY.text = $"Y value: {transform.localScale.y * 10000} mm";
+        textValueZ.text = $"Z value: {transform.localScale.z * 10000} mm";
         
         transform.localScale = new Vector3(_collider.size.x, _collider.size.y, _collider.size.z);
     }

@@ -1,20 +1,16 @@
 ManifestFileVersion: 0
-CRC: 1681817270
+CRC: 2641563885
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c459e0a50cd394c3d9c4f28110211ee8
+    Hash: d95a745aedf6f9260ad1dffb645e814c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 73c0fc65380f22c4f670992671149fee
+    Hash: 96e360f119e572ef9eb29447ef69b73d
 HashAppended: 0
 ClassTypes:
 - Class: 114
-  Script: {fileID: 11500000, guid: 4cfe1df7ed391a24fbe2a2d275e81b06, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: c5af6ab9d1bd4a47970ad151090281f3, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: ac666f23650b94b4ea891467ab3677e5, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
@@ -22,25 +18,9 @@ SerializeReferenceClassIdentifiers:
   ClassName: Oculus.Interaction.PoseDetection.FingerFeatureStateThreshold
 - AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.PoseDetection.FingerFeatureThresholds
-- AssemblyName: Oculus.Interaction
-  ClassName: Oculus.Interaction.PoseDetection.ShapeRecognizer/FingerFeatureConfig
-- AssemblyName: Oculus.Interaction
-  ClassName: Oculus.Interaction.PoseDetection.ShapeRecognizer/FingerFeatureConfigList
-- AssemblyName: Oculus.Interaction
-  ClassName: Oculus.Interaction.PoseDetection.TransformFeatureStateThreshold
-- AssemblyName: Oculus.Interaction
-  ClassName: Oculus.Interaction.PoseDetection.TransformFeatureThresholds
 Assets:
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/MiddleFingerFeatureStateThresholds.asset
-- Assets/CustomPrefabs/Shapes/RotationShapeTwo.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultThumbFeatureStateThresholds.asset
-- Assets/CustomPrefabs/Shapes/RotationShapeThree.asset
-- Assets/CustomPrefabs/Shapes/PinchShapeNear.asset
-- Assets/CustomPrefabs/Shapes/TransformThreshold/DefaultTransformFeatureStateThresholdsNew.asset
-- Assets/CustomPrefabs/Shapes/PinchShapeTouching.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultFingerFeatureStateThresholds.asset
-- Assets/CustomPrefabs/Shapes/FistShape.asset
-- Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/DefaultTransformFeatureStateThresholds.asset
-- Assets/CustomPrefabs/Shapes/OpenShape.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/IndexFingerFeatureStateThresholds.asset
 Dependencies: []

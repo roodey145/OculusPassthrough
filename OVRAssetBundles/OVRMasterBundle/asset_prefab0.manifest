@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3395734024
+CRC: 1510874992
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aa4150010e20069e1ee662f0efb2577e
+    Hash: a8f6e3b52c2dd372d6f384bbfd25e451
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 10c0648838b1c52f53bec8265053c055
+    Hash: 3443cd2be2432cc4d7836a4bf7a283d9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,13 +40,9 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: abee63302fdc2bb4f80efe129df0a723, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9af9ea683544b184083cef283557012d, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
 - Class: 114
@@ -73,8 +69,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: bffe606b408599b4fad696ddc889a943, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 4cfe1df7ed391a24fbe2a2d275e81b06, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2728d4cd2e5956445bcf3ded585c0ac0, type: 3}
 - Class: 114
@@ -126,15 +120,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: cb028ce99f9700e4197a49bfdcd525dd, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 925ef87c5bafc37469a2f7ec825dee4b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a7b47e36715521d4e8a30d2c5b6e83e2, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2609c54f376cffc4da1ab9401cc1a36f, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: ac666f23650b94b4ea891467ab3677e5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: aed62bf3ae2456c408f247f96808ce96, type: 3}
 - Class: 114
@@ -149,8 +139,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: d5e48d93b64a9ae4f9fd5a728c8f51af, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3266c3d920715b84089935c4ab019210, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 1cd9780be7e512049b4d33d5c9d0ac92, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 137
@@ -171,12 +159,6 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.PoseDetection.FingerFeatureStateProvider/FingerStateThresholds
 - AssemblyName: Oculus.Interaction
-  ClassName: Oculus.Interaction.PoseDetection.TransformConfig
-- AssemblyName: Oculus.Interaction
-  ClassName: Oculus.Interaction.PoseDetection.TransformFeatureConfig
-- AssemblyName: Oculus.Interaction
-  ClassName: Oculus.Interaction.PoseDetection.TransformFeatureConfigList
-- AssemblyName: Oculus.Interaction
   ClassName: Oculus.Interaction.ProgressCurve
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.ArgumentCache
@@ -189,8 +171,6 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/Oculus/Interaction/Samples/Audio/Prefabs/BasicPokeKeypadPressAudio.prefab
 - Assets/Oculus/Interaction/Samples/Prefabs/OculusInteractionSampleRig.prefab
-- Assets/CustomPrefabs/Shapes/HandPoseRotation.prefab
-- Assets/CustomPrefabs/Shapes/HandPoseUI.prefab
 - Assets/Oculus/Interaction/Samples/Objects/Props/Keypad/KeypadButton.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Hands/RightHandVisual.prefab
 - Assets/Oculus/Interaction/Samples/Audio/Prefabs/BasicPokeKeypadReleaseAudio.prefab
@@ -203,9 +183,6 @@ Assets:
 - Assets/Oculus/Interaction/Runtime/Prefabs/Hands/LeftHandSynthetic.prefab
 - Assets/Oculus/VR/Prefabs/OVRControllerPrefab.prefab
 - Assets/Oculus/Interaction/Runtime/Prefabs/Poke/PokeInteractable.prefab
-- Assets/CustomPrefabs/Shapes/HandPosePinch.prefab
-- Assets/CustomPrefabs/Shapes/HandPoseWristUp.prefab
-- Assets/CustomPrefabs/Shapes/HandPoseFist.prefab
 - Assets/CustomPrefabs/IK.prefab
 Dependencies:
 - C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_asset0

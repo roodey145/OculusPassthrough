@@ -10,15 +10,16 @@ public class TableSurfaceLimiter : MonoBehaviour
     private MeshRenderer[] _modelRenderers;
     private Vector3 _centerOfMass;
     private Bounds _bounds;
+    public bool rot;
+    private float threshold = 20f;
 
     // Start is called before the first frame update
     void Start()
     {
         _modelRenderers = GetComponentsInChildren<MeshRenderer>();
         _centerOfMass = MeshUtils.CalculateCenterOfMass(gameObject, _modelRenderers);
-        Debug.Log(gameObject.name + ": " + _centerOfMass);
     }
-    
+
     void Update()
     {
         /*
@@ -29,8 +30,8 @@ public class TableSurfaceLimiter : MonoBehaviour
                                             transform.position.z);
         }
         */
-
-        _bounds = MeshUtils.GetMeshBoundary(gameObject, _modelRenderers);
+        if (!IsLayingFlat() && rot) PlaceOnFace();
+        _bounds = MeshUtils.GetMeshBoundaryAABB(gameObject, _modelRenderers);
         var position = transform.position;
         transform.position = new Vector3(position.x,
             m_tableSurface.tableSurfaceY + (position.y - _bounds.min.y),
@@ -52,25 +53,36 @@ public class TableSurfaceLimiter : MonoBehaviour
     /// <returns>true of the mesh's boundary is under of the surface level</returns>
     private bool IsMultipleMeshesUnderSurface(out float lowestPoint)
     {
-        Bounds bounds = MeshUtils.GetMeshBoundary(gameObject, _modelRenderers);
+        Bounds bounds = MeshUtils.GetMeshBoundaryAABB(gameObject, _modelRenderers);
         lowestPoint = bounds.min.y;
-        /*
 
-        foreach (Mesh mesh in _meshes)
-        {
-            float lowestPointTemp = _meshes.SelectMany(v => v.vertices)
-                                    .Min(v => transform.TransformPoint(v).y);
-            if (lowestPointTemp < lowestPoint) lowestPointTemp = lowestPoint;
-        }
-        */
-        
         return lowestPoint <= m_tableSurface.tableSurfaceY;
     }
+
+    private bool IsLayingFlat()
+    {
+        Vector3 rotation = transform.eulerAngles;
+        return rotation.x % 90 == 0
+            && rotation.y % 90 == 0
+            && rotation.z % 90 == 0;
+    }
+
+    private void PlaceOnFace()
+    {
+
+        Quaternion rotation = transform.rotation;
+        float rotationX = rotation.eulerAngles.x - (rotation.eulerAngles.x % 90);
+        float rotationY = rotation.eulerAngles.y - (rotation.eulerAngles.y % 90);
+        float rotationZ = rotation.eulerAngles.z - (rotation.eulerAngles.z % 90);
+        Debug.Log(new Vector3(rotationX, rotationY, rotationZ));
+        transform.rotation *= Quaternion.Euler(rotationX, rotationY, rotationZ);
+    }
+
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireCube(_bounds.center, _bounds.size);
+        //Gizmos.DrawWireCube(_bounds.center, _bounds.size);
     }
 #endif
-    
+
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1426913089
+CRC: 3305876279
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a697335dd27370b4f728b5e2a6c21e40
+    Hash: 44e0d1440f1b98f335c7893c150a5b10
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d30bed31cbc79affc083b3abbf016e72
+    Hash: bca4a6a6272bf31e4cbeb614446c2166
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -106,17 +106,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 555725d48e9051a4bb6b8d45178c2fdd, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: bffe606b408599b4fad696ddc889a943, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f5626a0b1dc955a43be59ce7ea116678, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2025423b67857c349bf8cf435762b5cd, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2728d4cd2e5956445bcf3ded585c0ac0, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 9eea4af1d251ac548865dcb8d85edb5c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 194b7d1054b8fa64b9bdcea46d06c3a1, type: 3}
 - Class: 114
@@ -172,8 +170,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 417817ee9b785e341b31ce731f028317, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 2518c50cb3fc6a6458d4b743c2f69c7d, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1a379f34d4f4f2e408d34f14bfb753ce, type: 3}
@@ -198,8 +194,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 804765e8da96b404fb7767affc7d8a57, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: aed62bf3ae2456c408f247f96808ce96, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a1e477b940c8a084ab4f2dda703b49ef, type: 3}
@@ -215,6 +209,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: b7ecff74e52843a41ab3a441ac81379e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3266c3d920715b84089935c4ab019210, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe9d77771b677424baa957d87d8ae73b, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -239,13 +235,15 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Group Folders/Andreas/Scenes Andreas/Ui Scene.unity
 Dependencies:
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_asset0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_png0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_prefab0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_resources
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_wav0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_asset0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_prefab0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_resources
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_wav0

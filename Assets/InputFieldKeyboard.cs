@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InputFieldKeyboard : MonoBehaviour
 {
-    private TouchScreenKeyboard overlayKeyboard;
+    private TouchScreenKeyboard _overlayKeyboard;
     private TMP_InputField _inputField;
     void Start()
     {
@@ -21,7 +21,8 @@ public class InputFieldKeyboard : MonoBehaviour
 
     public void Focused()
     {
-        overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
-        _inputField.text = overlayKeyboard.text;
+        
+        _overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        _inputField.text = _overlayKeyboard.text;
     }
 }

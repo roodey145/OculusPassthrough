@@ -55,20 +55,19 @@ public class TableShape : MonoBehaviour
 
     private void Update()
     {
-        _startCorner = startPoint.position;
-        _controlCorner = controlPoint.position;
-        
         // TODO - Make two point, start corner and control corner, to know which orientation the table is.
-        
         _isPinching = m_ovrHand.GetFingerIsPinching(OVRHand.HandFinger.Index) && m_ovrHand.GetFingerIsPinching(OVRHand.HandFinger.Thumb);
-        //if(!_isPinching) return;
-        
+
+        if (!_isPinching)
+        {
+            _startCorner = m_finger.position;
+            return;
+        }
         // 1. Set start corner
         
         // 2. Start control corner and adjust orientation
-        transform.rotation = Quaternion.Euler(0,  Mathf.Rad2Deg * Mathf.Atan(_controlCorner.x / Vector3.Distance(_startCorner, _controlCorner)), 0);
-        
-        
+        //transform.rotation = Quaternion.Euler(0,  Mathf.Rad2Deg * Mathf.Atan(_controlCorner.x / Vector3.Distance(_startCorner, _controlCorner)), 0);
+
         var fingerPosition = m_finger.position;
         var rect = GetTableShape(_startCorner.x, _startCorner.z, fingerPosition.x, fingerPosition.z);
         

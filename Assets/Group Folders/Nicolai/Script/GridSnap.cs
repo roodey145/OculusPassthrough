@@ -7,6 +7,14 @@ public class GridSnap : MonoBehaviour
     public bool snapIsTrue;
     public float gridSize = 1;
     public Vector2 moveAmount = Vector2.zero;
+
+    public int angelTrigger = 15;
+    public float currentXAngel = 0;
+    public float currentYAngel = 0;
+    public float currentZAngel = 0;
+    public float rotateX = 0;
+    public float rotateY = 0;
+    public float rotateZ = 0;
     private void Awake()
     {
 
@@ -81,9 +89,52 @@ public class GridSnap : MonoBehaviour
 
             transform.position = new Vector3(_decimalX, transform.position.y, _decimalZ);
 
+            rotationsnap();
+
         }
     }
 
+    public void rotationsnap()
+    {
+        Quaternion currentRotation = transform.rotation;
+        if(currentRotation.x >= angelTrigger)
+        {
+            Debug.Log("yes");
+            rotateX += angelTrigger;
+            currentXAngel = 0;
+        }
+        else if(currentRotation.x <= -angelTrigger)
+        {
+            Debug.Log("no");
+            rotateX -= angelTrigger;
+            currentXAngel = 0;
+        }
+
+        if (currentRotation.y >= angelTrigger)
+        {
+            rotateY += angelTrigger;
+            currentYAngel = 0;
+        }
+        else if (currentRotation.y <= -angelTrigger)
+        {
+            rotateY -= angelTrigger;
+            currentYAngel = 0;
+        }
+
+        if (currentRotation.z >= angelTrigger)
+        {
+            rotateZ += angelTrigger;
+            currentZAngel = 0;
+        }
+        else if (currentRotation.z <= -angelTrigger)
+        {
+            rotateZ -= angelTrigger;
+            currentZAngel = 0;
+        }
+        
+        Vector3 rotationVector = new Vector3(rotateX, rotateY, rotateZ);
+        transform.rotation = Quaternion.Euler(rotationVector);
+    }
 
     private void OnDrawGizmos()
     {

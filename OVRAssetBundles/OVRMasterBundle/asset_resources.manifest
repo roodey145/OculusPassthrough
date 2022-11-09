@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4141560890
+CRC: 2321492477
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1707672b80c91e3bfd6deb712caf46f6
+    Hash: 2c8a72efe0f09218ba468fff68c1c2f7
   TypeTreeHash:
     serializedVersion: 2
     Hash: 54e81041136dbd66b90a4ba96413b534
@@ -113,5 +113,5 @@ Assets:
 - Assets/Oculus/Voice/Lib/Wit.ai/Resources/witai.png
 - Assets/Oculus/VR/Resources/Unlit Transparent Color.shader
 Dependencies:
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_shader0
-- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_ttf0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_ttf0

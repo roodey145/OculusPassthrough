@@ -24,17 +24,17 @@ EditorBuildSettings:
     path: Assets/Scenes/OculusTesting/UI/3DRadioButton.unity
     guid: f5b5878f9f0d34f479c331ead3beb35a
   - enabled: 0
-    path: Assets/Scenes/FinalScenes/FirstTest.unity
-    guid: b74200e917ef0454983256bb37068510
-  - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Group Folders/Daniel/Mixed Reality Table/Scenes/MixedRealityTable.unity
-    guid: f03c476961ec87547b7547fc92327d8c
-  - enabled: 0
     path: Assets/Group Folders/Andreas/Scenes Andreas/Ui Scene.unity
     guid: 6fc50a35989924231bb7ae5125cb5940
+  - enabled: 1
+    path: Assets/Group Folders/Daniel/Mixed Reality Table/Scenes/MixedRealityTable.unity
+    guid: f03c476961ec87547b7547fc92327d8c
+  - enabled: 1
+    path: Assets/Scenes/FinalScenes/FirstTest.unity
+    guid: b74200e917ef0454983256bb37068510
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c5fa770f31af8b44fa3e406dd74fad80, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 51cf8a1ed3df6b3469496f5537df7efc, type: 2}

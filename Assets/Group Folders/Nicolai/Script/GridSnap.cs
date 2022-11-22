@@ -26,15 +26,15 @@ public class GridSnap : MonoBehaviour
     }
 
     private float _decimalX = 0;
-    
+
     private float _decimalZ = 0;
-    
+
     // Update is called once per frame
     void Update()
     {
         if (snapIsTrue)
         {
-           
+
             _decimalX = moveAmount.x % gridSize;
             if ((transform.position.x % gridSize) != 0)
             {
@@ -58,9 +58,9 @@ public class GridSnap : MonoBehaviour
                 _decimalX = transform.position.x;
             }
 
-            
 
-            
+
+
 
 
             // Since we use vector 2, the y in this case represent the z-axis
@@ -89,7 +89,7 @@ public class GridSnap : MonoBehaviour
 
             transform.position = new Vector3(_decimalX, transform.position.y, _decimalZ);
 
-            rotationsnap();
+            //rotationsnap();
 
         }
     }
@@ -97,13 +97,13 @@ public class GridSnap : MonoBehaviour
     public void rotationsnap()
     {
         Quaternion currentRotation = transform.rotation;
-        if(currentRotation.x >= angelTrigger)
+        if (currentRotation.x >= angelTrigger)
         {
             Debug.Log("yes");
             rotateX += angelTrigger;
             currentXAngel = 0;
         }
-        else if(currentRotation.x <= -angelTrigger)
+        else if (currentRotation.x <= -angelTrigger)
         {
             Debug.Log("no");
             rotateX -= angelTrigger;
@@ -131,7 +131,7 @@ public class GridSnap : MonoBehaviour
             rotateZ -= angelTrigger;
             currentZAngel = 0;
         }
-        
+
         Vector3 rotationVector = new Vector3(rotateX, rotateY, rotateZ);
         transform.rotation = Quaternion.Euler(rotationVector);
     }

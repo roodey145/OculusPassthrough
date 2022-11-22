@@ -14,6 +14,7 @@ public class HandMenuController : MonoBehaviour
 {
     public static Axis controlledAxis = Axis.Y;
     private GameObject[] _axisIndicators = new GameObject[3];
+    [SerializeField] AxisButton[] m_axisButtons;
 
     [SerializeField]
     private float _outFocus = 0.15f;
@@ -35,6 +36,11 @@ public class HandMenuController : MonoBehaviour
         // _axisIndicators[(int)controlledAxis].SetActive(true);
     }
 
+    private void Start()
+    {
+        UpdateSelectedTextUI();
+    }
+
 
     private void _ChangeOpacity(GameObject obj, float opacity)
     {
@@ -52,5 +58,20 @@ public class HandMenuController : MonoBehaviour
         controlledAxis = (Axis)axisToControl;
         _ChangeOpacity(_axisIndicators[axisToControl], _inFocus);
         // _axisIndicators[axisToControl].SetActive(true);
+        UpdateSelectedTextUI();
+    }
+
+    private void UpdateSelectedTextUI()
+    {
+        foreach (var item in m_axisButtons)
+        {
+            if (item.axis == controlledAxis)
+            {
+                item.isSelected = true;
+                continue;
+            }
+            item.isSelected = false;
+            item.ToggleSelectedText();
+        }
     }
 }

@@ -11,15 +11,9 @@ public class ObjectRotation : MonoBehaviour
 
         if ((rotationAngle.x % snapInterval) != 0 || (rotationAngle.y % snapInterval) != 0 || (rotationAngle.z % snapInterval) != 0)
         {
-            transform.rotation = GetSnapAngle();
+            transform.rotation = Quaternion.Euler(Mathf.Round(rotationAngle.x / snapInterval) * snapInterval,
+                                                  Mathf.Round(rotationAngle.y / snapInterval) * snapInterval,
+                                                  Mathf.Round(rotationAngle.z / snapInterval) * snapInterval);
         }
-    }
-
-    private Quaternion GetSnapAngle()
-    {
-        Vector3 rotationAngle = transform.rotation.eulerAngles;
-        return Quaternion.Euler(Mathf.Round(rotationAngle.x / snapInterval) * snapInterval,
-                                Mathf.Round(rotationAngle.y / snapInterval) * snapInterval,
-                                Mathf.Round(rotationAngle.z / snapInterval) * snapInterval);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSkifter : MonoBehaviour
+public class ButtonManager : MonoBehaviour
 {
     /// <summary>
     /// Loads a new scene

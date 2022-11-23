@@ -26,6 +26,7 @@ public static class MeshUtils
     /// <returns>The boundary </returns>
     public static Bounds GetMeshBoundaryAABB(GameObject parent, MeshRenderer[] renderers)
     {
+        if (renderers.Length == 1) return renderers[0].bounds;
         Bounds bounds = new(parent.transform.position, Vector3.zero);
         foreach (var renderer in renderers)
         {

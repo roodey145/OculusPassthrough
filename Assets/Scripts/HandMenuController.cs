@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -27,6 +28,8 @@ public class HandMenuController : MonoBehaviour
         _axisIndicators[1] = GameObject.Find("yAxis");
         _axisIndicators[2] = GameObject.Find("zAxis");
 
+        if (_axisIndicators.Contains(null)) return;
+        
         for (int i = 0; i < _axisIndicators.Length; i++)
         {
             _ChangeOpacity(_axisIndicators[i], _outFocus);
@@ -53,12 +56,15 @@ public class HandMenuController : MonoBehaviour
 
     public void LockAxis(int axisToControl)
     {
+        controlledAxis = (Axis)axisToControl;
+        UpdateSelectedTextUI();
+        if (_axisIndicators.Contains(null)) return;
         _ChangeOpacity(_axisIndicators[(int)controlledAxis], _outFocus);
         // _axisIndicators[(int)controlledAxis].SetActive(false);
-        controlledAxis = (Axis)axisToControl;
+        
         _ChangeOpacity(_axisIndicators[axisToControl], _inFocus);
         // _axisIndicators[axisToControl].SetActive(true);
-        UpdateSelectedTextUI();
+        
     }
 
     private void UpdateSelectedTextUI()

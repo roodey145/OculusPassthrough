@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -23,8 +24,6 @@ public class TableSurface : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(this);
-        surfaceLevelSet = false;
         StartCoroutine(SaveSurfaceCountDown());
     }
 
@@ -38,6 +37,7 @@ public class TableSurface : MonoBehaviour
     {
         tableSurfaceY = transform.position.y;
         surfaceLevelSet = true;
+        m_countDownText.gameObject.SetActive(false);
     }
 
     private IEnumerator SaveSurfaceCountDown()

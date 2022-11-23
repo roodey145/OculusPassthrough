@@ -16,6 +16,7 @@ public class CanvasTableSurface : MonoBehaviour
     void Update()
     {
         if (_tableSurface.surfaceLevelSet) return;
-        transform.position = new Vector3(m_trackedPlayer.position.x + m_trackedPlayerOffset, _tableSurface.tableSurfaceY + m_yOffset, m_trackedPlayer.position.z - m_trackedPlayerOffset);
+        
+        transform.position = new Vector3(m_trackedPlayer.position.x, _tableSurface.tableSurfaceY + m_yOffset, m_trackedPlayer.position.z - m_trackedPlayerOffset);
     }
 }

@@ -166,6 +166,7 @@ namespace Oculus.Interaction
             set
             {
                 _borderInnerRadius = value;
+                UpdateMaterialPropertyBlock();
             }
         }
 

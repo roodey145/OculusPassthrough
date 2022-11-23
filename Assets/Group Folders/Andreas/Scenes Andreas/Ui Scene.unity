@@ -229,8 +229,8 @@ RectTransform:
   - {fileID: 1825474501}
   - {fileID: 850413154}
   - {fileID: 44802654}
-  - {fileID: 1325962656}
   - {fileID: 1058801726}
+  - {fileID: 1325962656}
   m_Father: {fileID: 641717084}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1347,7 +1347,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 850413153}
+      - m_Target: {fileID: 1058801725}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -7041,7 +7041,7 @@ RectTransform:
   - {fileID: 1977404286}
   - {fileID: 934373062}
   m_Father: {fileID: 8493423}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9272,7 +9272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8493423}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331326791
 GameObject:

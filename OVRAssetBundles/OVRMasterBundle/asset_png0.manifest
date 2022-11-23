@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 267275261
+CRC: 2042099156
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7a9157336a000d1795f04f2edf88db9d
+    Hash: a900179ceab8a92af3f08361b49ee2e2
   TypeTreeHash:
     serializedVersion: 2
     Hash: c21d61fe394c58399df3c6fb5c7c99b3
@@ -18,6 +18,8 @@ Assets:
 - Assets/Plugins/QFSW/Quantum Console/Source/Textures/UIBevel.png
 - Assets/Plugins/QFSW/Quantum Console/Source/Textures/MagnifyingGlass.png
 - Assets/Plugins/QFSW/Quantum Console/Source/Textures/DragArrow.png
+- Assets/CustomPrefabs/UIPictures/Frame 9.png
 - Assets/Oculus/VR/Textures/OculusTouchForRift/touchController_albedo.png
 - Assets/Oculus/Interaction/Runtime/Textures/fingers_glow_mask.png
+- Assets/CustomPrefabs/UIPictures/Frame 14.png
 Dependencies: []

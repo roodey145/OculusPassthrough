@@ -18,6 +18,7 @@ public class AxisButton : MonoBehaviour
 
     public void ToggleSelectedText()
     {
+        isSelected = !isSelected;
         _roundedBoxProps.BorderInnerRadius = (isSelected) ? _selectedInnerRadius : 0;
     }
 }

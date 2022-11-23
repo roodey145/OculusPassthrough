@@ -117,6 +117,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_TERRAIN
 --compilation-defines=ENABLE_TILEMAP
 --compilation-defines=ENABLE_TIMELINE
+--compilation-defines=ENABLE_INPUT_SYSTEM
 --compilation-defines=ENABLE_LEGACY_INPUT_MANAGER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
@@ -129,6 +130,14 @@ Library: lib_burst_generated
 --compilation-defines=USING_XR_SDK_OCULUS
 --compilation-defines=ENABLE_VR_MODULE
 --compilation-defines=ENABLE_XR_MODULE
+--compilation-defines=ENABLE_INPUT_SYSTEM_PACKAGE
+--compilation-defines=DISABLE_BUILTIN_INPUT_SYSTEM_OCULUS
+--compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_VR
+--compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_XR
+--compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_PHYSICS
+--compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_PHYSICS2D
+--compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_UI
+--compilation-defines=UNITY_INPUT_SYSTEM
 --compilation-defines=XR_MGMT_GTE_320
 --compilation-defines=UNITY_UNET_PRESENT
 --compilation-defines=TIMELINE_FRAMEACCURATE
@@ -148,6 +157,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Daniel Lerche\Documents\Unity\OculusPassthrough\Temp\StagingArea\Data\Managed\Oculus.Spatializer.dll
 --root-assembly=C:\Users\Daniel Lerche\Documents\Unity\OculusPassthrough\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\Daniel Lerche\Documents\Unity\OculusPassthrough\Temp\StagingArea\Data\Managed\Unity.Services.Core.Telemetry.dll
+--root-assembly=C:\Users\Daniel Lerche\Documents\Unity\OculusPassthrough\Temp\StagingArea\Data\Managed\Unity.InputSystem.dll
 --root-assembly=C:\Users\Daniel Lerche\Documents\Unity\OculusPassthrough\Temp\StagingArea\Data\Managed\Oculus.Interaction.dll
 --root-assembly=C:\Users\Daniel Lerche\Documents\Unity\OculusPassthrough\Temp\StagingArea\Data\Managed\Facebook.WitAI.dll
 --root-assembly=C:\Users\Daniel Lerche\Documents\Unity\OculusPassthrough\Temp\StagingArea\Data\Managed\UnityEngine.XR.LegacyInputHelpers.dll

@@ -5,17 +5,17 @@ using UnityEngine.Serialization;
 
 public class TableSurfaceLimiter : MonoBehaviour
 {
-    [SerializeField]
-    private TableSurface m_tableSurface;
+    OVRHand m_ovrHand;
+    private TableSurface _tableSurface;
     private MeshRenderer[] _modelRenderers;
     private Vector3 _centerOfMass;
     private Bounds _bounds;
-    public bool rot;
     private float threshold = 20f;
 
     // Start is called before the first frame update
     void Start()
     {
+        _tableSurface = FindObjectOfType<TableSurface>();
         _modelRenderers = GetComponentsInChildren<MeshRenderer>();
         _centerOfMass = MeshUtils.CalculateCenterOfMass(gameObject, _modelRenderers);
     }
@@ -30,11 +30,10 @@ public class TableSurfaceLimiter : MonoBehaviour
                                             transform.position.z);
         }
         */
-        if (!IsLayingFlat() && rot) PlaceOnFace();
-        _bounds = MeshUtils.GetMeshBoundaryAABB(gameObject, _modelRenderers);
+
         var position = transform.position;
         transform.position = new Vector3(position.x,
-            m_tableSurface.tableSurfaceY + (position.y - _bounds.min.y),
+            _tableSurface.tableSurfaceY + (position.y - _bounds.min.y),
                                         position.z);
 
         // NOTES:
@@ -56,7 +55,7 @@ public class TableSurfaceLimiter : MonoBehaviour
         Bounds bounds = MeshUtils.GetMeshBoundaryAABB(gameObject, _modelRenderers);
         lowestPoint = bounds.min.y;
 
-        return lowestPoint <= m_tableSurface.tableSurfaceY;
+        return lowestPoint <= _tableSurface.tableSurfaceY;
     }
 
     private bool IsLayingFlat()

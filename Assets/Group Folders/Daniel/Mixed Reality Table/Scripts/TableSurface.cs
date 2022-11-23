@@ -9,38 +9,35 @@ public class TableSurface : MonoBehaviour
     private TextMeshProUGUI m_countDownText;
     [SerializeField]
     private Transform m_rightFinger;
-    [SerializeField]
-    private float m_handMovementThreshold = 2f;
     private Vector3 _lastHandPosition;
     public float tableSurfaceY
     {
         private set;
         get;
     }
-    private bool _surfaceLevelSet;
+    public bool surfaceLevelSet
+    {
+        private set;
+        get;
+    }
 
     void Start()
     {
-#if !UNITY_EDITOR
-        Assert.IsNotNull(m_rightFinger);
+        DontDestroyOnLoad(this);
+        surfaceLevelSet = false;
         StartCoroutine(SaveSurfaceCountDown());
-#endif
-#if UNITY_EDITOR
-        _surfaceLevelSet = true;
-        tableSurfaceY = 5;
-#endif
     }
 
     private void Update()
     {
-        if (_surfaceLevelSet) return;
-        transform.position = m_rightFinger.transform.position;
+        if (surfaceLevelSet) return;
+        tableSurfaceY = m_rightFinger.transform.position.y;
     }
 
     private void SaveTableSurface()
     {
         tableSurfaceY = transform.position.y;
-        _surfaceLevelSet = true;
+        surfaceLevelSet = true;
     }
 
     private IEnumerator SaveSurfaceCountDown()

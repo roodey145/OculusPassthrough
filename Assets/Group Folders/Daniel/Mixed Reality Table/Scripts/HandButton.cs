@@ -5,6 +5,8 @@ using Oculus.Interaction;
 
 public class HandButton : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject m_UIMenu;
     private RoundedBoxProperties _roundedBoxProperties;
     private bool _isSelected;
     private float _selectedInnerRadius = 0.5f;
@@ -12,10 +14,13 @@ public class HandButton : MonoBehaviour
     private void Awake()
     {
         _roundedBoxProperties = transform.GetComponentInChildren<RoundedBoxProperties>();
+        m_UIMenu.SetActive(true);
     }
 
     public void ToggleSelectedText()
     {
-        _roundedBoxProperties.BorderInnerRadius = (_roundedBoxProperties.BorderInnerRadius == _selectedInnerRadius) ? 0 : _selectedInnerRadius;
+        _isSelected = !_isSelected;
+        _roundedBoxProperties.BorderInnerRadius = (_isSelected) ? _selectedInnerRadius : 0;
+        m_UIMenu.SetActive(_isSelected);
     }
 }

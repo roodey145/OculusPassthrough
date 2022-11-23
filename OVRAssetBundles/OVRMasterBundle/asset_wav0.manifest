@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1291500219
+CRC: 3040647029
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 542a978c8625f5a9ad2597b3dfd7e952
+    Hash: 67a067623368268fb9ff3c749d890766
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9a2ca7bdbd1871f7131daf57de908e0c
@@ -14,9 +14,7 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_03.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicRay_Release.wav
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_02.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicRay_Hover.wav
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_01.wav
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_05.wav
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_08.wav
@@ -25,5 +23,4 @@ Assets:
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_06.wav
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_09.wav
 - Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicPoke_Keypad_04.wav
-- Assets/Oculus/Interaction/Samples/Audio/Content/Interaction_BasicRay_Press.wav
 Dependencies: []

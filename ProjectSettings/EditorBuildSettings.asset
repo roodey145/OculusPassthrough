@@ -26,15 +26,18 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Group Folders/Andreas/Scenes Andreas/Ui Scene.unity
     guid: 6fc50a35989924231bb7ae5125cb5940
-  - enabled: 1
+  - enabled: 0
     path: Assets/Group Folders/Daniel/Mixed Reality Table/Scenes/MixedRealityTable.unity
     guid: f03c476961ec87547b7547fc92327d8c
   - enabled: 0
     path: Assets/Scenes/FinalScenes/FirstTest.unity
     guid: b74200e917ef0454983256bb37068510
+  - enabled: 1
+    path: Assets/Group Folders/Daniel/Mixed Reality Table/Scenes/PokeUITable.unity
+    guid: 8caa19494593d964799359254053b647
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c5fa770f31af8b44fa3e406dd74fad80, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: abc0a44383d214243abc5665a28b7686, type: 2}

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 10550407
+CRC: 1689545230
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -8,13 +8,12 @@ AssetBundleManifest:
         Dependency_0: asset_shader0
         Dependency_1: asset_ttf0
     Info_1:
-      Name: scene_pokeuitable
+      Name: scene_firstscene
       Dependencies:
         Dependency_0: asset_resources
         Dependency_1: asset_asset0
         Dependency_2: asset_mat0
         Dependency_3: asset_prefab0
-        Dependency_4: asset_png0
     Info_2:
       Name: asset_asset0
       Dependencies:
@@ -40,12 +39,13 @@ AssetBundleManifest:
     Info_7:
       Name: asset_prefab0
       Dependencies:
-        Dependency_0: asset_asset0
-        Dependency_1: asset_wav0
-        Dependency_2: asset_controller0
-        Dependency_3: asset_fbx0
-        Dependency_4: asset_mat0
-        Dependency_5: asset_png0
+        Dependency_0: asset_resources
+        Dependency_1: asset_asset0
+        Dependency_2: asset_wav0
+        Dependency_3: asset_controller0
+        Dependency_4: asset_fbx0
+        Dependency_5: asset_mat0
+        Dependency_6: asset_png0
     Info_8:
       Name: asset_psd0
       Dependencies: {}

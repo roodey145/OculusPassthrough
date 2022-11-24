@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1689545230
+CRC: 1311090856
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -8,7 +8,7 @@ AssetBundleManifest:
         Dependency_0: asset_shader0
         Dependency_1: asset_ttf0
     Info_1:
-      Name: scene_firstscene
+      Name: scene_pokefirstscene
       Dependencies:
         Dependency_0: asset_resources
         Dependency_1: asset_asset0

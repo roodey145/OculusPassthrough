@@ -22,9 +22,7 @@ public class TableSurfaceLimiter : MonoBehaviour
 
     private void OnEnable()
     {
-        _bounds = MeshUtils.GetMeshBoundaryAABB(gameObject, _modelRenderers);
-        var position = transform.position;
-        transform.position = new Vector3(position.x, _tableSurface.tableSurfaceY + (position.y - _bounds.min.y), position.z);
+        _modelRenderers = GetComponentsInChildren<MeshRenderer>();
     }
 
     void Update()
@@ -37,11 +35,11 @@ public class TableSurfaceLimiter : MonoBehaviour
                                             transform.position.z);
         }
         */
-        /*
+        
         _bounds = MeshUtils.GetMeshBoundaryAABB(gameObject, _modelRenderers);
         var position = transform.position;
         transform.position = new Vector3(position.x, _tableSurface.tableSurfaceY + (position.y - _bounds.min.y), position.z);
-        */
+        
         // NOTES:
         // If we always want the cube to align with the surface, then don't if the cube is under the surface but simply move it.
         // We should also consider if the object should be aligned to the surface while they modify it or after they are done modifing it.

@@ -35,7 +35,7 @@ public class TableSurface : MonoBehaviour
 
     private void SaveTableSurface()
     {
-        tableSurfaceY = transform.position.y;
+        tableSurfaceY = m_rightFinger.transform.position.y;
         surfaceLevelSet = true;
         m_countDownText.gameObject.SetActive(false);
     }

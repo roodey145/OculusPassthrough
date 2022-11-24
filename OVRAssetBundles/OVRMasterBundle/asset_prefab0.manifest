@@ -3,7 +3,7 @@ CRC: 964480409
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cd5da0d8dc2d2566148475bd979c9a64
+    Hash: 5b42bbe498314854046205b7866fb4da
   TypeTreeHash:
     serializedVersion: 2
     Hash: 45b3edb861cc162c33e2393ff63acc5c
@@ -340,10 +340,10 @@ Assets:
 - Assets/CustomPrefabs/Shapes/HandPoseFist.prefab
 - Assets/CustomPrefabs/IK.prefab
 Dependencies:
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_asset0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_controller0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_fbx0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_png0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_resources
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_wav0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_asset0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_controller0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_png0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_resources
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_wav0

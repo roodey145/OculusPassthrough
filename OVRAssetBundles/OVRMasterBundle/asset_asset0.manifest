@@ -3,7 +3,7 @@ CRC: 2299993523
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dbf639c213c298b7e70e47510a514ac5
+    Hash: b9f11dc2395efc27354c662b751e4da5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 596249ae57f6b0d79f02ec1e7c1f133b
@@ -92,5 +92,5 @@ Assets:
 - Assets/Plugins/QFSW/Quantum Console/Source/Prefabs/Default Localization.asset
 - Assets/Oculus/Interaction/Runtime/DefaultSettings/PoseDetection/IndexFingerFeatureStateThresholds.asset
 Dependencies:
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_mat0
-- C:/Users/Daniel Lerche/Documents/Unity/OculusPassthrough/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/danie/OneDrive/Documents/Unity/OculusPassthroughHandsTest/OVRAssetBundles/OVRMasterBundle/asset_shader0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,12 @@ public class HandButton : MonoBehaviour
     private void Awake()
     {
         _roundedBoxProperties = transform.GetComponentInChildren<RoundedBoxProperties>();
+    }
+
+    private void OnEnable()
+    {
+        _isSelected = m_UIMenu.activeInHierarchy;
+        _roundedBoxProperties.BorderInnerRadius = (_isSelected) ? _selectedInnerRadius : 0;
     }
 
     public void ToggleSelectedText()

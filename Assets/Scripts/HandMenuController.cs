@@ -74,6 +74,7 @@ public class HandMenuController : MonoBehaviour
             if (item.axis == controlledAxis)
             {
                 item.isSelected = true;
+                item.ToggleSelectedText();
                 continue;
             }
             item.isSelected = false;

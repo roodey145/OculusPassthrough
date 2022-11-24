@@ -11,14 +11,14 @@ public class AxisButton : MonoBehaviour
     public bool isSelected;
     public Axis axis;
 
-    private void Awake()
+    private void Start()
     {
         _roundedBoxProps = transform.GetComponentInChildren<RoundedBoxProperties>();
     }
 
     public void ToggleSelectedText()
     {
-        isSelected = !isSelected;
         _roundedBoxProps.BorderInnerRadius = (isSelected) ? _selectedInnerRadius : 0;
+        isSelected = !isSelected;
     }
 }

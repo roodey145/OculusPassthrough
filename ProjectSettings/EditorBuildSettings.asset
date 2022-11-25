@@ -41,7 +41,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Group Folders/Daniel/Mixed Reality Table/Scenes/PokeUITable.unity
     guid: 8caa19494593d964799359254053b647
-  - enabled: 1
+  - enabled: 0
     path: Assets/Group Folders/Daniel/UiTestScenes/Poke/PokeFirstScene.unity
     guid: f7d33612be209ba4890308d965588b6a
   - enabled: 0
@@ -50,7 +50,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Group Folders/Daniel/UiTestScenes/Poke/SphereScene.unity
     guid: 5d8744fa72a1b8b48b2ae2cfd7b520c8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Group Folders/Daniel/UiTestScenes/Ray/RayFirstScene.unity
     guid: 0957a64e068db134abcfd0b2e48d031a
   m_configObjects:

@@ -35,7 +35,7 @@ public class ClickTimeTask : MonoBehaviour
         if (taskStart == true)
         {
             timer += Time.deltaTime;
-            //clicks = IndexPinchSelector.clicks;
+            clicks = IndexPinchSelector.clicks;
         }
 
     }
@@ -51,7 +51,7 @@ public class ClickTimeTask : MonoBehaviour
                 if (!taskStart)
                 {
                     timer = 0;
-                    //IndexPinchSelector.clicks = 0;
+                    IndexPinchSelector.clicks = 0;
                     Debug.Log("counter started");
                 }
                 taskStart = true;

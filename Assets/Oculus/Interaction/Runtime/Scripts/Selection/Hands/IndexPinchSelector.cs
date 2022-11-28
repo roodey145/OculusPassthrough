@@ -28,7 +28,7 @@ namespace Oculus.Interaction
 {
     public class IndexPinchSelector : MonoBehaviour, ISelector
     {
-        public int clicks;
+        public static int clicks;
         [SerializeField, Interface(typeof(IHand))]
         private MonoBehaviour _hand;
         public IHand Hand { get; private set; }

@@ -45,14 +45,17 @@ EditorBuildSettings:
     path: Assets/Group Folders/Daniel/UiTestScenes/Poke/PokeFirstScene.unity
     guid: f7d33612be209ba4890308d965588b6a
   - enabled: 0
-    path: Assets/Group Folders/Daniel/UiTestScenes/Poke/CubeScene.unity
-    guid: ea92d1b54ea7c0f4397c4c52d5a45af9
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Group Folders/Daniel/UiTestScenes/Poke/SphereScene.unity
-    guid: 5d8744fa72a1b8b48b2ae2cfd7b520c8
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Group Folders/Daniel/UiTestScenes/Ray/RayFirstScene.unity
     guid: 0957a64e068db134abcfd0b2e48d031a
+  - enabled: 1
+    path: Assets/Group Folders/Daniel/User Interface/Ray/HandMenu.unity
+    guid: 3b69e7d7f8590ee49aabc2d98970f522
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c5fa770f31af8b44fa3e406dd74fad80, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: abc0a44383d214243abc5665a28b7686, type: 2}

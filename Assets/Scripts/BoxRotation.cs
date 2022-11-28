@@ -7,7 +7,7 @@ public class BoxRotation : MonoBehaviour
     [SerializeField]
     private Transform fingertip;
     [SerializeField]
-    private float rotationSpeed;
+    private float rotationSpeed = 360;
     private bool isRotating;
     private float lastPosition;
 

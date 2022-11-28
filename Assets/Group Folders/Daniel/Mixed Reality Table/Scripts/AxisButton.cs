@@ -11,7 +11,7 @@ public class AxisButton : MonoBehaviour
     public bool isSelected;
     public Axis axis;
 
-    private void Start()
+    private void Awake()
     {
         _roundedBoxProps = transform.GetComponentInChildren<RoundedBoxProperties>();
     }

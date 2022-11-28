@@ -42,7 +42,7 @@ public class TableSurface : MonoBehaviour
 
     private IEnumerator SaveSurfaceCountDown()
     {
-        const float duration = 20f;
+        const float duration = 13f;
         float normalizedTime = 0;
         while (normalizedTime <= 1f)
         {

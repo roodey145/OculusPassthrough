@@ -28,6 +28,7 @@ namespace Oculus.Interaction
 {
     public class IndexPinchSelector : MonoBehaviour, ISelector
     {
+        public int clicks;
         [SerializeField, Interface(typeof(IHand))]
         private MonoBehaviour _hand;
         public IHand Hand { get; private set; }
@@ -76,6 +77,7 @@ namespace Oculus.Interaction
                 if (_isIndexFingerPinching)
                 {
                     WhenSelected();
+                    clicks++;
                 }
                 else
                 {

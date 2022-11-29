@@ -41,7 +41,7 @@ public class OVRTrackedKeyboardSampleControls : MonoBehaviour
     void Start()
     {
         StartingFocusField.Select();
-        StartingFocusField.ActivateInputField();
+        //StartingFocusField.ActivateInputField();
         if (TrackingToggle.isOn != trackedKeyboard.TrackingEnabled)
         {
             TrackingToggle.isOn = trackedKeyboard.TrackingEnabled;

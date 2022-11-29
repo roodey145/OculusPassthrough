@@ -208,6 +208,7 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 		cameraRig_ = FindObjectOfType<OVRCameraRig>();
 		leftHand_ = cameraRig_.leftHandAnchor.GetComponentInChildren<OVRHand>();
 		rightHand_ = cameraRig_.rightHandAnchor.GetComponentInChildren<OVRHand>();
+		
 		leftHandSkeleton_ = leftHand_.GetComponent<OVRSkeleton>();
 		rightHandSkeleton_ = rightHand_.GetComponent<OVRSkeleton>();
 
@@ -225,12 +226,12 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 		leftHandSkinnedMeshRenderer_ = leftHand_.GetComponent<SkinnedMeshRenderer>();
 		rightHandSkinnedMeshRenderer_ = rightHand_.GetComponent<SkinnedMeshRenderer>();
-
-		var leftHand = GameObject.Instantiate(LeftHandPresence);
-		var rightHand = GameObject.Instantiate(RightHandPresence);
+		
+		var leftHand = Instantiate(LeftHandPresence);
+		var rightHand = Instantiate(RightHandPresence);
 		leftHandRoot_ = leftHand.transform;
 		rightHandRoot_ = rightHand.transform;
-
+		
 		leftHand.SetActive(false);
 		rightHand.SetActive(false);
 
@@ -245,6 +246,7 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 	private void LateUpdate()
 	{
+		
 #if UNITY_EDITOR
 		if (!handPresenceInitialized_)
 		{
@@ -300,7 +302,7 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 		var enableLeftModel = ShouldEnableModel(leftHandDistance);
 		var enableRightModel = ShouldEnableModel(rightHandDistance);
-		SetHandModelsEnabled(enableLeftModel, enableRightModel);
+		//SetHandModelsEnabled(enableLeftModel, enableRightModel);
 
 		if (KeyboardTracker.Presentation == OVRTrackedKeyboard.KeyboardPresentation.PreferOpaque)
 		{

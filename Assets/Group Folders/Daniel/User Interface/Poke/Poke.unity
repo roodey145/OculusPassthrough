@@ -734,8 +734,8 @@ MonoBehaviour:
   _pointableElement: {fileID: 70887856}
   _proximityField: {fileID: 1745480441}
   _surface: {fileID: 11039758}
-  _maxDistance: 0.1
-  _enterHoverDistance: 0
+  _maxDistance: 0.015
+  _enterHoverDistance: 0.015
   _releaseDistance: 0.25
   _horizontalDragThreshold: 0
   _verticalDragThreshold: 0
@@ -1687,35 +1687,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805687506859, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805687506859, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805687506859, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805687506859, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805791655318, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805791655318, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805791655318, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805791655318, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 5278849805791655319, guid: 1c4ab485380337d4f979ce0b45fe5053, type: 3}
       propertyPath: m_Name
@@ -1966,9 +1966,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handMenuItem: {fileID: 0}
-  m_leadsToNothing: 1
+  m_leadsToNothing: 0
   m_currentUI: {fileID: 245156533}
-  m_nextUI: {fileID: 0}
+  m_nextUI: {fileID: 1737212842}
 --- !u!114 &245156539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,8 +2003,8 @@ MonoBehaviour:
   _pointableElement: {fileID: 245156539}
   _proximityField: {fileID: 1336443862}
   _surface: {fileID: 804043913}
-  _maxDistance: 0.1
-  _enterHoverDistance: 0
+  _maxDistance: 0.015
+  _enterHoverDistance: 0.015
   _releaseDistance: 0.25
   _horizontalDragThreshold: 0
   _verticalDragThreshold: 0
@@ -3616,7 +3616,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8694067556690009930, guid: 2fff372ae1d854945b0402d37fa4b21f, type: 3}
   m_PrefabInstance: {fileID: 1525048083}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &563369249
+--- !u!114 &563369251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3836,7 +3836,6 @@ GameObject:
   m_Component:
   - component: {fileID: 593064781}
   - component: {fileID: 593064782}
-  - component: {fileID: 593064783}
   m_Layer: 0
   m_Name: Holder
   m_TagString: Untagged
@@ -3877,18 +3876,6 @@ MonoBehaviour:
   m_trackedPlayerOffset: -0.2
   m_trackedPlayer: {fileID: 1812844596}
   m_yOffset: 0.02
---- !u!114 &593064783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593064780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b498ed907703d43b39626be19bf1a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &594809025
 GameObject:
   m_ObjectHideFlags: 0
@@ -6314,8 +6301,8 @@ MonoBehaviour:
   _pointableElement: {fileID: 1044712090}
   _proximityField: {fileID: 30090644}
   _surface: {fileID: 1267314915}
-  _maxDistance: 0.1
-  _enterHoverDistance: 0
+  _maxDistance: 0.015
+  _enterHoverDistance: 0.015
   _releaseDistance: 0.25
   _horizontalDragThreshold: 0
   _verticalDragThreshold: 0
@@ -7777,8 +7764,8 @@ MonoBehaviour:
   _pointableElement: {fileID: 1201753649}
   _proximityField: {fileID: 427577534}
   _surface: {fileID: 536145363}
-  _maxDistance: 0.1
-  _enterHoverDistance: 0
+  _maxDistance: 0.015
+  _enterHoverDistance: 0.015
   _releaseDistance: 0.25
   _horizontalDragThreshold: 0
   _verticalDragThreshold: 0
@@ -10041,6 +10028,10 @@ PrefabInstance:
       propertyPath: m_HideSoftKeyboard
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8694067556487286033, guid: 2fff372ae1d854945b0402d37fa4b21f, type: 3}
+      propertyPath: m_RestoreOriginalTextOnEscape
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8694067556538428801, guid: 2fff372ae1d854945b0402d37fa4b21f, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -10266,8 +10257,8 @@ MonoBehaviour:
   _pointableElement: {fileID: 1525048089}
   _proximityField: {fileID: 731547546}
   _surface: {fileID: 1303749157}
-  _maxDistance: 0.1
-  _enterHoverDistance: 0
+  _maxDistance: 0.015
+  _enterHoverDistance: 0.015
   _releaseDistance: 0.25
   _horizontalDragThreshold: 0
   _verticalDragThreshold: 0
@@ -11292,7 +11283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3139185089308592197, guid: 4d75824d0f634e04eadfe6f5f3f0390e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3139185089308592198, guid: 4d75824d0f634e04eadfe6f5f3f0390e, type: 3}
       propertyPath: m_Camera
@@ -11369,8 +11360,8 @@ MonoBehaviour:
   _pointableElement: {fileID: 1737212847}
   _proximityField: {fileID: 1085549831}
   _surface: {fileID: 1345661148}
-  _maxDistance: 0.1
-  _enterHoverDistance: 0
+  _maxDistance: 0.015
+  _enterHoverDistance: 0.015
   _releaseDistance: 0.25
   _horizontalDragThreshold: 0
   _verticalDragThreshold: 0
@@ -12747,7 +12738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7192818547680544906, guid: f39a9d103c4129b42a53567f6cd8356a, type: 3}
       propertyPath: _trackingOriginType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7192818547680544906, guid: f39a9d103c4129b42a53567f6cd8356a, type: 3}
       propertyPath: extraVisibleLayers.m_Bits

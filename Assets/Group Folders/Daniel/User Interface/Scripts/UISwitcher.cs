@@ -40,7 +40,7 @@ public class UISwitcher : MonoBehaviour
 
     private IEnumerator UISwitch()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f);
         SwitchUI();
     }
 }

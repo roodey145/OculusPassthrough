@@ -1,25 +1,18 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/************************************************************************************
+Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
+
+Your use of this SDK or tool is subject to the Oculus SDK License Agreement, available at
+https://developer.oculus.com/licenses/oculussdk/
+
+Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ANY KIND, either express or implied. See the License for the specific language governing
+permissions and limitations under the License.
+************************************************************************************/
 
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.EventSystems;
 
 public class OVRTrackedKeyboardHands : MonoBehaviour
 {
@@ -31,19 +24,26 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 	private Transform rightHandRoot_;
 
 	public OVRTrackedKeyboard KeyboardTracker;
-
+	
+	[SerializeField]
 	private OVRCameraRig cameraRig_;
+	[SerializeField]
 	private OVRHand leftHand_;
+	[SerializeField]
 	private OVRSkeleton leftHandSkeleton_;
+	[SerializeField]
 	private OVRSkeletonRenderer leftHandSkeletonRenderer_;
 	private GameObject leftHandSkeletonRendererGO_;
+	[SerializeField]
 	private SkinnedMeshRenderer leftHandSkinnedMeshRenderer_;
-	private OVRMeshRenderer leftHandMeshRenderer_;
+	[SerializeField]
 	private OVRHand rightHand_;
+	[SerializeField]
 	private OVRSkeleton rightHandSkeleton_;
+	[SerializeField]
 	private OVRSkeletonRenderer rightHandSkeletonRenderer_;
 	private GameObject rightHandSkeletonRendererGO_;
-	private OVRMeshRenderer rightHandMeshRenderer_;
+	[SerializeField]
 	private SkinnedMeshRenderer rightHandSkinnedMeshRenderer_;
 
 	public bool RightHandOverKeyboard { get; private set; } = false;
@@ -205,33 +205,19 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 	private void Start()
 	{
-		cameraRig_ = FindObjectOfType<OVRCameraRig>();
-		leftHand_ = cameraRig_.leftHandAnchor.GetComponentInChildren<OVRHand>();
-		rightHand_ = cameraRig_.rightHandAnchor.GetComponentInChildren<OVRHand>();
-		
-		leftHandSkeleton_ = leftHand_.GetComponent<OVRSkeleton>();
-		rightHandSkeleton_ = rightHand_.GetComponent<OVRSkeleton>();
-
-		leftHandMeshRenderer_ = leftHand_.GetComponent<OVRMeshRenderer>();
-		rightHandMeshRenderer_ = rightHand_.GetComponent<OVRMeshRenderer>();
-
-		leftHandSkeletonRenderer_ = leftHand_.GetComponent<OVRSkeletonRenderer>();
-		rightHandSkeletonRenderer_ = rightHand_.GetComponent<OVRSkeletonRenderer>();
+		/*
 		if (!leftHandSkeletonRenderer_.enabled)
 		{
 			// App is not using skeleton renderer
 			leftHandSkeletonRenderer_ = null;
 			rightHandSkeletonRenderer_ = null;
 		}
-
-		leftHandSkinnedMeshRenderer_ = leftHand_.GetComponent<SkinnedMeshRenderer>();
-		rightHandSkinnedMeshRenderer_ = rightHand_.GetComponent<SkinnedMeshRenderer>();
-		
-		var leftHand = Instantiate(LeftHandPresence);
-		var rightHand = Instantiate(RightHandPresence);
+		*/
+		var leftHand = GameObject.Instantiate(LeftHandPresence);
+		var rightHand = GameObject.Instantiate(RightHandPresence);
 		leftHandRoot_ = leftHand.transform;
 		rightHandRoot_ = rightHand.transform;
-		
+
 		leftHand.SetActive(false);
 		rightHand.SetActive(false);
 
@@ -246,7 +232,6 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		
 #if UNITY_EDITOR
 		if (!handPresenceInitialized_)
 		{
@@ -302,7 +287,7 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 		var enableLeftModel = ShouldEnableModel(leftHandDistance);
 		var enableRightModel = ShouldEnableModel(rightHandDistance);
-		//SetHandModelsEnabled(enableLeftModel, enableRightModel);
+		SetHandModelsEnabled(enableLeftModel, enableRightModel);
 
 		if (KeyboardTracker.Presentation == OVRTrackedKeyboard.KeyboardPresentation.PreferOpaque)
 		{
@@ -345,18 +330,16 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 			};
 			KeyboardTracker.UpdateKeyboardVisibility();
 		}
-
-		if (LeftHandOverKeyboard || RightHandOverKeyboard)
+		
+		var handsIntensity = new OVRPlugin.InsightPassthroughKeyboardHandsIntensity
 		{
-			var handsIntensity = new OVRPlugin.InsightPassthroughKeyboardHandsIntensity
-			{
-				LeftHandIntensity =
-					ComputeOpacity(leftHandDistance, handInnerAlphaThreshold_, handOuterAlphaThreshold_),
-				RightHandIntensity =
-					ComputeOpacity(rightHandDistance, handInnerAlphaThreshold_, handOuterAlphaThreshold_)
-			};
-			OVRPlugin.SetInsightPassthroughKeyboardHandsIntensity(KeyboardTracker.PassthroughOverlay.layerId, handsIntensity);
-		}
+			LeftHandIntensity =
+				ComputeOpacity(leftHandDistance, handInnerAlphaThreshold_, handOuterAlphaThreshold_),
+			RightHandIntensity =
+				ComputeOpacity(rightHandDistance, handInnerAlphaThreshold_, handOuterAlphaThreshold_)
+		};
+		OVRPlugin.SetInsightPassthroughKeyboardHandsIntensity(KeyboardTracker.PassthroughOverlay.layerId, handsIntensity);
+		
 	}
 
 	private bool ShouldEnablePassthrough(float distance)
@@ -388,8 +371,8 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
 	private void SetHandModelsEnabled(bool enableLeftModel, bool enableRightModel)
 	{
-		leftHandMeshRenderer_.enabled = enableLeftModel;
-		rightHandMeshRenderer_.enabled = enableRightModel;
+		//leftHandMeshRenderer_.enabled = enableLeftModel;
+		//rightHandMeshRenderer_.enabled = enableRightModel;
 
 		leftHandSkinnedMeshRenderer_.enabled = enableLeftModel;
 		rightHandSkinnedMeshRenderer_.enabled = enableRightModel;

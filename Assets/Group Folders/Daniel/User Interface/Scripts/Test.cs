@@ -45,7 +45,6 @@ public class Test : MonoBehaviour
     {
         Debug.Log("Selected " + index);
         selectedInputFieldIndex = index;
-        _inputFields[selectedInputFieldIndex].caretBlinkRate = 1f;
     }
 
     private IEnumerator _FixedUpdate()
@@ -54,11 +53,10 @@ public class Test : MonoBehaviour
         if (Input.anyKeyDown)
         {
             Event e = Event.current;
-            if (e.capsLock)
-            {
-                shouldBeUpperCasePersistent = true;
-            }
-            else if (e.isKey)
+            shouldBeUpperCase = e.capsLock;
+            if (e.shift) shouldBeUpperCase = !shouldBeUpperCase;
+
+            if (e.isKey)
             {
                 TMP_InputField selectedInputField = _inputFields[selectedInputFieldIndex];
                 switch (e.keyCode)
@@ -87,12 +85,6 @@ public class Test : MonoBehaviour
                             break;
                         }
                         if (shouldBeUpperCase)
-                        {
-                            selectedInputField.text += e.keyCode.ToString().ToUpper();
-                            shouldBeUpperCase = false;
-                            break;
-                        }
-                        if (shouldBeUpperCasePersistent)
                         {
                             selectedInputField.text += e.keyCode.ToString().ToUpper();
                             break;

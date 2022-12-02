@@ -8,11 +8,13 @@ using UnityEngine;
 
 public class HandMenuGroup : MonoBehaviour
 {
+    private ModelSpawner m_modelSpawner;
     private PokeInteractable[] _pokeInteractables;
     private HandMenuItem[] _handMenuItems;
     private HandMenuItem _selectedMenuItem;
     void Awake()
     {
+        m_modelSpawner = FindObjectOfType<ModelSpawner>();
         _pokeInteractables = GetComponentsInChildren<PokeInteractable>();
         _handMenuItems = GetComponentsInChildren<HandMenuItem>();
     }
@@ -42,7 +44,6 @@ public class HandMenuGroup : MonoBehaviour
 
     private void UpdateMenuItemSelections()
     {
-        //HandMenuItem[] selectedHandMenuItems = _handMenuItems.Where(item => item._isSelected).ToArray();
         foreach (var menuItem in _handMenuItems)
         {
             if (menuItem._currentState == InteractableState.Select)

@@ -8,20 +8,24 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Glow
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords:
-  - _ALPHABLEND_ON
-  m_InvalidKeywords: []
+  m_Shader: {fileID: 4800000, guid: 8120257754b48344b8a1a0961bad0c46, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _EDGEFADING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Bump:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -42,6 +46,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FingerGlowMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -58,36 +66,91 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 0.5
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _BlendDst: 0
+    - _BlendOpAlpha: 3
+    - _BlendOpColor: 2
+    - _BlendSrc: 1
     - _BumpScale: 1
+    - _ColorMultiply: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
+    - _DstBlendMode: 4
+    - _EdgeFading: 1
+    - _EnableConfidence: 0
+    - _FadingFalloff: 0.05
+    - _Falloff: 4
+    - _FresnelPower: 0.16
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GlowingStreangth: 3
+    - _HandAlpha: 1
+    - _Inflation: 0
+    - _Intensity: 1
+    - _InvertedAlpha: 1
+    - _LineLength: 1
+    - _MainTexMMBias: 0
     - _Metallic: 0
-    - _Mode: 2
+    - _MinVisibleAlpha: 0.15
+    - _Mode: 3
     - _OcclusionStrength: 1
     - _Opacity: 0.1
+    - _OutlineOpacity: 0.4
+    - _OutlineWidth: 0.00134
     - _Parallax: 0.02
+    - _Pow: 2
+    - _Power: 15
+    - _RimFactor: 0.65
     - _RimPower: 0.5
+    - _Scale: 0.055
+    - _Shininess: 1
     - _SmoothnessTextureChannel: 0
+    - _SoftFade: 0.05
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
+    - _SrcBlendMode: 0
     - _UVSec: 0
+    - _WristFade: 0.5
+    - _ZTest: 4
     - _ZWrite: 0
+    - _face: 0
+    - _linearToSrgb: 0
+    - _premultiply: 0
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 0.6829443, b: 0, a: 0.19215687}
+    - _BorderColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 0.6829443, b: 0, a: 0.043137256}
+    - _ColorBottom: {r: 0.0137021, g: 0.014443799, b: 0.0152085, a: 1}
+    - _ColorPrimary: {r: 0.39607796, g: 0.72549, b: 1, a: 1}
+    - _ColorTop: {r: 0.031896, g: 0.0343398, b: 0.0368894, a: 1}
+    - _Dimensions: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FingerGlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 0.4392157, g: 3.701961, b: 3.670588, a: 0}
     - _InnerColor: {r: 0, g: 0, b: 0, a: 0}
+    - _KeyboardPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _KeyboardRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _KeyboardScale: {r: 1, g: 1, b: 1, a: 0}
+    - _MyColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.53773576, g: 0.53773576, b: 0.53773576, a: 1}
+    - _OutlineJointColor: {r: 1, g: 0, b: 0, a: 1}
+    - _Radii: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &772977670374086462
 MonoBehaviour:

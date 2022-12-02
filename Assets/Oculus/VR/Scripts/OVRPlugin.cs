@@ -6299,6 +6299,7 @@ public static partial class OVRPlugin
 #else
 		if (version >= OVRP_1_72_0.version)
 		{
+			
 			Result result = OVRP_1_72_0.ovrp_SetSpaceComponentStatus(ref space, componentType, ToBool(enable), timeout, out requestId);
 			return (result == Result.Success);
 		}

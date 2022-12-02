@@ -19,11 +19,11 @@ public class Network : MonoBehaviour
     {
         string username = "Roodey145";
         string password = "Roodey145";
-        // Login(username, password);
+        Login(username, password);
         //FetchFilesHeader();
         //StartCoroutine(_FetchFilesHeader());
         //StartCoroutine(_CreateMeeting("Admin", 2));
-        StartCoroutine(_FetchFile(2));
+        //StartCoroutine(_FetchFile(2));
     }
 
 
@@ -34,7 +34,7 @@ public class Network : MonoBehaviour
     }
 
 
-    // The strings are immutable in c#
+    // The strings are immutatable in c#
     private IEnumerator _Login(string username, string password)
     {
         WWWForm form = new WWWForm();
@@ -48,18 +48,14 @@ public class Network : MonoBehaviour
 
             if (request.error != null)
             {
-                print("Error");
+                print("Error in the internet connection");
             }
             else
             {
                 NetworkFeedBack feedBack = new NetworkFeedBack(request.downloadHandler.text);
 
-                for(int i = 0; i < feedBack.errors.Count; i++)
-                {
-                    print("FeedBack: " + feedBack.errors[i].ToString());
-                }
-
-                print(request.downloadHandler.text);
+                // Handle the login feedback which the server has sent.
+                _LoginHandler(feedBack);
             }
         }
     }
@@ -68,23 +64,31 @@ public class Network : MonoBehaviour
     /// Will handles any error that might have occured while trying to login.
     /// </summary>
     /// <param name="loggedIn"></param>
-    private void _LoginHandler(bool loggedIn, NetworkFeedBack feedback)
+    private void _LoginHandler(NetworkFeedBack feedback)
     {
-        if(loggedIn)
-        { // The user has successfully logged in 
+
+
+        if (feedback.errors.Count > 0)
+        { // Some error(s) have occured while processing the login request.
+            for (int i = 0; i < feedback.errors.Count; i++)
+            {
+                // Handle each error individually
+                _HandleNetworkError(feedback.errors[i]);
+                //print("FeedBack: " + feedBack.errors[i].ToString());
+            }
+        }
+        else
+        { // The request was processed successfully and the user is logged in now
             // Create user info to indicate that the user has logged in
-            UserInfo.CreateInstance(loggedIn);
+            UserInfo.CreateInstance(true);
 
             // Fetch the user files header
             FetchFilesHeader();
 
+            // TODO: Not implemented yet
             // Send the user to the main scene
-
         }
-        else
-        { // An error occured while logging ind
 
-        }
     }
     #endregion
 
@@ -162,27 +166,41 @@ public class Network : MonoBehaviour
             }
             else
             {
-                print(request.downloadHandler.text);
+                NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
+                _FetchFilesHeaderHandler(request.downloadHandler.text, feedback);
+                //print(request.downloadHandler.text);
             }
         }
     }
 
-    private void _FetchFilesHeaderHandler(string filesHeaderRawData, NetworkFeedBack feedBack)
+    private void _FetchFilesHeaderHandler(string filesHeaderRawData, NetworkFeedBack feedback)
     {
-        // Seprate the files headers using the sperater sign ";"
-        string[] headers = filesHeaderRawData.Split(';');
 
-        List<FileHeader> filesHeader = new List<FileHeader>();
-        
-        // Retrive a header info
-        for(int i = 0; i < headers.Length; i++)
-        {
-            if(headers[i] != "")
+        // Check if any error has occured during the file header fetaching process
+        if(feedback.errors.Count > 0)
+        { // Some errors have occured while fetching the files header
+            for(int i = 0; i < feedback.errors.Count; i++)
             {
-                filesHeader.Add( new FileHeader(headers[i]) );
+                // Handle all the errors individually 
+                _HandleNetworkError(feedback.errors[i]);
             }
         }
+        else
+        { // The files header were fetched successfully.
+            // Seprate the files headers using the sperater sign ";"
+            string[] headers = filesHeaderRawData.Split(';');
 
+            List<FileHeader> filesHeader = new List<FileHeader>();
+
+            // Retrive a header info
+            for (int i = 0; i < headers.Length; i++)
+            {
+                if (headers[i] != "")
+                {
+                    filesHeader.Add(new FileHeader(headers[i]));
+                }
+            }
+        }
     }
 
     #endregion
@@ -210,7 +228,7 @@ public class Network : MonoBehaviour
             //    print("FeedBack Error: " + feedback.errors[i]);
             //}
 
-            if (request.error != null && feedback.errors.Count > 0)
+            if (request.error != null || feedback.errors.Count > 0)
             { // Error occured while fetching the file
                 _HandleFetchFile(feedback);
             }
@@ -341,9 +359,14 @@ public class Network : MonoBehaviour
     {
         switch (feedback)
         {
+            case NetworkFeedback.NOT_LOGGED_IND: 
+                
+                break;
             #region Password Errors
             case NetworkFeedback.PASSWORD: break;
-            case NetworkFeedback.INCORRECT_PASSWORD: break;
+            case NetworkFeedback.INCORRECT_PASSWORD:
+                print("Incorrect Password");
+                break;
             case NetworkFeedback.SHORT_PASSWORD: break;
             case NetworkFeedback.MISSING_PASSWORD:
                 print("Missing Password");
@@ -353,7 +376,9 @@ public class Network : MonoBehaviour
             #region Username Errors
             case NetworkFeedback.USERNAME: break;
             case NetworkFeedback.USERNAME_ALREADY_EXISTS: break;
-            case NetworkFeedback.USERNAME_DOES_NOT_EXISTS: break;
+            case NetworkFeedback.USERNAME_DOES_NOT_EXIST: 
+                print("Username Does Not Exist");
+                break;
             case NetworkFeedback.SHORT_USERNAME: break;
             case NetworkFeedback.MISSING_USERNAME:
                 print("Missing Username");

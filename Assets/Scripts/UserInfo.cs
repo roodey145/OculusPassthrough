@@ -18,12 +18,12 @@ public class UserInfo
 
     internal static void CreateInstance(bool loggedIn)
     {
-        lock(instance)
-        {
+        //lock(instance)
+        //{
             if(instance == null && loggedIn)
             {
                 instance = new UserInfo(loggedIn);
             }
-        }
+        //}
     }
 }

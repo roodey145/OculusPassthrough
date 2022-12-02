@@ -6,14 +6,18 @@ enum NetworkFeedback : byte
     NONE = 0,
 
     #region Errors
-    NAME, // = 1
-    SHORT_NAME, // = 2
-    MISSING_NAME, // = 3
+
+    NOT_LOGGED_IND, // = 1
+    ALREADY_LOGGED_IND, // = 2
+
+    NAME, // = 3
+    SHORT_NAME, // = 4
+    MISSING_NAME, // = 5
 
     USERNAME,
     SHORT_USERNAME,
     MISSING_USERNAME,
-    USERNAME_DOES_NOT_EXISTS,
+    USERNAME_DOES_NOT_EXIST,
     USERNAME_ALREADY_EXISTS,
 
     EMAIL,

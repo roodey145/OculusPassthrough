@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
@@ -18,11 +19,20 @@ public class Network : MonoBehaviour
     {
         string username = "Roodey145";
         string password = "Roodey145";
-        StartCoroutine(_Login(username, password));
-        StartCoroutine(_Fetch_Files_Header());
-        StartCoroutine(_CreateMeeting("Admin", 2));
-        StartCoroutine(_Fetch_File(2));
+        // Login(username, password);
+        //FetchFilesHeader();
+        //StartCoroutine(_FetchFilesHeader());
+        //StartCoroutine(_CreateMeeting("Admin", 2));
+        StartCoroutine(_FetchFile(2));
     }
+
+
+    #region Login
+    public void Login(string username, string password)
+    {
+        StartCoroutine(_Login(username, password));
+    }
+
 
     // The strings are immutable in c#
     private IEnumerator _Login(string username, string password)
@@ -42,11 +52,47 @@ public class Network : MonoBehaviour
             }
             else
             {
+                NetworkFeedBack feedBack = new NetworkFeedBack(request.downloadHandler.text);
+
+                for(int i = 0; i < feedBack.errors.Count; i++)
+                {
+                    print("FeedBack: " + feedBack.errors[i].ToString());
+                }
+
                 print(request.downloadHandler.text);
             }
         }
     }
 
+    /// <summary>
+    /// Will handles any error that might have occured while trying to login.
+    /// </summary>
+    /// <param name="loggedIn"></param>
+    private void _LoginHandler(bool loggedIn, NetworkFeedBack feedback)
+    {
+        if(loggedIn)
+        { // The user has successfully logged in 
+            // Create user info to indicate that the user has logged in
+            UserInfo.CreateInstance(loggedIn);
+
+            // Fetch the user files header
+            FetchFilesHeader();
+
+            // Send the user to the main scene
+
+        }
+        else
+        { // An error occured while logging ind
+
+        }
+    }
+    #endregion
+
+    #region Sign up
+    public void Signup(string name, string username, string password, string email = "")
+    {
+        StartCoroutine(_Signup(name, username, password, email));
+    }
 
     private IEnumerator _Signup(string name, string username, string password, string email = "")
     {
@@ -67,11 +113,41 @@ public class Network : MonoBehaviour
             else
             {
                 print(request.downloadHandler.text);
+                // Automaticlly login --> Will create a UserInfo instance.
+                Login(username, password);
             }
         }
     }
 
-    private IEnumerator _Fetch_Files_Header()
+
+    private void _SingupHandler(bool signedUp, NetworkFeedBack feedBack)
+    {
+        if (signedUp)
+        { // The user has successfully signed up
+
+            // Send the user to the login scene / OR just sign ind immeditely
+            
+        }
+        else
+        { // An error occured while signing up
+
+        }
+    }
+
+    #endregion
+
+    #region fetch files header
+
+    public void FetchFilesHeader()
+    {
+        if(UserInfo.instance != null && UserInfo.instance.loggedIn)
+        {
+            StartCoroutine(_FetchFilesHeader());
+        }
+    }
+
+
+    private IEnumerator _FetchFilesHeader()
     {
         WWWForm form = new WWWForm();
 
@@ -91,8 +167,30 @@ public class Network : MonoBehaviour
         }
     }
 
+    private void _FetchFilesHeaderHandler(string filesHeaderRawData, NetworkFeedBack feedBack)
+    {
+        // Seprate the files headers using the sperater sign ";"
+        string[] headers = filesHeaderRawData.Split(';');
 
-    private IEnumerator _Fetch_File(int fileId)
+        List<FileHeader> filesHeader = new List<FileHeader>();
+        
+        // Retrive a header info
+        for(int i = 0; i < headers.Length; i++)
+        {
+            if(headers[i] != "")
+            {
+                filesHeader.Add( new FileHeader(headers[i]) );
+            }
+        }
+
+    }
+
+    #endregion
+
+    #region Fetch file info
+
+
+    private IEnumerator _FetchFile(int fileId)
     {
         WWWForm form = new WWWForm();
         form.AddField("fileId", fileId);
@@ -103,9 +201,18 @@ public class Network : MonoBehaviour
 
             print(request.downloadHandler.text);
 
-            if (request.error != null)
-            {
-                print("Error");
+            // Create feedback from the received message
+            NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
+
+            //// Iterate through all the errors and print them
+            //for(int i = 0; i < feedback.errors.Count; i++)
+            //{
+            //    print("FeedBack Error: " + feedback.errors[i]);
+            //}
+
+            if (request.error != null && feedback.errors.Count > 0)
+            { // Error occured while fetching the file
+                _HandleFetchFile(feedback);
             }
             else
             {
@@ -115,6 +222,7 @@ public class Network : MonoBehaviour
 
                 if (www.error != null)
                 {
+                    print(www.error);
                     print("Error");
                 }
                 else
@@ -138,6 +246,30 @@ public class Network : MonoBehaviour
     }
 
 
+    private void _HandleFetchFile(NetworkFeedBack feedback)
+    {
+        if(feedback.errors.Count > 0)
+        { // Failed to fetch the file
+
+            // Handle the error accordingly 
+            for(int i = 0; i < feedback.errors.Count; i++)
+            {
+                // Handle each error individually.
+                _HandleNetworkError(feedback.errors[i]);
+            }
+
+        }
+    }
+
+    #endregion
+
+
+    #region Create meeting
+    public void CreateMeeting(string meetingName, int fileId)
+    {
+        StartCoroutine(_CreateMeeting(meetingName, fileId));
+    }
+
     private IEnumerator _CreateMeeting(string meetingName, int fileId)
     {
         WWWForm form = new WWWForm();
@@ -158,10 +290,28 @@ public class Network : MonoBehaviour
                 // Print the meeting code
                 print(request.downloadHandler.text);
                 // TODO: The file which is associated with the meeting should be imported
-
+                
             }
         }
     }
+
+
+    private void _CreateMeetingHandler(bool created, NetworkFeedBack feedBack)
+    {
+        if(created)
+        { // The meeting has been created
+
+            // Enable the meeting information in this scene
+        }
+        else
+        { // Some errors have occured
+
+            // Handle the errors which could have occured
+
+        }
+    }
+
+    #endregion
 
     private IEnumerator _JoinMeeting(string meetinCode)
     {
@@ -181,6 +331,34 @@ public class Network : MonoBehaviour
                 print(request.downloadHandler.text);
             }
 
+        }
+    }
+
+    
+
+
+    private void _HandleNetworkError(NetworkFeedback feedback)
+    {
+        switch (feedback)
+        {
+            #region Password Errors
+            case NetworkFeedback.PASSWORD: break;
+            case NetworkFeedback.INCORRECT_PASSWORD: break;
+            case NetworkFeedback.SHORT_PASSWORD: break;
+            case NetworkFeedback.MISSING_PASSWORD:
+                print("Missing Password");
+                break;
+            #endregion
+
+            #region Username Errors
+            case NetworkFeedback.USERNAME: break;
+            case NetworkFeedback.USERNAME_ALREADY_EXISTS: break;
+            case NetworkFeedback.USERNAME_DOES_NOT_EXISTS: break;
+            case NetworkFeedback.SHORT_USERNAME: break;
+            case NetworkFeedback.MISSING_USERNAME:
+                print("Missing Username");
+                break;
+            #endregion
         }
     }
 

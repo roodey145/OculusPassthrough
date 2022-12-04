@@ -86,7 +86,7 @@ public class Network : MonoBehaviour
             FetchFilesHeader();
 
             // TODO: Not implemented yet
-            // Send the user to the main scene
+            // Send the user to the main scene and give a message that they have been logged in
         }
 
     }
@@ -357,6 +357,10 @@ public class Network : MonoBehaviour
 
     private void _HandleNetworkError(NetworkFeedback feedback)
     {
+        SignManager signManager = FindObjectOfType<SignManager>();
+        RegisterManager registerManager = FindObjectOfType<RegisterManager>();
+        signManager.ClearAllErrorMessages();
+        registerManager.ClearAllErrorMessages();
         switch (feedback)
         {
             case NetworkFeedback.NOT_LOGGED_IND: 
@@ -365,23 +369,29 @@ public class Network : MonoBehaviour
             #region Password Errors
             case NetworkFeedback.PASSWORD: break;
             case NetworkFeedback.INCORRECT_PASSWORD:
-                print("Incorrect Password");
+                signManager.ShowIncorrectPasswordMessage();
                 break;
-            case NetworkFeedback.SHORT_PASSWORD: break;
+            case NetworkFeedback.SHORT_PASSWORD:
+                registerManager.ShowTooShortPasswordMessage();
+                break;
             case NetworkFeedback.MISSING_PASSWORD:
-                print("Missing Password");
+                registerManager.ShowMissingPasswordMessage();
                 break;
             #endregion
 
             #region Username Errors
             case NetworkFeedback.USERNAME: break;
-            case NetworkFeedback.USERNAME_ALREADY_EXISTS: break;
-            case NetworkFeedback.USERNAME_DOES_NOT_EXIST: 
-                print("Username Does Not Exist");
+            case NetworkFeedback.USERNAME_ALREADY_EXISTS:
+                registerManager.ShowUsernameAlreadyExistsMessage();
                 break;
-            case NetworkFeedback.SHORT_USERNAME: break;
+            case NetworkFeedback.USERNAME_DOES_NOT_EXIST:
+                signManager.ShowIncorrectUsernameMessage();
+                break;
+            case NetworkFeedback.SHORT_USERNAME:
+                registerManager.ShowTooShortUsernameMessage();
+                break;
             case NetworkFeedback.MISSING_USERNAME:
-                print("Missing Username");
+                registerManager.ShowMissingUsernameMessage();
                 break;
             #endregion
         }

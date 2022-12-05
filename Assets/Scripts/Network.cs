@@ -14,6 +14,8 @@ public class Network : MonoBehaviour
     private string _filePath = "fetchFile.php";
     private string _createMeetingPath = "createMeeting.php";
     private string _joinMeetingPath = "joinMeeting.php";
+    private string _modelInfoPath = "modelInfo.php";
+    private string _updateModelInfoPath = "updateModelInfo.php";
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class Network : MonoBehaviour
         //Login(username, password);
         //FetchFilesHeader();
         //StartCoroutine(_FetchFilesHeader());
+        // CreateMeeting("Admin", 2);
         //StartCoroutine(_CreateMeeting("Admin", 2));
         //StartCoroutine(_FetchFile(2));
     }
@@ -84,6 +87,8 @@ public class Network : MonoBehaviour
 
             // Fetch the user files header
             FetchFilesHeader();
+
+            CreateMeeting("Admin", 2);
 
             // TODO: Not implemented yet
             // Send the user to the main scene and give a message that they have been logged in
@@ -285,7 +290,10 @@ public class Network : MonoBehaviour
     #region Create meeting
     public void CreateMeeting(string meetingName, int fileId)
     {
-        StartCoroutine(_CreateMeeting(meetingName, fileId));
+        if (UserInfo.instance != null && UserInfo.instance.loggedIn)
+        {
+            StartCoroutine(_CreateMeeting(meetingName, fileId));
+        }
     }
 
     private IEnumerator _CreateMeeting(string meetingName, int fileId)
@@ -301,31 +309,46 @@ public class Network : MonoBehaviour
             // Check if any error occured
             if (request.error != null)
             { // An error has occured
-
+                print("Error");
             }
             else
             {
                 // Print the meeting code
                 print(request.downloadHandler.text);
                 // TODO: The file which is associated with the meeting should be imported
+<<<<<<< HEAD
 
+=======
+                NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
+                _CreateMeetingHandler(feedback);
+>>>>>>> 5fb621898d870c85bffc82b66944ff1f02d89ce0
             }
         }
     }
 
 
-    private void _CreateMeetingHandler(bool created, NetworkFeedBack feedBack)
+    private void _CreateMeetingHandler(NetworkFeedBack feedback)
     {
+<<<<<<< HEAD
         if (created)
+=======
+        if(feedback.errors.Count == 0)
+>>>>>>> 5fb621898d870c85bffc82b66944ff1f02d89ce0
         { // The meeting has been created
 
+            print("Meeting has been created");
             // Enable the meeting information in this scene
+            RetriveModelInfo();
         }
         else
         { // Some errors have occured
 
-            // Handle the errors which could have occured
-
+            // Handle the errors which have occured
+            for (int i = 0; i < feedback.errors.Count; i++)
+            {
+                // Handle the errors individually 
+                _HandleNetworkError(feedback.errors[i]);
+            }
         }
     }
 
@@ -347,11 +370,168 @@ public class Network : MonoBehaviour
             else
             {
                 print(request.downloadHandler.text);
+                NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
+                _JoinMeetingHandler( feedback );
             }
 
         }
     }
 
+<<<<<<< HEAD
+=======
+    private void _JoinMeetingHandler(NetworkFeedBack feedback)
+    {
+        if(feedback.errors.Count == 0)
+        { // Ready to join the meeting
+
+        }
+        else
+        { // An error occured
+            for(int i = 0; i < feedback.errors.Count; i++)
+            {
+                // Handle the errors individually 
+                _HandleNetworkError(feedback.errors[i]);
+            }
+        }
+    }
+
+
+    #region Handle Model info retriving/updating
+
+
+    #region Retrive model info
+    private bool _retrivingInfo = false;
+    internal bool IsRetrivingInfo { get { return _retrivingInfo; } }
+    internal void RetriveModelInfo()
+    {
+        if(!_retrivingInfo)
+        {
+            _retrivingInfo = true;
+            StartCoroutine(_RetriveModelInfo());
+        }
+        
+    }
+
+    private IEnumerator _RetriveModelInfo()
+    {
+        
+        WWWForm form = new WWWForm();
+
+        using (UnityWebRequest request = UnityWebRequest.Post(_mainCite + _modelInfoPath, form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.error != null)
+            {
+                // Indicates that the retriving info process has stopped
+                _retrivingInfo = false;
+                print("Error");
+            }
+            else
+            {
+                print(request.downloadHandler.text);
+                NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
+                _RetriveModeInfoHandler(feedback);
+            }
+
+        }
+    }
+
+    private void _RetriveModeInfoHandler(NetworkFeedBack feedback)
+    {
+        if(feedback.errors.Count == 0)
+        { // No error occured
+            // Assign the model info
+            ModelInfo.RegisterModelInfo(feedback.rawFeedback);
+            _retrivingInfo = false;
+            // Call the retrive info again
+            RetriveModelInfo();
+        }
+        else
+        { // Error occured while retriving the data
+
+            // Indicates that the retriving info process has stopped
+            _retrivingInfo = false;
+            for (int i = 0; i < feedback.errors.Count; i++)
+            {
+                // Handle the errors individually 
+                _HandleNetworkError(feedback.errors[i]);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Update model data
+    internal void UpdateModelInfo(Vector3 position, Vector3 scale, Vector3 rotation)
+    {
+        StartCoroutine(_UpdateModelInfo(position, scale, rotation));
+    }
+
+    private IEnumerator _UpdateModelInfo(Vector3 position, Vector3 scale, Vector3 rotation)
+    {
+
+        WWWForm form = new WWWForm();
+        // Add the position info
+        form.AddField("posX", position.x.ToString());
+        form.AddField("posY", position.y.ToString());
+        form.AddField("posZ", position.z.ToString());
+
+        // Add the scale info
+        form.AddField("scaleX", scale.x.ToString());
+        form.AddField("scaleY", scale.y.ToString());
+        form.AddField("scaleZ", scale.z.ToString());
+
+
+        // Add the rotation info
+        form.AddField("rotX", rotation.x.ToString());
+        form.AddField("rotY", rotation.y.ToString());
+        form.AddField("rotZ", rotation.z.ToString());
+
+
+        using (UnityWebRequest request = UnityWebRequest.Post(_mainCite + _updateModelInfoPath, form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.error != null)
+            {
+                // Indicates that the retriving info process has stopped
+                _retrivingInfo = false;
+                print("Error");
+            }
+            else
+            {
+                print(request.downloadHandler.text);
+                NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
+                _UpdateModelDataHandler(feedback);
+            }
+
+        }
+    }
+
+    private void _UpdateModelDataHandler(NetworkFeedBack feedback)
+    {
+        if (feedback.errors.Count == 0)
+        { // No error occured
+            // Assign the model info
+            ModelInfo.RegisterModelInfo(feedback.rawFeedback);
+            print("Model data has been updated");
+        }
+        else
+        { // Error occured while updating the data
+
+            for (int i = 0; i < feedback.errors.Count; i++)
+            {
+                // Handle the errors individually 
+                _HandleNetworkError(feedback.errors[i]);
+            }
+        }
+    }
+    #endregion
+
+    #endregion
+
+>>>>>>> 5fb621898d870c85bffc82b66944ff1f02d89ce0
 
 
 

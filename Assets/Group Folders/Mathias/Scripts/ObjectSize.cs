@@ -6,9 +6,9 @@ using TMPro;
 
 public class ObjectSize : MonoBehaviour
 {
-    public TextMeshProUGUI textValueX;
-    public TextMeshProUGUI textValueY;
-    public TextMeshProUGUI textValueZ;
+    public TextMeshPro textValueX;
+    public TextMeshPro textValueY;
+    public TextMeshPro textValueZ;
     private BoxCollider _collider;
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,9 @@ public class ObjectSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textValueX.text = $"X value: {transform.localScale.x * 10000} mm";
-        textValueY.text = $"Y value: {transform.localScale.y * 10000} mm";
-        textValueZ.text = $"Z value: {transform.localScale.z * 10000} mm";
+        textValueX.text = $"Width: {transform.localScale.x * 100}cm";
+        textValueY.text = $"Height: {transform.localScale.y * 100}cm";
+        textValueZ.text = $"Length: {transform.localScale.z * 100}cm";
         
         transform.localScale = new Vector3(_collider.size.x, _collider.size.y, _collider.size.z);
     }

@@ -316,12 +316,9 @@ public class Network : MonoBehaviour
                 // Print the meeting code
                 print(request.downloadHandler.text);
                 // TODO: The file which is associated with the meeting should be imported
-<<<<<<< HEAD
 
-=======
                 NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
                 _CreateMeetingHandler(feedback);
->>>>>>> 5fb621898d870c85bffc82b66944ff1f02d89ce0
             }
         }
     }
@@ -329,11 +326,7 @@ public class Network : MonoBehaviour
 
     private void _CreateMeetingHandler(NetworkFeedBack feedback)
     {
-<<<<<<< HEAD
-        if (created)
-=======
         if(feedback.errors.Count == 0)
->>>>>>> 5fb621898d870c85bffc82b66944ff1f02d89ce0
         { // The meeting has been created
 
             print("Meeting has been created");
@@ -376,9 +369,6 @@ public class Network : MonoBehaviour
 
         }
     }
-
-<<<<<<< HEAD
-=======
     private void _JoinMeetingHandler(NetworkFeedBack feedback)
     {
         if(feedback.errors.Count == 0)
@@ -530,9 +520,6 @@ public class Network : MonoBehaviour
     #endregion
 
     #endregion
-
->>>>>>> 5fb621898d870c85bffc82b66944ff1f02d89ce0
-
 
 
     public void _HandleNetworkError(NetworkFeedback feedback)

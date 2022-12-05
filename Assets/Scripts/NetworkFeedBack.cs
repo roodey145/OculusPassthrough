@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-enum NetworkFeedback : byte
+public enum NetworkFeedback : byte
 {
     NONE = 0,
 
@@ -75,12 +75,12 @@ internal class NetworkFeedBack
 
         NetworkFeedback error = NetworkFeedback.NONE;
         // Convert the errors string to NetworkErrors
-        for(int i = 0; i < errorsString.Length; i++)
+        for (int i = 0; i < errorsString.Length; i++)
         {
             error = _GetErrorType(errorsString[i]);
 
             // Check if the error is not NONE
-            if(error != NetworkFeedback.NONE)
+            if (error != NetworkFeedback.NONE)
             { // This error represent an actual error
 
                 // Add this error to the error list
@@ -91,7 +91,7 @@ internal class NetworkFeedBack
 
     public static void main(string[] args)
     {
-      new NetworkFeedBack(""). _GetErrorType("");
+        new NetworkFeedBack("")._GetErrorType("");
     }
 
 
@@ -103,9 +103,9 @@ internal class NetworkFeedBack
     private NetworkFeedback _GetErrorType(string errorString)
     {
         NetworkFeedback error = NetworkFeedback.NONE;
-        foreach(byte errIndex in Enum.GetValues(typeof(NetworkFeedback)))
+        foreach (byte errIndex in Enum.GetValues(typeof(NetworkFeedback)))
         {
-            if(errorString.ToLower() == ((NetworkFeedback)errIndex).ToString().ToLower())
+            if (errorString.ToLower() == ((NetworkFeedback)errIndex).ToString().ToLower())
             { // The error which the string represent has been found
                 error = (NetworkFeedback)errIndex;
                 break;

@@ -19,7 +19,7 @@ public class Network : MonoBehaviour
     {
         string username = "Roodey145";
         string password = "Roodey145";
-        Login(username, password);
+        //Login(username, password);
         //FetchFilesHeader();
         //StartCoroutine(_FetchFilesHeader());
         //StartCoroutine(_CreateMeeting("Admin", 2));
@@ -130,7 +130,7 @@ public class Network : MonoBehaviour
         { // The user has successfully signed up
 
             // Send the user to the login scene / OR just sign ind immeditely
-            
+
         }
         else
         { // An error occured while signing up
@@ -144,7 +144,7 @@ public class Network : MonoBehaviour
 
     public void FetchFilesHeader()
     {
-        if(UserInfo.instance != null && UserInfo.instance.loggedIn)
+        if (UserInfo.instance != null && UserInfo.instance.loggedIn)
         {
             StartCoroutine(_FetchFilesHeader());
         }
@@ -177,9 +177,9 @@ public class Network : MonoBehaviour
     {
 
         // Check if any error has occured during the file header fetaching process
-        if(feedback.errors.Count > 0)
+        if (feedback.errors.Count > 0)
         { // Some errors have occured while fetching the files header
-            for(int i = 0; i < feedback.errors.Count; i++)
+            for (int i = 0; i < feedback.errors.Count; i++)
             {
                 // Handle all the errors individually 
                 _HandleNetworkError(feedback.errors[i]);
@@ -266,11 +266,11 @@ public class Network : MonoBehaviour
 
     private void _HandleFetchFile(NetworkFeedBack feedback)
     {
-        if(feedback.errors.Count > 0)
+        if (feedback.errors.Count > 0)
         { // Failed to fetch the file
 
             // Handle the error accordingly 
-            for(int i = 0; i < feedback.errors.Count; i++)
+            for (int i = 0; i < feedback.errors.Count; i++)
             {
                 // Handle each error individually.
                 _HandleNetworkError(feedback.errors[i]);
@@ -308,7 +308,7 @@ public class Network : MonoBehaviour
                 // Print the meeting code
                 print(request.downloadHandler.text);
                 // TODO: The file which is associated with the meeting should be imported
-                
+
             }
         }
     }
@@ -316,7 +316,7 @@ public class Network : MonoBehaviour
 
     private void _CreateMeetingHandler(bool created, NetworkFeedBack feedBack)
     {
-        if(created)
+        if (created)
         { // The meeting has been created
 
             // Enable the meeting information in this scene
@@ -352,19 +352,19 @@ public class Network : MonoBehaviour
         }
     }
 
-    
 
 
-    private void _HandleNetworkError(NetworkFeedback feedback)
+
+    public void _HandleNetworkError(NetworkFeedback feedback)
     {
         SignManager signManager = FindObjectOfType<SignManager>();
         RegisterManager registerManager = FindObjectOfType<RegisterManager>();
-        signManager.ClearAllErrorMessages();
-        registerManager.ClearAllErrorMessages();
+        if (signManager != null) signManager.ClearAllErrorMessages();
+        if (registerManager != null) registerManager.ClearAllErrorMessages();
         switch (feedback)
         {
-            case NetworkFeedback.NOT_LOGGED_IND: 
-                
+            case NetworkFeedback.NOT_LOGGED_IND:
+
                 break;
             #region Password Errors
             case NetworkFeedback.PASSWORD: break;
@@ -393,7 +393,7 @@ public class Network : MonoBehaviour
             case NetworkFeedback.MISSING_USERNAME:
                 registerManager.ShowMissingUsernameMessage();
                 break;
-            #endregion
+                #endregion
         }
     }
 

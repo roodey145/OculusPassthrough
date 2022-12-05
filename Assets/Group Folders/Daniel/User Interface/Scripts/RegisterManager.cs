@@ -3,20 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RegisterManager : MonoBehaviour
 {
     [SerializeField] private float m_messageDisplayDuration;
+    [SerializeField] private Button registerInButton;
+    private Network network;
     private InputFieldData[] _inputFieldData;
-    private InputFieldData _emailInputFieldData; 
+    private InputFieldData _emailInputFieldData;
     private InputFieldData _usernameInputField;
     private InputFieldData _passwordInputField;
     private GameObject[] _userInterfaces;
-    private void Awake()
+    private void Start()
     {
-        _userInterfaces = Resources.LoadAll<GameObject>("UserInterfaces/RegisterMessages");
+        network = FindObjectOfType<Network>();
+        _userInterfaces = Resources.LoadAll<GameObject>("UserInterfaces");
         _inputFieldData = GetComponentsInChildren<InputFieldData>();
-        _inputFieldData = new InputFieldData[_inputFieldData.Length];
         foreach (var inputFieldData in _inputFieldData)
         {
             switch (inputFieldData.m_inputFieldType)
@@ -36,26 +39,41 @@ public class RegisterManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        registerInButton.onClick.AddListener(Register);
+    }
+
+    private void OnDisable()
+    {
+        registerInButton.onClick.RemoveListener(Register);
+    }
+
+    private void Register()
+    {
+        network._HandleNetworkError(NetworkFeedback.SHORT_USERNAME);
+    }
+
     public void ShowUsernameAlreadyExistsMessage()
     {
         _usernameInputField.m_errorMessage.text = "<color=red>Username already exists!</color>";
         _usernameInputField.m_inputField.image.color = Color.red;
     }
-    
+
     public void ShowMissingUsernameMessage()
     {
         // Show missing password message directly on the existing UI.
         _usernameInputField.m_errorMessage.text = "<color=red>Username missing!</color>";
         _usernameInputField.m_inputField.image.color = Color.red;
     }
-    
+
     public void ShowMissingPasswordMessage()
     {
         // Show missing password message directly on the existing UI.
         _passwordInputField.m_errorMessage.text = "<color=red>Password missing!</color>";
         _passwordInputField.m_inputField.image.color = Color.red;
     }
-    
+
     public void ShowTooShortPasswordMessage()
     {
         // Show missing password message directly on the existing UI.
@@ -77,12 +95,12 @@ public class RegisterManager : MonoBehaviour
         StartCoroutine(ShowMessageTemporarily(registerSuccess));
         transform.parent.gameObject.SetActive(false);
     }
-    
+
     private GameObject GetUserInterface(string interfaceName)
     {
         return _userInterfaces.FirstOrDefault(userInterface => userInterface.name == interfaceName);
     }
-    
+
     public void ClearAllErrorMessages()
     {
         _usernameInputField.m_errorMessage.text = "";
@@ -92,7 +110,7 @@ public class RegisterManager : MonoBehaviour
         _emailInputFieldData.m_errorMessage.text = "";
         _emailInputFieldData.m_inputField.image.color = _emailInputFieldData.m_inputFieldNormalColor;
     }
-    
+
     private IEnumerator ShowMessageTemporarily(GameObject userInterface)
     {
         Instantiate(userInterface, transform.parent);

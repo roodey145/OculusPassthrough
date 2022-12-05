@@ -4,20 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SignManager : MonoBehaviour
 {
     [SerializeField] private float m_messageDisplayDuration;
+    [SerializeField] private Button signInButton;
+    private Network network;
     private InputFieldData[] _inputFieldData;
     private InputFieldData _usernameInputField;
     private InputFieldData _passwordInputField;
     private GameObject[] _userInterfaces;
+    private bool clicked;
 
-    private void Awake()
+    private void Start()
     {
-        _userInterfaces = Resources.LoadAll<GameObject>("UserInterfaces/SignInMessages");
+        network = FindObjectOfType<Network>();
+        _userInterfaces = Resources.LoadAll<GameObject>("UserInterfaces");
         _inputFieldData = GetComponentsInChildren<InputFieldData>();
-        _inputFieldData = new InputFieldData[_inputFieldData.Length];
         foreach (var inputFieldData in _inputFieldData)
         {
             switch (inputFieldData.m_inputFieldType)
@@ -34,10 +38,25 @@ public class SignManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        signInButton.onClick.AddListener(Login);
+    }
+
+    private void OnDisable()
+    {
+        signInButton.onClick.RemoveListener(Login);
+    }
+
+    private void Login()
+    {
+        network._HandleNetworkError(NetworkFeedback.LOGIN_SUCCEEDED);
+    }
+
     public void ShowNotLoggedInMessage()
     {
         // Show not logged in message as a separate UI
-        
+
     }
 
     public void ShowIncorrectUsernameMessage()
@@ -47,13 +66,13 @@ public class SignManager : MonoBehaviour
         // Show incorrect username message directly in the UI
 
     }
-    
+
     public void ShowIncorrectPasswordMessage()
     {
         _passwordInputField.m_errorMessage.text = $"<color=red>Incorrect password</color>";
         _passwordInputField.m_inputField.image.color = Color.red;
         // Show incorrect password message directly in the UI
-        
+
     }
 
     public void ShowLoggedInSuccessMessage()
@@ -63,7 +82,7 @@ public class SignManager : MonoBehaviour
         StartCoroutine(ShowMessageTemporarily(loggedInUI));
         transform.parent.gameObject.SetActive(false);
     }
-    
+
     private GameObject GetUserInterface(string interfaceName)
     {
         return _userInterfaces.FirstOrDefault(userInterface => userInterface.name == interfaceName);

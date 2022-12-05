@@ -7,13 +7,14 @@ public class FileHeader
     private const int RAWDATA_LENGTH = 3;
     internal int id;
     internal string name;
-    internal string dato;
+    internal string date;
+    internal string path;
 
-    internal FileHeader(int id, string name, string dato)
+    internal FileHeader(int id, string name, string date)
     {
         this.id = id;
         this.name = name;
-        this.dato = dato;
+        this.date = date;
     }
     
     /// <summary>
@@ -29,7 +30,7 @@ public class FileHeader
         {
             id = int.Parse( data[0] );
             name = data[1];
-            dato = data[2];
+            date = data[2];
         }
         else
         {

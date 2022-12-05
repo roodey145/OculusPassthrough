@@ -49,6 +49,9 @@ enum NetworkFeedback : byte
     REGISTERING_ATTENDER_FAILED,
     INCORRECT_MEETING_CODE,
 
+    NOT_ATTENDER_RETRIVING_MODEL_INFO,
+    RETRIVE_MODEL_INFO_FAILED,
+
     SERVER_ERROR,
     INCORRECT_REQUEST_METHOD,
     #endregion
@@ -62,6 +65,7 @@ enum NetworkFeedback : byte
 internal class NetworkFeedBack
 {
     internal List<NetworkFeedback> errors = new List<NetworkFeedback>();
+    internal string rawFeedback;
 
     /// <summary>
     /// This constructor takes one arrgument which expect the
@@ -71,6 +75,8 @@ internal class NetworkFeedBack
     /// <param name="feedback">The string which contains the name of the errors which have occured.</param>
     internal NetworkFeedBack(string feedback)
     {
+        rawFeedback = feedback;
+
         string[] errorsString = feedback.Split(";");
 
         NetworkFeedback error = NetworkFeedback.NONE;

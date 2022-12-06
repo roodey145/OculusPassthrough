@@ -98,7 +98,7 @@ internal class NetworkFeedBack
 
                 if (errorsString[i].ToLower().Contains(NetworkFeedback.SUCCEEDED.ToString().ToLower()))
                 { // The request has succeded
-                    succeded.Add(feedbackType);
+                    succeeded.Add(feedbackType);
                 }
                 else
                 {

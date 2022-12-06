@@ -21,7 +21,7 @@ public class Network : MonoBehaviour
     {
         string username = "Roodey145";
         string password = "Roodey145";
-        //Login(username, password);
+        Login(username, password);
         //FetchFilesHeader();
         //StartCoroutine(_FetchFilesHeader());
         // CreateMeeting("Admin", 2);
@@ -85,10 +85,15 @@ public class Network : MonoBehaviour
             // Create user info to indicate that the user has logged in
             UserInfo.CreateInstance(true);
 
+            print("Logged in");
+
             // Fetch the user files header
             FetchFilesHeader();
 
-            CreateMeeting("Admin", 2);
+            //CreateMeeting("Admin", 2);
+
+            // Join a meeting
+            JoinMeeting("4aebfd");
 
             // TODO: Not implemented yet
             // Send the user to the main scene and give a message that they have been logged in
@@ -212,7 +217,6 @@ public class Network : MonoBehaviour
 
     #region Fetch file info
 
-
     private IEnumerator _FetchFile(int fileId)
     {
         WWWForm form = new WWWForm();
@@ -251,12 +255,17 @@ public class Network : MonoBehaviour
                 else
                 {
                     print(Application.persistentDataPath);
-                    using (Stream file = File.Open(Application.persistentDataPath + fileId + "roodey.fbx", FileMode.Create))
+                    using (Stream file = File.Open(Application.persistentDataPath + fileId + ".fbx", FileMode.Create))
                     {
                         using (BinaryWriter bw = new BinaryWriter(file, Encoding.UTF8, false))
                         {
                             bw.Write(www.downloadHandler.data);
                             bw.Close();
+
+                            // No error has occured and the file has been successfully created
+                            feedback = new NetworkFeedBack(Application.persistentDataPath + fileId + ".fbx");
+
+                            _HandleFetchFile(feedback);
                         }
                     }
                 }
@@ -281,6 +290,10 @@ public class Network : MonoBehaviour
                 _HandleNetworkError(feedback.errors[i]);
             }
 
+        }
+        else
+        { // The file path is the feedback rawData
+            string filePath = feedback.rawFeedback;
         }
     }
 
@@ -347,10 +360,18 @@ public class Network : MonoBehaviour
 
     #endregion
 
-    private IEnumerator _JoinMeeting(string meetinCode)
+    internal void JoinMeeting(string meetingCode)
+    {
+        if (UserInfo.instance != null && UserInfo.instance.loggedIn)
+        {
+            StartCoroutine(_JoinMeeting(meetingCode));
+        }
+    }
+
+    private IEnumerator _JoinMeeting(string meetingCode)
     {
         WWWForm form = new WWWForm();
-        form.AddField("meetingCode", meetinCode);
+        form.AddField("meetingCode", meetingCode);
 
         using (UnityWebRequest request = UnityWebRequest.Post(_mainCite + _joinMeetingPath, form))
         {
@@ -374,6 +395,17 @@ public class Network : MonoBehaviour
         if (feedback.errors.Count == 0)
         { // Ready to join the meeting
 
+            // Get the file id
+            string fileIdStr = feedback.rawFeedback.Replace("FileId: ", "").Replace(";", "").Replace(" ", "");
+            int fileId = -1;
+            if(int.TryParse(fileIdStr, out fileId))
+            {
+                // Retrive the file which belongs to this meeting
+                StartCoroutine(_FetchFile(fileId));
+
+                // Start retriving the file information when the file is ready
+                
+            }
         }
         else
         { // An error occured
@@ -566,7 +598,11 @@ public class Network : MonoBehaviour
             case NetworkFeedback.MISSING_USERNAME:
                 registerManager.ShowMissingUsernameMessage();
                 break;
-                #endregion
+            #endregion
+
+            default:
+                print("Default Handler: " + feedback.ToString());
+                break;
         }
     }
 

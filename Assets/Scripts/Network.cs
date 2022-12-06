@@ -255,7 +255,7 @@ public class Network : MonoBehaviour
                 else
                 {
                     print(Application.persistentDataPath);
-                    using (Stream file = File.Open(Application.persistentDataPath + fileId + ".fbx", FileMode.Create))
+                    using (Stream file = File.Open(Application.persistentDataPath + "/" + fileId + ".fbx", FileMode.Create))
                     {
                         using (BinaryWriter bw = new BinaryWriter(file, Encoding.UTF8, false))
                         {
@@ -263,7 +263,7 @@ public class Network : MonoBehaviour
                             bw.Close();
 
                             // No error has occured and the file has been successfully created
-                            feedback = new NetworkFeedBack(Application.persistentDataPath + fileId + ".fbx");
+                            feedback = new NetworkFeedBack(Application.persistentDataPath + "/" + fileId + ".fbx");
 
                             _HandleFetchFile(feedback);
                         }
@@ -294,6 +294,7 @@ public class Network : MonoBehaviour
         else
         { // The file path is the feedback rawData
             string filePath = feedback.rawFeedback;
+            print(filePath);
         }
     }
 
@@ -342,7 +343,22 @@ public class Network : MonoBehaviour
         if(feedback.errors.Count == 0)
         { // The meeting has been created
 
-            print("Meeting has been created");
+            string[] data = feedback.rawFeedback.Split(";");
+            // Extract the file id
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i].Contains("MeetingCode"))
+                {
+                    // Get the file id
+                    string meetingCode = data[i].Replace("MeetingCode: ", "").Replace(" ", "");
+
+                    print(meetingCode);
+
+                    // TODO: Display the meeting code so the user can share it.
+
+                }
+            }
+
             // Enable the meeting information in this scene
             RetriveModelInfo();
         }
@@ -395,17 +411,26 @@ public class Network : MonoBehaviour
         if(feedback.errors.Count == 0)
         { // Ready to join the meeting
 
-            // Get the file id
-            string fileIdStr = feedback.rawFeedback.Replace("FileId: ", "").Replace(";", "").Replace(" ", "");
-            int fileId = -1;
-            if(int.TryParse(fileIdStr, out fileId))
+            string[] data = feedback.rawFeedback.Split(";");
+            // Extract the file id
+            for (int i = 0; i < data.Length; i++)
             {
-                // Retrive the file which belongs to this meeting
-                StartCoroutine(_FetchFile(fileId));
+                if(data[i].Contains("FileId"))
+                {
+                    // Get the file id
+                    string fileIdStr = data[i].Replace("FileId: ", "").Replace(" ", "");
+                    print(fileIdStr);
+                    int fileId = -1;
+                    if (int.TryParse(fileIdStr, out fileId))
+                    {
+                        // Retrive the file which belongs to this meeting
+                        StartCoroutine(_FetchFile(fileId));
 
-                // Start retriving the file information when the file is ready
-                
-            }
+                        // Start retriving the file information when the file is ready
+                        
+                    }
+                }
+            }            
         }
         else
         { // An error occured

@@ -60,14 +60,18 @@ public enum NetworkFeedback : byte
     #endregion
 
     #region Success
+    SUCCEEDED,
     LOGIN_SUCCEEDED,
-    SIGNUP_SUCCEEDED
+    SIGNUP_SUCCEEDED,
+    CREATE_MEETING_SUCCEEDED,
+    JOIN_MEETING_SUCCEEDED
     #endregion
 }
 
 internal class NetworkFeedBack
 {
     internal List<NetworkFeedback> errors = new List<NetworkFeedback>();
+    internal List<NetworkFeedback> succeeded = new List<NetworkFeedback>();
     internal string rawFeedback;
 
     /// <summary>
@@ -82,25 +86,32 @@ internal class NetworkFeedBack
 
         string[] errorsString = feedback.Split(";");
 
-        NetworkFeedback error = NetworkFeedback.NONE;
+        NetworkFeedback feedbackType;
         // Convert the errors string to NetworkErrors
         for (int i = 0; i < errorsString.Length; i++)
         {
-            error = _GetErrorType(errorsString[i]);
+            feedbackType = _GetFeedbackType(errorsString[i]);
 
             // Check if the error is not NONE
-            if (error != NetworkFeedback.NONE)
+            if (feedbackType != NetworkFeedback.NONE)
             { // This error represent an actual error
 
-                // Add this error to the error list
-                errors.Add(error);
+                if (errorsString[i].ToLower().Contains(NetworkFeedback.SUCCEEDED.ToString().ToLower()))
+                { // The request has succeded
+                    succeeded.Add(feedbackType);
+                }
+                else
+                {
+                    // Add this error to the error list
+                    errors.Add(feedbackType);
+                }
             }
         }
     }
 
     public static void main(string[] args)
     {
-        new NetworkFeedBack("")._GetErrorType("");
+        new NetworkFeedBack("")._GetFeedbackType("");
     }
 
 
@@ -109,13 +120,13 @@ internal class NetworkFeedBack
     /// to a NetworkError which the string represent.
     /// </summary>
     /// <param name="error">The error string</param>
-    private NetworkFeedback _GetErrorType(string errorString)
+    private NetworkFeedback _GetFeedbackType(string errorString)
     {
         NetworkFeedback error = NetworkFeedback.NONE;
         foreach (byte errIndex in Enum.GetValues(typeof(NetworkFeedback)))
         {
             if (errorString.ToLower() == ((NetworkFeedback)errIndex).ToString().ToLower())
-            { // The error which the string represent has been found
+            { // The error which the string represent/success has been found
                 error = (NetworkFeedback)errIndex;
                 break;
             }

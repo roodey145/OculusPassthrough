@@ -255,12 +255,17 @@ public class Network : MonoBehaviour
                 else
                 {
                     print(Application.persistentDataPath);
-                    using (Stream file = File.Open(Application.persistentDataPath + fileId + "roodey.fbx", FileMode.Create))
+                    using (Stream file = File.Open(Application.persistentDataPath + fileId + ".fbx", FileMode.Create))
                     {
                         using (BinaryWriter bw = new BinaryWriter(file, Encoding.UTF8, false))
                         {
                             bw.Write(www.downloadHandler.data);
                             bw.Close();
+
+                            // No error has occured and the file has been successfully created
+                            feedback = new NetworkFeedBack(Application.persistentDataPath + fileId + ".fbx");
+
+                            _HandleFetchFile(feedback);
                         }
                     }
                 }
@@ -285,6 +290,10 @@ public class Network : MonoBehaviour
                 _HandleNetworkError(feedback.errors[i]);
             }
 
+        }
+        else
+        { // The file path is the feedback rawData
+            string filePath = feedback.rawFeedback;
         }
     }
 

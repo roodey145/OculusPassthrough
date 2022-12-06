@@ -6,6 +6,7 @@ public class UserInfo
 {
     internal static UserInfo instance { private set; get; }
     internal bool loggedIn { private set; get; }
+    internal bool hasCreatedMeeting { private set; get; }
 
     internal FileHeader[] fileHeaders;
 
@@ -20,10 +21,10 @@ public class UserInfo
     {
         //lock(instance)
         //{
-            if(instance == null && loggedIn)
-            {
-                instance = new UserInfo(loggedIn);
-            }
+        if (instance == null && loggedIn)
+        {
+            instance = new UserInfo(loggedIn);
+        }
         //}
     }
 }

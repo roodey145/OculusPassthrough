@@ -10,7 +10,7 @@ public class SignManager : MonoBehaviour
 {
     [SerializeField] private float m_messageDisplayDuration;
     [SerializeField] private Button signInButton;
-    private Network network;
+    private Network _network;
     private InputFieldData[] _inputFieldData;
     private InputFieldData _usernameInputField;
     private InputFieldData _passwordInputField;
@@ -19,7 +19,7 @@ public class SignManager : MonoBehaviour
 
     private void Start()
     {
-        network = FindObjectOfType<Network>();
+        _network = FindObjectOfType<Network>();
         _userInterfaces = Resources.LoadAll<GameObject>("UserInterfaces");
         _inputFieldData = GetComponentsInChildren<InputFieldData>();
         foreach (var inputFieldData in _inputFieldData)
@@ -50,7 +50,7 @@ public class SignManager : MonoBehaviour
 
     private void Login()
     {
-        network._HandleNetworkError(NetworkFeedback.LOGIN_SUCCEEDED);
+        _network.Login(_usernameInputField.m_inputField.text, _passwordInputField.m_inputField.text);
     }
 
     public void ShowNotLoggedInMessage()

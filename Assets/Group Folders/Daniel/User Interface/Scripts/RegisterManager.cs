@@ -9,7 +9,7 @@ public class RegisterManager : MonoBehaviour
 {
     [SerializeField] private float m_messageDisplayDuration;
     [SerializeField] private Button registerInButton;
-    private Network network;
+    private Network _network;
     private InputFieldData[] _inputFieldData;
     private InputFieldData _emailInputFieldData;
     private InputFieldData _usernameInputField;
@@ -17,7 +17,7 @@ public class RegisterManager : MonoBehaviour
     private GameObject[] _userInterfaces;
     private void Start()
     {
-        network = FindObjectOfType<Network>();
+        _network = FindObjectOfType<Network>();
         _userInterfaces = Resources.LoadAll<GameObject>("UserInterfaces");
         _inputFieldData = GetComponentsInChildren<InputFieldData>();
         foreach (var inputFieldData in _inputFieldData)
@@ -51,7 +51,10 @@ public class RegisterManager : MonoBehaviour
 
     private void Register()
     {
-        network._HandleNetworkError(NetworkFeedback.SHORT_USERNAME);
+        _network.Signup(_usernameInputField.m_inputField.text,
+                            _usernameInputField.m_inputField.text,
+                            _passwordInputField.m_inputField.text,
+                            _emailInputFieldData.m_inputField.text);
     }
 
     public void ShowUsernameAlreadyExistsMessage()

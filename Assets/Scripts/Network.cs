@@ -398,13 +398,13 @@ public class Network : MonoBehaviour
             // Get the file id
             string fileIdStr = feedback.rawFeedback.Replace("FileId: ", "").Replace(";", "").Replace(" ", "");
             int fileId = -1;
-            if(int.TryParse(fileIdStr, out fileId))
+            if (int.TryParse(fileIdStr, out fileId))
             {
                 // Retrive the file which belongs to this meeting
                 StartCoroutine(_FetchFile(fileId));
 
                 // Start retriving the file information when the file is ready
-                
+
             }
         }
         else
@@ -554,14 +554,22 @@ public class Network : MonoBehaviour
     #endregion
 
 
-    public void _HandleNetworkError(NetworkFeedback feedback)
+    private void _HandleNetworkError(NetworkFeedback feedback)
     {
         SignManager signManager = FindObjectOfType<SignManager>();
         RegisterManager registerManager = FindObjectOfType<RegisterManager>();
+        MeetingManager meetingManager = FindObjectOfType<MeetingManager>();
+        if (meetingManager != null) meetingManager.ClearAllErrorMessages();
         if (signManager != null) signManager.ClearAllErrorMessages();
         if (registerManager != null) registerManager.ClearAllErrorMessages();
         switch (feedback)
         {
+            case NetworkFeedback.INCORRECT_MEETING_CODE:
+
+                break;
+            case NetworkFeedback.MISSING_MEETING_CODE:
+
+                break;
             case NetworkFeedback.LOGIN_SUCCEEDED:
                 signManager.ShowLoggedInSuccessMessage();
                 break;
@@ -605,7 +613,6 @@ public class Network : MonoBehaviour
                 break;
         }
     }
-
 
     private UnityWebRequest _CreateRequest(string path, object data)
     {

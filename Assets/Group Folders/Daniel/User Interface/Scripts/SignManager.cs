@@ -98,8 +98,8 @@ public class SignManager : MonoBehaviour
 
     private IEnumerator ShowMessageTemporarily(GameObject userInterface)
     {
-        userInterface.SetActive(true);
+        GameObject ui = Instantiate(userInterface, transform.parent);
         yield return new WaitForSeconds(m_messageDisplayDuration);
-        userInterface.SetActive(false);
+        Destroy(ui);
     }
 }

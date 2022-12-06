@@ -18,7 +18,7 @@ public class BoxResize : MonoBehaviour
     }
     private bool firstResize = false;
     private float lastDistance;
-    float radius = 0.03f;
+    float radius = 0.015f;
 
     Vector3 extraScale = Vector3.zero;
 

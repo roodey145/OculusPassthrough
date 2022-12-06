@@ -340,7 +340,7 @@ public class Network : MonoBehaviour
 
     private void _CreateMeetingHandler(NetworkFeedBack feedback)
     {
-        if(feedback.errors.Count == 0)
+        if (feedback.errors.Count == 0)
         { // The meeting has been created
 
             string[] data = feedback.rawFeedback.Split(";");
@@ -401,14 +401,14 @@ public class Network : MonoBehaviour
             {
                 print(request.downloadHandler.text);
                 NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
-                _JoinMeetingHandler( feedback );
+                _JoinMeetingHandler(feedback);
             }
 
         }
     }
     private void _JoinMeetingHandler(NetworkFeedBack feedback)
     {
-        if(feedback.errors.Count == 0)
+        if (feedback.errors.Count == 0)
         { // Ready to join the meeting
 
             string[] data = feedback.rawFeedback.Split(";");
@@ -434,7 +434,7 @@ public class Network : MonoBehaviour
         }
         else
         { // An error occured
-            for(int i = 0; i < feedback.errors.Count; i++)
+            for (int i = 0; i < feedback.errors.Count; i++)
             {
                 // Handle the errors individually 
                 _HandleNetworkError(feedback.errors[i]);
@@ -451,17 +451,17 @@ public class Network : MonoBehaviour
     internal bool IsRetrivingInfo { get { return _retrivingInfo; } }
     internal void RetriveModelInfo()
     {
-        if(!_retrivingInfo)
+        if (!_retrivingInfo)
         {
             _retrivingInfo = true;
             StartCoroutine(_RetriveModelInfo());
         }
-        
+
     }
 
     private IEnumerator _RetriveModelInfo()
     {
-        
+
         WWWForm form = new WWWForm();
 
         using (UnityWebRequest request = UnityWebRequest.Post(_mainCite + _modelInfoPath, form))
@@ -486,7 +486,7 @@ public class Network : MonoBehaviour
 
     private void _RetriveModeInfoHandler(NetworkFeedBack feedback)
     {
-        if(feedback.errors.Count == 0)
+        if (feedback.errors.Count == 0)
         { // No error occured
             // Assign the model info
             ModelInfo.RegisterModelInfo(feedback.rawFeedback);
@@ -587,6 +587,12 @@ public class Network : MonoBehaviour
         if (registerManager != null) registerManager.ClearAllErrorMessages();
         switch (feedback)
         {
+            case NetworkFeedback.LOGIN_SUCCEEDED:
+                signManager.ShowLoggedInSuccessMessage();
+                break;
+            case NetworkFeedback.SIGNUP_SUCCEEDED:
+                registerManager.ShowRegisteredAccountSuccess();
+                break;
             case NetworkFeedback.NOT_LOGGED_IND:
 
                 break;

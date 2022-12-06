@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -16,14 +17,23 @@ public class Network : MonoBehaviour
     private string _joinMeetingPath = "joinMeeting.php";
     private string _modelInfoPath = "modelInfo.php";
     private string _updateModelInfoPath = "updateModelInfo.php";
+    private SignManager _signManager;
+    private RegisterManager _registerManager;
+    private MeetingManager _meetingManager;
+    private JoinMeetingManager _joinMeetingManager;
 
     private void Start()
     {
+        _signManager = FindObjectOfType<SignManager>(true);
+        _registerManager = FindObjectOfType<RegisterManager>(true);
+        _meetingManager = FindObjectOfType<MeetingManager>(true);
+        _joinMeetingManager = FindObjectOfType<JoinMeetingManager>(true);
+        
         string username = "Roodey145";
         string password = "Roodey145";
-        Login(username, password);
+        //Login(username, password);
         //FetchFilesHeader();
-        //StartCoroutine(_FetchFilesHeader());
+        StartCoroutine(_FetchFilesHeader());
         // CreateMeeting("Admin", 2);
         //StartCoroutine(_CreateMeeting("Admin", 2));
         //StartCoroutine(_FetchFile(2));
@@ -84,16 +94,24 @@ public class Network : MonoBehaviour
         { // The request was processed successfully and the user is logged in now
             // Create user info to indicate that the user has logged in
             UserInfo.CreateInstance(true);
-
+            if (_signManager != null)
+            {
+                _signManager.ClearAllErrorMessages();
+                _signManager.ShowLoggedInSuccessMessage();
+            }
+            
             print("Logged in");
 
             // Fetch the user files header
             FetchFilesHeader();
-
+            foreach (var success in feedback.succeeded)
+            {
+                _HandleNetworkSuccess(success);
+            }
             //CreateMeeting("Admin", 2);
 
             // Join a meeting
-            JoinMeeting("4aebfd");
+            //JoinMeeting("4aebfd");
 
             // TODO: Not implemented yet
             // Send the user to the main scene and give a message that they have been logged in
@@ -128,7 +146,14 @@ public class Network : MonoBehaviour
             {
                 print(request.downloadHandler.text);
                 // Automaticlly login --> Will create a UserInfo instance.
+                if (_registerManager != null)
+                {
+                    _registerManager.ClearAllErrorMessages();
+                    _registerManager.ShowRegisteredAccountSuccess();
+                }
+                
                 Login(username, password);
+                
             }
         }
     }
@@ -210,6 +235,11 @@ public class Network : MonoBehaviour
                     filesHeader.Add(new FileHeader(headers[i]));
                 }
             }
+
+            if (UserInfo.instance != null && UserInfo.instance.loggedIn)
+            {
+                UserInfo.instance.fileHeaders = filesHeader.ToArray();
+            }
         }
     }
 
@@ -264,7 +294,6 @@ public class Network : MonoBehaviour
 
                             // No error has occured and the file has been successfully created
                             feedback = new NetworkFeedBack(Application.persistentDataPath + "/" + fileId + ".fbx");
-
                             _HandleFetchFile(feedback);
                         }
                     }
@@ -294,6 +323,13 @@ public class Network : MonoBehaviour
         else
         { // The file path is the feedback rawData
             string filePath = feedback.rawFeedback;
+            if (UserInfo.instance != null && UserInfo.instance.loggedIn)
+            {
+                if (UserInfo.instance.hasJoinedMeeting)
+                {
+                    ModelImporter.LoadModel(filePath, Vector3.one * 0.001f);
+                }
+            }
             print(filePath);
         }
     }
@@ -410,7 +446,7 @@ public class Network : MonoBehaviour
     {
         if (feedback.errors.Count == 0)
         { // Ready to join the meeting
-
+            UserInfo.instance.hasJoinedMeeting = true;
             string[] data = feedback.rawFeedback.Split(";");
             // Extract the file id
             for (int i = 0; i < data.Length; i++)
@@ -425,11 +461,22 @@ public class Network : MonoBehaviour
                     {
                         // Retrive the file which belongs to this meeting
                         StartCoroutine(_FetchFile(fileId));
-
+                        
                         // Start retriving the file information when the file is ready
-
+                        
                     }
                 }
+            }
+
+            if (_joinMeetingManager != null)
+            {
+                _joinMeetingManager.ClearAllErrorMessages();
+                _joinMeetingManager.ShowJoinMeetingSuccess();
+            }
+            
+            foreach (var succeded in feedback.succeeded)
+            {
+                _HandleNetworkSuccess(succeded);
             }
         }
         else
@@ -581,62 +628,58 @@ public class Network : MonoBehaviour
 
     private void _HandleNetworkError(NetworkFeedback feedback)
     {
-        SignManager signManager = FindObjectOfType<SignManager>();
-        RegisterManager registerManager = FindObjectOfType<RegisterManager>();
-        MeetingManager meetingManager = FindObjectOfType<MeetingManager>();
-        if (meetingManager != null) meetingManager.ClearAllErrorMessages();
-        if (signManager != null) signManager.ClearAllErrorMessages();
-        if (registerManager != null) registerManager.ClearAllErrorMessages();
+        print("NetworkFeedbackError: " + feedback);
         switch (feedback)
         {
             case NetworkFeedback.INCORRECT_MEETING_CODE:
-
+                _joinMeetingManager.ShowWrongMeetingCodeMessage();
                 break;
             case NetworkFeedback.MISSING_MEETING_CODE:
-
-                break;
-            case NetworkFeedback.LOGIN_SUCCEEDED:
-                signManager.ShowLoggedInSuccessMessage();
-                break;
-            case NetworkFeedback.SIGNUP_SUCCEEDED:
-                registerManager.ShowRegisteredAccountSuccess();
+                _joinMeetingManager.ShowMissingMeetingCodeMessage();
                 break;
             case NetworkFeedback.NOT_LOGGED_IND:
-
+                
                 break;
             #region Password Errors
             case NetworkFeedback.PASSWORD: break;
             case NetworkFeedback.INCORRECT_PASSWORD:
-                signManager.ShowIncorrectPasswordMessage();
+                _signManager.ShowIncorrectPasswordMessage();
                 break;
             case NetworkFeedback.SHORT_PASSWORD:
-                registerManager.ShowTooShortPasswordMessage();
+                _registerManager.ShowTooShortPasswordMessage();
                 break;
             case NetworkFeedback.MISSING_PASSWORD:
-                registerManager.ShowMissingPasswordMessage();
+                _registerManager.ShowMissingPasswordMessage();
                 break;
             #endregion
 
             #region Username Errors
             case NetworkFeedback.USERNAME: break;
             case NetworkFeedback.USERNAME_ALREADY_EXISTS:
-                registerManager.ShowUsernameAlreadyExistsMessage();
+                _registerManager.ShowUsernameAlreadyExistsMessage();
                 break;
+            
             case NetworkFeedback.USERNAME_DOES_NOT_EXIST:
-                signManager.ShowIncorrectUsernameMessage();
+                _signManager.ShowIncorrectUsernameMessage();
                 break;
+                
             case NetworkFeedback.SHORT_USERNAME:
-                registerManager.ShowTooShortUsernameMessage();
+                _registerManager.ShowTooShortUsernameMessage();
                 break;
             case NetworkFeedback.MISSING_USERNAME:
-                registerManager.ShowMissingUsernameMessage();
+                _registerManager.ShowMissingUsernameMessage();
                 break;
             #endregion
 
             default:
-                print("Default Handler: " + feedback.ToString());
+                print("Default Handler: " + feedback);
                 break;
         }
+    }
+
+    private void _HandleNetworkSuccess(NetworkFeedback feedback)
+    {
+        print("NetworkFeedbackSuccess: " + feedback);
     }
 
     private UnityWebRequest _CreateRequest(string path, object data)

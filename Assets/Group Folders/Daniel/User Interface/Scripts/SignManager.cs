@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class SignManager : MonoBehaviour
 {
     [SerializeField] private float m_messageDisplayDuration;
-    [SerializeField] private Button signInButton;
+    [SerializeField] private Button m_signInButton;
     private Network _network;
     private InputFieldData[] _inputFieldData;
     private InputFieldData _usernameInputField;
@@ -32,31 +32,30 @@ public class SignManager : MonoBehaviour
                 case InputFieldType.Password:
                     _passwordInputField = inputFieldData;
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException($"The inputfieldtype, {inputFieldData.m_inputFieldType} is an invalid type");
             }
         }
     }
 
     private void OnEnable()
     {
-        signInButton.onClick.AddListener(Login);
+        m_signInButton.onClick.AddListener(Login);
     }
 
     private void OnDisable()
     {
-        signInButton.onClick.RemoveListener(Login);
+        m_signInButton.onClick.RemoveListener(Login);
     }
 
     private void Login()
     {
-        _network.Login(_usernameInputField.m_inputField.text, _passwordInputField.m_inputField.text);
+        _network.Login("Roodey145", "Roodey145");
+        //_network.Login(_usernameInputField.m_inputField.text, _passwordInputField.m_inputField.text);
     }
 
     public void ShowNotLoggedInMessage()
     {
         // Show not logged in message as a separate UI
-
+        
     }
 
     public void ShowIncorrectUsernameMessage()
@@ -80,7 +79,6 @@ public class SignManager : MonoBehaviour
         // Show as a separate UI after the Sign in button has been clicked
         GameObject loggedInUI = GetUserInterface("LoginSuccess");
         StartCoroutine(ShowMessageTemporarily(loggedInUI));
-        transform.parent.gameObject.SetActive(false);
     }
 
     private GameObject GetUserInterface(string interfaceName)
@@ -101,5 +99,6 @@ public class SignManager : MonoBehaviour
         GameObject ui = Instantiate(userInterface, transform.parent);
         yield return new WaitForSeconds(m_messageDisplayDuration);
         Destroy(ui);
+        transform.parent.gameObject.SetActive(false);
     }
 }

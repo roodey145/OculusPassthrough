@@ -6,7 +6,8 @@ public class UserInfo
 {
     internal static UserInfo instance { private set; get; }
     internal bool loggedIn { private set; get; }
-    internal bool hasCreatedMeeting { private set; get; }
+    internal bool hasCreatedMeeting;
+    internal bool hasJoinedMeeting;
 
     internal FileHeader[] fileHeaders;
 

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class RegisterManager : MonoBehaviour
 {
     [SerializeField] private float m_messageDisplayDuration;
-    [SerializeField] private Button registerInButton;
+    [SerializeField] private Button m_registerInButton;
     private Network _network;
     private InputFieldData[] _inputFieldData;
     private InputFieldData _emailInputFieldData;
@@ -41,20 +41,23 @@ public class RegisterManager : MonoBehaviour
 
     private void OnEnable()
     {
-        registerInButton.onClick.AddListener(Register);
+        m_registerInButton.onClick.AddListener(Register);
     }
 
     private void OnDisable()
     {
-        registerInButton.onClick.RemoveListener(Register);
+        m_registerInButton.onClick.RemoveListener(Register);
     }
 
     private void Register()
     {
+        _network.Signup("Toast", "Toastuser", "peepeepoopoo");
+        /*
         _network.Signup(_usernameInputField.m_inputField.text,
                             _usernameInputField.m_inputField.text,
                             _passwordInputField.m_inputField.text,
                             _emailInputFieldData.m_inputField.text);
+                            */
     }
 
     public void ShowUsernameAlreadyExistsMessage()
@@ -96,7 +99,6 @@ public class RegisterManager : MonoBehaviour
         // Show after the user clicks on the register button
         GameObject registerSuccess = GetUserInterface("RegisterSuccess");
         StartCoroutine(ShowMessageTemporarily(registerSuccess));
-        transform.parent.gameObject.SetActive(false);
     }
 
     private GameObject GetUserInterface(string interfaceName)
@@ -116,8 +118,9 @@ public class RegisterManager : MonoBehaviour
 
     private IEnumerator ShowMessageTemporarily(GameObject userInterface)
     {
-        Instantiate(userInterface, transform.parent);
+        GameObject ui = Instantiate(userInterface, transform.parent);
         yield return new WaitForSeconds(m_messageDisplayDuration);
-        Destroy(userInterface);
+        Destroy(ui);
+        transform.parent.gameObject.SetActive(false);
     }
 }

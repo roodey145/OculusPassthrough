@@ -13,12 +13,13 @@ public class CreateMeetingManager : MonoBehaviour
     {
         _network = FindObjectOfType<Network>();
         _randomCodeGenerator = GetComponentInChildren<RandomCodeGenerator>();
+        StartCoroutine(Test());
     }
 
     private void OnEnable()
     {
         _leaveMeetingButton.onClick.AddListener(LeaveMeeting);
-        if (!UserInfo.instance.hasCreatedMeeting) CreateMeeting();
+    //    if (!UserInfo.instance.hasCreatedMeeting) CreateMeeting();
     }
 
     private void OnDisable()
@@ -35,6 +36,12 @@ public class CreateMeetingManager : MonoBehaviour
     {
         // TODO - Get the selected file id
 
-        _network.CreateMeeting(_randomCodeGenerator.meetingRoomCode.ToString(), UserInfo.instance.fileHeaders[0].id);
+        //_network.CreateMeeting(_randomCodeGenerator.meetingRoomCode.ToString(), UserInfo.instance.fileHeaders[0].id);
+    }
+
+    private IEnumerator Test()
+    {
+        yield return new WaitForSeconds(2);
+        
     }
 }

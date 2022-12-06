@@ -6,9 +6,9 @@ using System;
 
 public class BoxResize : MonoBehaviour
 {
-    [SerializeField] private SphereCollider[] rightHandFingers;
-    [SerializeField] private SphereCollider[] leftHandFingers;
-    [SerializeField] private OVRHand[] hands;
+    public SphereCollider[] rightHandFingers;
+    public SphereCollider[] leftHandFingers;
+    public OVRHand[] hands;
     private Mesh mesh;
     private Vector3 startSize;
     public bool IsResizing

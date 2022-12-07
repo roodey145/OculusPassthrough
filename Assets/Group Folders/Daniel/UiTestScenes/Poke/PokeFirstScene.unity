@@ -17005,5 +17005,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: RubiksFirkant
       objectReference: {fileID: 0}
+    - target: {fileID: 8746430064126726599, guid: fef84b86b145e4e71b6bdeffb407709d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fef84b86b145e4e71b6bdeffb407709d, type: 3}

@@ -59,9 +59,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Group Folders/Daniel/User Interface/Poke/Poke.unity
     guid: 1a2359d356dc8254cb4358c25c835674
-  - enabled: 1
+  - enabled: 0
     path: Assets/Group Folders/Daniel/Collaboration/Collaboration.unity
     guid: 8d92327c0df8e3749a5eb939c5947147
+  - enabled: 1
+    path: Assets/Group Folders/Daniel/Collaboration/CollaborationAlternative.unity
+    guid: f80a6bce9fb739c4cba561bf9cc3145c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c5fa770f31af8b44fa3e406dd74fad80, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: abc0a44383d214243abc5665a28b7686, type: 2}

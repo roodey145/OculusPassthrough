@@ -60,24 +60,24 @@ public class JoinMeetingManager : MonoBehaviour
     private void JoinMeeting()
     {
         _network.JoinMeeting("4aebfd");
-        
+
         //_network.JoinMeeting(_meetingCodeInputField.m_inputField.text);
     }
-    
+
     public void ClearAllErrorMessages()
     {
         _meetingCodeInputField.m_errorMessage.text = "";
         _meetingCodeInputField.m_inputField.image.color = _meetingCodeInputField.m_inputFieldNormalColor;
     }
-    
+
     private GameObject GetUserInterface(string interfaceName)
     {
         return _userInterfaces.FirstOrDefault(userInterface => userInterface.name == interfaceName);
     }
-    
+
     private IEnumerator ShowMessageTemporarily(GameObject userInterface)
     {
-        GameObject ui = Instantiate(userInterface, transform.parent);
+        GameObject ui = Instantiate(userInterface, transform);
         yield return new WaitForSeconds(m_messageDisplayDuration);
         Destroy(ui);
         transform.parent.gameObject.SetActive(false);

@@ -51,7 +51,7 @@ public class RegisterManager : MonoBehaviour
 
     private void Register()
     {
-        _network.Signup("Toast", "Toastuser", "peepeepoopoo");
+        _network.Signup("ToastToo", "ToastuserNo122353", "peePeePoopoo3331234");
         /*
         _network.Signup(_usernameInputField.m_inputField.text,
                             _usernameInputField.m_inputField.text,

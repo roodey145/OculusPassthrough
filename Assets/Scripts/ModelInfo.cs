@@ -6,7 +6,7 @@ enum ModelManipulatable
 {
     Rotation,
     Scale,
-    Positon
+    Position
 }
 
 public class ModelInfo
@@ -35,11 +35,12 @@ public class ModelInfo
                 }
             }
         }
-
+        /*
         // Print the model info
         MonoBehaviour.print("Position: " + instance.position);
         MonoBehaviour.print("Scale: " + instance.scale);
         MonoBehaviour.print("Rotation: " + instance.rotation);
+        */
 
     }
 
@@ -48,9 +49,9 @@ public class ModelInfo
         instance = this;
         string[] data = rawData.Split(';');
 
-        for(int i = 0; i < data.Length; i++)
+        for (int i = 0; i < data.Length; i++)
         {
-            if(data[i] != "")
+            if (data[i] != "")
             {
                 _AssignAnyInfo(data[i]);
             }
@@ -68,7 +69,7 @@ public class ModelInfo
     private static void _AssignAnyInfo(string data)
     {
         //string[] featureData;
-        if (data.Contains(ModelManipulatable.Positon.ToString()))
+        if (data.Contains(ModelManipulatable.Position.ToString()))
         { // The rotation data
             _AssignSpecificInfo(ref instance.position, data);
         }
@@ -108,8 +109,19 @@ public class ModelInfo
         }
         // The first cell is "Manipulatable"
         // The second cell is x, 3rd y, 4th z
-        featureToAssign.x = int.Parse(featureData[1]);
-        featureToAssign.y = int.Parse(featureData[2]);
-        featureToAssign.z = int.Parse(featureData[3]);
+        // featureToAssign.x = float.Parse(featureData[1], System.Globalization.NumberStyles.AllowDecimalPoint);
+        //featureToAssign.x = float.Parse(featureData[1].Replace(".", ","));
+        //featureToAssign.y = float.Parse(featureData[2].Replace(".", ","));
+        //featureToAssign.z = float.Parse(featureData[3].Replace(".", ","));
+
+        featureToAssign.x = float.Parse(featureData[1]);
+        featureToAssign.y = float.Parse(featureData[2]);
+        featureToAssign.z = float.Parse(featureData[3]);
+
+        // featureToAssign.x = float.Parse(featureData[1], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture);
+        // featureToAssign.y = float.Parse(featureData[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture);
+        // featureToAssign.z = float.Parse(featureData[3], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture);
+        Debug.Log($"Raw: {featureData[0]}: {featureData[1]}, {featureData[2]}, {featureData[3]}");
+        Debug.Log($"Processed: {featureData[0]}: {featureToAssign.x}, {featureToAssign.y}, {featureToAssign.z}");
     }
 }

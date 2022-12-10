@@ -20,7 +20,7 @@ public class ModelSelector : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
     }
 
     private void SetAsSelected(GameObject obj)
@@ -30,7 +30,7 @@ public class ModelSelector : MonoBehaviour
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => SetAsDeselected(obj));
     }
-    
+
     private void SetAsDeselected(GameObject obj)
     {
         obj.transform.SetParent(transform);

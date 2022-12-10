@@ -8,6 +8,7 @@ public class UserInfo
     internal bool loggedIn { private set; get; }
     internal bool hasCreatedMeeting;
     internal bool hasJoinedMeeting;
+    internal bool isMeetingHost;
 
     internal FileHeader[] fileHeaders;
 

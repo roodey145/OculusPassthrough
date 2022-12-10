@@ -5,6 +5,7 @@ using System.Text;
 using Oculus.Platform.Models;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 
 public class Network : MonoBehaviour
 {
@@ -19,24 +20,26 @@ public class Network : MonoBehaviour
     private string _updateModelInfoPath = "updateModelInfo.php";
     private SignManager _signManager;
     private RegisterManager _registerManager;
-    private MeetingManager _meetingManager;
+    private CreateMeetingManager _createMeetingManager;
     private JoinMeetingManager _joinMeetingManager;
-
+    [SerializeField] private TextMeshProUGUI m_meetingCode;
+    [SerializeField] private TextMeshProUGUI m_joinedMeeting;
     private void Start()
     {
+        m_joinedMeeting.text = "Joined Meeting: <color=red>False</color>";
         _signManager = FindObjectOfType<SignManager>(true);
         _registerManager = FindObjectOfType<RegisterManager>(true);
-        _meetingManager = FindObjectOfType<MeetingManager>(true);
+        _createMeetingManager = FindObjectOfType<CreateMeetingManager>(true);
         _joinMeetingManager = FindObjectOfType<JoinMeetingManager>(true);
-        
+
         string username = "Roodey145";
         string password = "Roodey145";
-        //Login(username, password);
+        Login(username, password);
         //FetchFilesHeader();
-        StartCoroutine(_FetchFilesHeader());
+        //StartCoroutine(_FetchFilesHeader());
         // CreateMeeting("Admin", 2);
         //StartCoroutine(_CreateMeeting("Admin", 2));
-        //StartCoroutine(_FetchFile(2));
+        //StartCoroutine(_FetchFile(3));
     }
 
 
@@ -94,12 +97,14 @@ public class Network : MonoBehaviour
         { // The request was processed successfully and the user is logged in now
             // Create user info to indicate that the user has logged in
             UserInfo.CreateInstance(true);
-            if (_signManager != null)
+            /*
+            if (_signManager.isActiveAndEnabled)
             {
                 _signManager.ClearAllErrorMessages();
                 _signManager.ShowLoggedInSuccessMessage();
             }
-            
+            */
+
             print("Logged in");
 
             // Fetch the user files header
@@ -108,6 +113,7 @@ public class Network : MonoBehaviour
             {
                 _HandleNetworkSuccess(success);
             }
+            StartCoroutine(_FetchFile(3));
             //CreateMeeting("Admin", 2);
 
             // Join a meeting
@@ -146,14 +152,16 @@ public class Network : MonoBehaviour
             {
                 print(request.downloadHandler.text);
                 // Automaticlly login --> Will create a UserInfo instance.
-                if (_registerManager != null)
+                /*
+                if (_registerManager.isActiveAndEnabled)
                 {
                     _registerManager.ClearAllErrorMessages();
                     _registerManager.ShowRegisteredAccountSuccess();
                 }
-                
+                */
+
                 Login(username, password);
-                
+
             }
         }
     }
@@ -285,7 +293,7 @@ public class Network : MonoBehaviour
                 else
                 {
                     print(Application.persistentDataPath);
-                    using (Stream file = File.Open(Application.persistentDataPath + "/" + fileId + ".fbx", FileMode.Create))
+                    using (Stream file = File.Open(Application.persistentDataPath + "/" + fileId + ".stl", FileMode.Create))
                     {
                         using (BinaryWriter bw = new BinaryWriter(file, Encoding.UTF8, false))
                         {
@@ -293,7 +301,7 @@ public class Network : MonoBehaviour
                             bw.Close();
 
                             // No error has occured and the file has been successfully created
-                            feedback = new NetworkFeedBack(Application.persistentDataPath + "/" + fileId + ".fbx");
+                            feedback = new NetworkFeedBack(Application.persistentDataPath + "/" + fileId + ".stl");
                             _HandleFetchFile(feedback);
                         }
                     }
@@ -323,6 +331,7 @@ public class Network : MonoBehaviour
         else
         { // The file path is the feedback rawData
             string filePath = feedback.rawFeedback;
+            /*
             if (UserInfo.instance != null && UserInfo.instance.loggedIn)
             {
                 if (UserInfo.instance.hasJoinedMeeting)
@@ -330,6 +339,7 @@ public class Network : MonoBehaviour
                     ModelImporter.LoadModel(filePath, Vector3.one * 0.001f);
                 }
             }
+            */
             print(filePath);
         }
     }
@@ -378,7 +388,7 @@ public class Network : MonoBehaviour
     {
         if (feedback.errors.Count == 0)
         { // The meeting has been created
-
+            UserInfo.instance.isMeetingHost = true;
             string[] data = feedback.rawFeedback.Split(";");
             // Extract the file id
             for (int i = 0; i < data.Length; i++)
@@ -389,14 +399,14 @@ public class Network : MonoBehaviour
                     string meetingCode = data[i].Replace("MeetingCode: ", "").Replace(" ", "");
 
                     print(meetingCode);
-
+                    m_meetingCode.text = meetingCode;
                     // TODO: Display the meeting code so the user can share it.
 
                 }
             }
 
             // Enable the meeting information in this scene
-            RetriveModelInfo();
+            //RetriveModelInfo();
         }
         else
         { // Some errors have occured
@@ -447,6 +457,7 @@ public class Network : MonoBehaviour
         if (feedback.errors.Count == 0)
         { // Ready to join the meeting
             UserInfo.instance.hasJoinedMeeting = true;
+            UserInfo.instance.isMeetingHost = false;
             string[] data = feedback.rawFeedback.Split(";");
             // Extract the file id
             for (int i = 0; i < data.Length; i++)
@@ -461,23 +472,23 @@ public class Network : MonoBehaviour
                     {
                         // Retrive the file which belongs to this meeting
                         StartCoroutine(_FetchFile(fileId));
-                        
+
                         // Start retriving the file information when the file is ready
-                        
+
                     }
                 }
             }
+            m_joinedMeeting.text = "Joined Meeting: <color=green>True</color>";
+            RetriveModelInfo();
 
-            if (_joinMeetingManager != null)
+
+            /*
+            if (_joinMeetingManager.isActiveAndEnabled)
             {
                 _joinMeetingManager.ClearAllErrorMessages();
                 _joinMeetingManager.ShowJoinMeetingSuccess();
             }
-            
-            foreach (var succeded in feedback.succeeded)
-            {
-                _HandleNetworkSuccess(succeded);
-            }
+            */
         }
         else
         { // An error occured
@@ -519,11 +530,13 @@ public class Network : MonoBehaviour
             {
                 // Indicates that the retriving info process has stopped
                 _retrivingInfo = false;
-                print("Error");
+                print("Error: " + request.error);
+                yield return new WaitForSeconds(1);
+                StartCoroutine(_RetriveModelInfo());
             }
             else
             {
-                print(request.downloadHandler.text);
+                //print(request.downloadHandler.text);
                 NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
                 _RetriveModeInfoHandler(feedback);
             }
@@ -564,23 +577,22 @@ public class Network : MonoBehaviour
 
     private IEnumerator _UpdateModelInfo(Vector3 position, Vector3 scale, Vector3 rotation)
     {
-
         WWWForm form = new WWWForm();
         // Add the position info
-        form.AddField("posX", position.x.ToString());
-        form.AddField("posY", position.y.ToString());
-        form.AddField("posZ", position.z.ToString());
+        form.AddField("posX", position.x.ToString("F5"));
+        form.AddField("posY", position.y.ToString("F5"));
+        form.AddField("posZ", position.z.ToString("F5"));
 
         // Add the scale info
-        form.AddField("scaleX", scale.x.ToString());
-        form.AddField("scaleY", scale.y.ToString());
-        form.AddField("scaleZ", scale.z.ToString());
+        form.AddField("scaleX", scale.x.ToString("F5"));
+        form.AddField("scaleY", scale.y.ToString("F5"));
+        form.AddField("scaleZ", scale.z.ToString("F5"));
 
 
         // Add the rotation info
-        form.AddField("rotX", rotation.x.ToString());
-        form.AddField("rotY", rotation.y.ToString());
-        form.AddField("rotZ", rotation.z.ToString());
+        form.AddField("rotX", rotation.x.ToString("F5"));
+        form.AddField("rotY", rotation.y.ToString("F5"));
+        form.AddField("rotZ", rotation.z.ToString("F5"));
 
 
         using (UnityWebRequest request = UnityWebRequest.Post(_mainCite + _updateModelInfoPath, form))
@@ -591,13 +603,14 @@ public class Network : MonoBehaviour
             {
                 // Indicates that the retriving info process has stopped
                 _retrivingInfo = false;
+                print(request.error);
                 print("Error");
             }
             else
             {
                 print(request.downloadHandler.text);
                 NetworkFeedBack feedback = new NetworkFeedBack(request.downloadHandler.text);
-                _UpdateModelDataHandler(feedback);
+                //_UpdateModelDataHandler(feedback);
             }
 
         }
@@ -638,7 +651,7 @@ public class Network : MonoBehaviour
                 _joinMeetingManager.ShowMissingMeetingCodeMessage();
                 break;
             case NetworkFeedback.NOT_LOGGED_IND:
-                
+
                 break;
             #region Password Errors
             case NetworkFeedback.PASSWORD: break;
@@ -658,11 +671,11 @@ public class Network : MonoBehaviour
             case NetworkFeedback.USERNAME_ALREADY_EXISTS:
                 _registerManager.ShowUsernameAlreadyExistsMessage();
                 break;
-            
+
             case NetworkFeedback.USERNAME_DOES_NOT_EXIST:
                 _signManager.ShowIncorrectUsernameMessage();
                 break;
-                
+
             case NetworkFeedback.SHORT_USERNAME:
                 _registerManager.ShowTooShortUsernameMessage();
                 break;

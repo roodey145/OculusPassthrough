@@ -33,11 +33,6 @@ public class MeetingManager : MonoBehaviour
 
     }
 
-    private string[] GetModelFileNames()
-    {
-        return Directory.GetFiles(Application.persistentDataPath).Where(name => name.EndsWith(".fbx")).ToArray();
-    }
-
     private void LeaveMeeting()
     {
 

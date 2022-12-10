@@ -48,14 +48,14 @@ public class SignManager : MonoBehaviour
 
     private void Login()
     {
-        _network.Login("Roodey145", "Roodey145");
+        _network.Login("ToastuserNo122353", "peePeePoopoo3331234");
         //_network.Login(_usernameInputField.m_inputField.text, _passwordInputField.m_inputField.text);
     }
 
     public void ShowNotLoggedInMessage()
     {
         // Show not logged in message as a separate UI
-        
+
     }
 
     public void ShowIncorrectUsernameMessage()

@@ -12,12 +12,18 @@ public class ModelImporter : MonoBehaviour
         private set;
         get;
     }
-    
+
+    private void Start()
+    {
+        //LoadModel(Application.persistentDataPath + "2.fbx", Vector3.one * 0.1f);
+    }
+
     public static GameObject LoadModel(string path, Vector3 scale)
     {
         GameObject model = UnityMeshImporter.MeshImporter.Load(path, scale.x, scale.y, scale.z);
-        model.AddComponent<TableSurfaceLimiter>();
-        
+        model.transform.position = new Vector3(0, 0, 0);
+        //model.AddComponent<TableSurfaceLimiter>();
+
         /*
         Rigidbody rb = model.AddComponent<Rigidbody>();
         rb.useGravity = false;

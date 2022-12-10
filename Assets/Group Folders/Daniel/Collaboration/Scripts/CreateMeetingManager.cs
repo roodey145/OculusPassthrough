@@ -2,24 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Parabox.Stl;
 
 public class CreateMeetingManager : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI _meetingCode;
     [SerializeField] private Button _leaveMeetingButton;
+    [SerializeField] private Transform m_selectedModels;
     private Network _network;
-    private RandomCodeGenerator _randomCodeGenerator;
+    public string _code
+    {
+        set
+        {
+            _code = value;
+            _meetingCode.text = value.ToString();
+        }
+        get
+        {
+            return _code;
+        }
+    }
 
     void Start()
     {
         _network = FindObjectOfType<Network>();
-        _randomCodeGenerator = GetComponentInChildren<RandomCodeGenerator>();
-        StartCoroutine(Test());
+
     }
 
     private void OnEnable()
     {
         _leaveMeetingButton.onClick.AddListener(LeaveMeeting);
-    //    if (!UserInfo.instance.hasCreatedMeeting) CreateMeeting();
+        CreateMeeting();
     }
 
     private void OnDisable()
@@ -29,19 +44,27 @@ public class CreateMeetingManager : MonoBehaviour
 
     private void LeaveMeeting()
     {
+        UserInfo.instance.hasCreatedMeeting = false;
         // TODO - Leave meeting
     }
 
     public void CreateMeeting()
     {
         // TODO - Get the selected file id
+        //_network.CreateMeeting("Test2", UserInfo.instance.fileHeaders[2].id);
+        //print("Id: " + UserInfo.instance.fileHeaders[2].id);
+        //print("Created from path: " + UserInfo.instance.fileHeaders[2].path);
+        Importer.Import(Application.persistentDataPath + "/" + "3.stl", CoordinateSpace.Left, UpAxis.Y, true, UnityEngine.Rendering.IndexFormat.UInt32);
 
-        //_network.CreateMeeting(_randomCodeGenerator.meetingRoomCode.ToString(), UserInfo.instance.fileHeaders[0].id);
     }
 
     private IEnumerator Test()
     {
-        yield return new WaitForSeconds(2);
-        
+        yield return new WaitForSeconds(4);
+        if (!UserInfo.instance.hasCreatedMeeting) UserInfo.instance.hasCreatedMeeting = true;
+        if (UserInfo.instance.hasCreatedMeeting)
+        {
+            CreateMeeting();
+        }
     }
 }
